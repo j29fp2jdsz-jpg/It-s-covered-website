@@ -25,10 +25,10 @@ const packages = [
 ];
 
 const events = [
-  ['Weddings', 'Create a beautiful setting for your big day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
-  ['Parties', 'From birthdays to anniversaries and everything in between.', 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Party-Marquee-Dog-p3meq7elfheddyxmcnbv0jye7qteul968vo36p6qk2.jpg'],
-  ['Corporate', 'Professional marquee solutions for business events.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
-  ['Festivals & Events', 'Flexible cover for shows, community events and festivals.', 'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
+  ['weddings', 'Weddings', 'Create a beautiful setting for your big day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
+  ['parties', 'Parties', 'From birthdays to anniversaries and everything in between.', 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Party-Marquee-Dog-p3meq7elfheddyxmcnbv0jye7qteul968vo36p6qk2.jpg'],
+  ['corporate', 'Corporate', 'Professional marquee solutions for business events.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
+  ['festivals-events', 'Festivals & Events', 'Flexible cover for shows, community events and festivals.', 'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ];
 
 export default function Home() {
@@ -97,10 +97,10 @@ export default function Home() {
         <div className="shell">
           <div className="section-row"><div><span className="kicker">For every occasion</span><h2>Whatever you’re planning, we’ve got you covered.</h2><p>Flexible marquee spaces shaped around the way you want your event to feel.</p></div><Link href="/events" className="text-link">Explore all events →</Link></div>
           <div className="event-grid">
-            {events.map(([title, copy, image]) => (
-              <Link href="/events" className="event-card" key={title}>
+            {events.map(([slug, title, copy, image]) => (
+              <Link href={`/events/${slug}`} className="event-card" key={title}>
                 <img src={image} alt={`${title} marquee event`} loading="lazy" />
-                <div className="event-overlay"><span className="event-kicker">It’s Covered</span><h3>{title}</h3><p>{copy}</p><span className="event-link">Explore <span aria-hidden="true">→</span></span></div>
+                <div className="event-overlay"><span className="event-kicker">It’s Covered</span><h3>{title}</h3><p>{copy}</p><span className="event-link">See what’s included <span aria-hidden="true">→</span></span></div>
               </Link>
             ))}
           </div>

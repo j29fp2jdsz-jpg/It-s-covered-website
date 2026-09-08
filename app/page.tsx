@@ -2,20 +2,21 @@ import Link from 'next/link';
 import BookingWizard from '@/components/BookingWizard';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
+import styles from './home.module.css';
 
 const packages = [
   {
     slug: 'garden-party',
     title: 'Garden Party',
     image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg',
-    copy: 'A beautifully simple setup for smaller gatherings, birthdays and relaxed celebrations.',
+    copy: 'A beautifully simple Capri setup for smaller gatherings, birthdays and relaxed celebrations.',
     meta: 'Ideal for intimate events',
   },
   {
     slug: 'informal-party',
     title: 'Informal Party',
     image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg',
-    copy: 'Flexible space for family parties, engagements and easy-going get-togethers.',
+    copy: 'Flexible Capri space for family parties, engagements and easy-going get-togethers.',
     meta: 'Space to relax and celebrate',
   },
   {
@@ -25,6 +26,13 @@ const packages = [
     copy: 'A spacious choice for weddings, larger parties and polished corporate occasions.',
     meta: 'Made for larger celebrations',
   },
+];
+
+const work = [
+  ['weddings', 'Weddings', 'Elegant settings for the whole day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
+  ['parties', 'Parties', 'Relaxed, lively spaces built around your guests.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg'],
+  ['corporate', 'Corporate', 'Professional layouts for hospitality and events.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
+  ['festivals-events', 'Festivals & Events', 'Flexible cover for bigger outdoor occasions.', 'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ];
 
 const events = [
@@ -45,36 +53,63 @@ export default function Home() {
           <div className="hero-copy-wrap">
             <p className="eyebrow">Marquee hire across South Wales & beyond</p>
             <h1>Unforgettable events<br /><span>start here.</span></h1>
-            <p className="hero-copy">Stylish, reliable marquee hire for weddings, parties, corporate events and more. Beautiful spaces, professionally installed, with a straightforward booking journey from the very first click.</p>
+            <p className="hero-copy">Distinctive Capri marquees, professionally installed for weddings, parties, corporate events and larger outdoor occasions.</p>
             <div className="hero-actions">
-              <a className="button button-primary button-large" href="#booking">Choose Your Date <span aria-hidden="true">→</span></a>
-              <Link className="button button-ghost button-large" href="/our-work">View Our Work</Link>
+              <Link className="button button-primary button-large" href="/our-work">See Our Work <span aria-hidden="true">→</span></Link>
+              <a className="button button-ghost button-large" href="#booking">Choose Your Date</a>
             </div>
             <div className="hero-proof" aria-label="Why choose It's Covered">
               <span>Family run</span><span>Professional setup</span><span>Monmouthshire based</span>
             </div>
+            <div className={styles.heroNote}>Capri marquees • proven event setups • personal service</div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.workFirst} aria-labelledby="work-first-title">
+        <div className="shell">
+          <div className={styles.workHead}>
+            <div>
+              <span className="kicker">See what we do</span>
+              <h2 id="work-first-title">Real events before you start planning yours.</h2>
+              <p>Have a look at the kind of spaces It’s Covered already creates, then start your enquiry when you’re ready.</p>
+            </div>
+            <Link className={`button button-outline ${styles.desktopCta}`} href="/our-work">View all our work →</Link>
+          </div>
+          <div className={styles.workGrid}>
+            {work.map(([slug, title, copy, image]) => (
+              <Link className={styles.workCard} href={`/our-work/${slug}`} key={slug}>
+                <img src={image} alt={`${title} marquee by It’s Covered`} loading="lazy" />
+                <div className={styles.workCopy}>
+                  <span>Our work</span>
+                  <strong>{title}</strong>
+                  <small>{copy}</small>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="booking-section booking-section-direct" id="booking">
         <div className="shell">
-          <div className="section-heading centered booking-heading booking-heading-direct">
-            <span className="kicker">Start here</span>
+          <div className={`section-heading centered booking-heading booking-heading-direct ${styles.bookingIntro}`}>
+            <span className="kicker">Ready to start?</span>
             <h2>Choose your event date</h2>
-            <p>Pick your date first. From there, we’ll guide you through your event details, suitable marquees, optional extras and your estimated cost.</p>
-            <div className="booking-flow-inline" aria-label="Booking steps">
-              <span className="active">1 Date</span><span>2 Event</span><span>3 Marquee</span><span>4 Extras</span><span>5 Estimate</span>
+            <p>Start with the date. We’ll then guide you through the event, suitable Capri marquee options, extras and your provisional estimate.</p>
+            <div className={styles.bookingFlow} aria-label="Booking steps">
+              <span>1 Date</span><span>2 Event</span><span>3 Marquee</span><span>4 Extras</span><span>5 Estimate</span>
             </div>
           </div>
           <BookingWizard />
+          <p className={`centered ${styles.brandRule}`}><strong>Visual rule:</strong> marquee imagery on this site represents Capri marquees or documented It’s Covered installations.</p>
         </div>
       </section>
 
       <section className="content-section packages-section" id="packages">
         <div className="shell">
           <div className="section-row">
-            <div><span className="kicker">Popular choices</span><h2>Marquee packages made simple</h2><p>Three popular starting points, with more sizes and layouts available.</p></div>
+            <div><span className="kicker">Popular choices</span><h2>Marquee packages made simple</h2><p>Popular starting points using the Capri marquee range, with more sizes and layouts available.</p></div>
             <Link className="button button-primary" href="/packages">View All Marquee Packages <span aria-hidden="true">→</span></Link>
           </div>
           <div className="package-grid">
@@ -129,15 +164,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="work-teaser">
-        <div className="work-teaser-overlay" />
-        <div className="shell work-teaser-content"><span className="kicker light">See it in action</span><h2>Real events. Real marquees.<br />Beautifully covered.</h2><p>Take a look at weddings, parties, corporate events and festivals we’ve helped bring to life.</p><Link className="button button-light button-large" href="/our-work">View Our Work <span aria-hidden="true">→</span></Link></div>
-      </section>
-
       <section className="final-cta">
         <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Let’s make your event extraordinary.</h2><p>Choose your date, tell us about your event and take the first step today.</p></div><a className="button button-light button-large" href="#booking">Choose Your Date <span aria-hidden="true">→</span></a></div>
       </section>
 
+      <a className={styles.mobileBookingBar} href="#booking">Choose Your Date →</a>
       <SiteFooter />
     </main>
   );

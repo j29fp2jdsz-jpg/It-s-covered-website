@@ -1,52 +1,55 @@
-const navItems = ['Home', 'Marquees', 'Packages', 'Events', 'Our Work', 'About', 'Contact'];
+import Link from 'next/link';
+import BookingWizard from '@/components/BookingWizard';
+import SiteHeader from '@/components/SiteHeader';
+import SiteFooter from '@/components/SiteFooter';
 
 const steps = [
-  ['01', 'Pick your date', 'Choose the date you want for your event.'],
-  ['02', 'Tell us about your event', 'Guest count, event type, layout and location.'],
-  ['03', 'Pick your marquee', 'We will recommend suitable packages and show what is available.'],
-  ['04', 'Add your extras', 'Choose furniture, lighting, flooring, heating and more.'],
-  ['05', 'Initial quote', 'See an estimated price including delivery and setup.'],
+  ['1', 'Pick your date', 'Choose your event date.'],
+  ['2', 'Tell us about your event', 'Event type, guest numbers, location and layout.'],
+  ['3', 'Pick your marquee', 'We’ll recommend suitable options.'],
+  ['4', 'Add your extras', 'Tables, chairs, lighting, flooring and more.'],
+  ['5', 'Estimated cost', 'Review your provisional estimate.'],
+];
+
+const packages = [
+  { title: 'Garden Party', image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg', copy: 'Perfect for smaller gatherings, birthdays and relaxed celebrations.' },
+  { title: 'Informal Party', image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', copy: 'A flexible setup for family parties, engagements and get-togethers.' },
+  { title: '80 Guests', image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg', copy: 'A spacious choice for weddings, larger parties and corporate events.' },
+];
+
+const events = [
+  ['Weddings', 'Create a beautiful setting for your big day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
+  ['Parties', 'From birthdays to anniversaries and everything in between.', 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Party-Marquee-Dog-p3meq7elfheddyxmcnbv0jye7qteul968vo36p6qk2.jpg'],
+  ['Corporate', 'Professional marquee solutions for business events.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
+  ['Festivals & Events', 'Flexible cover for shows, community events and festivals.', 'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ];
 
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <div className="shell nav-wrap">
-          <a className="brand" href="#home" aria-label="It's Covered home">
-            <span className="brand-main">itscovered</span>
-            <span className="brand-sub">MARQUEE HIRE</span>
-          </a>
-          <nav className="desktop-nav" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}>{item}</a>
-            ))}
-          </nav>
-          <a className="button button-primary header-cta" href="#booking">Start Your Booking</a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="hero" id="home">
         <div className="hero-overlay" />
         <div className="shell hero-content">
-          <p className="eyebrow">Marquee hire across South Wales & beyond</p>
-          <h1>Your perfect event.<br />Beautifully covered.</h1>
-          <p className="hero-copy">Pick your date, tell us about your event and we’ll guide you to the right marquee package.</p>
+          <p className="eyebrow">Marquee hire South Wales & beyond</p>
+          <h1>Unforgettable events<br /><span>start here.</span></h1>
+          <p className="hero-copy">Stylish, reliable marquee hire for weddings, parties, corporate events and more. Whatever the occasion, we’ll help you create an incredible experience.</p>
           <div className="hero-actions">
             <a className="button button-primary button-large" href="#booking">Start Your Booking</a>
-            <a className="button button-ghost button-large" href="#packages">Explore Packages</a>
+            <Link className="button button-ghost button-large" href="/our-work">View Our Work</Link>
           </div>
         </div>
       </section>
 
-      <section className="booking-section" id="booking">
-        <div className="shell">
-          <div className="section-heading centered">
+      <section className="journey-strip" aria-labelledby="journey-title">
+        <div className="shell journey-inner">
+          <div className="journey-intro">
             <span className="kicker">Simple from the start</span>
-            <h2>Plan your marquee in five easy steps</h2>
-            <p>The booking journey is designed to show you suitable, available options before you need to contact us.</p>
+            <h2 id="journey-title">Get your estimated quote</h2>
+            <p>Follow five simple steps and we’ll show you a suitable starting point for your event.</p>
           </div>
-          <div className="journey-grid">
+          <div className="journey-grid compact">
             {steps.map(([number, title, copy]) => (
               <article className="journey-card" key={number}>
                 <span className="step-number">{number}</span>
@@ -55,29 +58,78 @@ export default function Home() {
               </article>
             ))}
           </div>
-          <div className="centered cta-row">
-            <a className="button button-primary button-large" href="#date">Choose Your Date</a>
+        </div>
+      </section>
+
+      <section className="booking-section" id="booking">
+        <div className="shell">
+          <div className="section-heading centered">
+            <span className="kicker">Plan your event</span>
+            <h2>Start your booking</h2>
+            <p>Tell us the basics now. Fin will arrange a site visit afterwards to confirm access, measurements, availability and final pricing.</p>
+          </div>
+          <BookingWizard />
+        </div>
+      </section>
+
+      <section className="content-section" id="packages">
+        <div className="shell">
+          <div className="section-row">
+            <div><span className="kicker">Popular choices</span><h2>Our Popular Marquee Packages</h2><p>Flexible options for different event sizes and styles.</p></div>
+            <Link className="button button-primary" href="/packages">View All Marquee Packages</Link>
+          </div>
+          <div className="package-grid">
+            {packages.map((item) => (
+              <article className="package-card" key={item.title}>
+                <img src={item.image} alt={`${item.title} marquee setup`} />
+                <div className="package-body"><h3>{item.title}</h3><p>{item.copy}</p><Link href="/packages">View Package →</Link></div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="placeholder-section" id="packages">
-        <div className="shell split-panel">
-          <div>
-            <span className="kicker">Built around your event</span>
-            <h2>Packages for weddings, parties, corporate events and festivals.</h2>
-            <p>We’ll feature a small number of popular packages here and make the full package range easy to browse.</p>
+      <section className="content-section soft" id="events">
+        <div className="shell">
+          <div className="section-row"><div><span className="kicker">For every occasion</span><h2>Events for every occasion</h2></div><Link href="/events" className="text-link">Explore all events →</Link></div>
+          <div className="event-grid">
+            {events.map(([title, copy, image]) => (
+              <Link href="/events" className="event-card" key={title}>
+                <img src={image} alt={`${title} marquee event`} />
+                <div className="event-overlay"><h3>{title}</h3><p>{copy}</p><span>Explore →</span></div>
+              </Link>
+            ))}
           </div>
-          <a className="button button-outline button-large" href="#all-packages">View All Packages</a>
         </div>
       </section>
 
-      <footer>
-        <div className="shell footer-inner">
-          <strong>itscovered</strong>
-          <span>Professional marquee hire and event support.</span>
+      <section className="trust-strip">
+        <div className="shell trust-grid">
+          {['Family run', 'Trusted & experienced', 'Delivery & professional setup', 'Based in Monmouthshire', 'Events of all sizes'].map((item) => <div key={item}><span>✓</span><strong>{item}</strong></div>)}
         </div>
-      </footer>
+      </section>
+
+      <section className="content-section testimonials">
+        <div className="shell">
+          <div className="section-heading"><span className="kicker">What customers say</span><h2>Trusted for memorable events</h2></div>
+          <div className="testimonial-grid">
+            <blockquote>“Absolutely fantastic from start to finish. The marquee looked incredible and the team were a pleasure to work with.”<cite>Private event customer</cite></blockquote>
+            <blockquote>“Professional, reliable and great value. Made our event stress free.”<cite>Corporate client</cite></blockquote>
+            <blockquote>“Can’t recommend It’s Covered enough. The whole process was easy and the marquee was perfect.”<cite>Private party customer</cite></blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section className="work-teaser">
+        <div className="work-teaser-overlay" />
+        <div className="shell work-teaser-content"><span className="kicker light">See it in action</span><h2>Real events. Real marquees.</h2><p>Take a look at weddings, parties, corporate events and festivals we’ve helped bring to life.</p><Link className="button button-primary button-large" href="/our-work">View Our Work</Link></div>
+      </section>
+
+      <section className="final-cta">
+        <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Let’s make your event extraordinary.</h2><p>Choose your date, tell us about your event and start planning today.</p></div><a className="button button-light button-large" href="#booking">Start Your Booking</a></div>
+      </section>
+
+      <SiteFooter />
     </main>
   );
 }

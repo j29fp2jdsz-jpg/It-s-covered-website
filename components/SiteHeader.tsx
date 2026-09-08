@@ -1,0 +1,28 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+
+const navItems = [
+  ['Home', '/'], ['Marquees', '/marquees'], ['Packages', '/packages'], ['Events', '/events'], ['Our Work', '/our-work'], ['About', '/about'], ['Contact', '/contact']
+];
+
+export default function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  return (
+    <header className="site-header">
+      <div className="shell nav-wrap">
+        <Link className="brand" href="/" aria-label="It's Covered home">
+          <span className="brand-main">itscovered</span>
+          <span className="brand-sub">MARQUEE HIRE</span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          {navItems.map(([label, href]) => <Link key={label} href={href}>{label}</Link>)}
+        </nav>
+        <Link className="button button-primary header-cta" href="/#booking">Start Your Booking</Link>
+        <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Toggle navigation">☰</button>
+      </div>
+      {open && <nav className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <Link key={label} href={href} onClick={() => setOpen(false)}>{label}</Link>)}</nav>}
+    </header>
+  );
+}

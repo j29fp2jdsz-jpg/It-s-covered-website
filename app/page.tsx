@@ -11,11 +11,11 @@ const packages = [
 ];
 
 const work = [
-  ['weddings','Weddings','Elegant receptions and celebrations','https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
-  ['parties','Parties','Garden parties and larger celebrations','https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg'],
-  ['corporate','Corporate','Professional event and hospitality spaces','https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
-  ['festivals-events','Festivals & Events','Flexible cover for larger outdoor events','https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
-];
+  ['Weddings','Romantic receptions and evening celebrations','https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
+  ['Parties','Relaxed garden parties and bigger celebrations','https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg'],
+  ['Corporate','Professional hospitality and event spaces','https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
+  ['Festivals & Events','Flexible cover for larger outdoor occasions','https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
+] as const;
 
 const events = [
   ['weddings', 'Weddings', 'Create a beautiful setting for your big day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
@@ -37,8 +37,8 @@ export default function Home() {
             <h1>Unforgettable events<br /><span>start here.</span></h1>
             <p className="hero-copy">Distinctive Capri marquees for weddings, parties, corporate events and outdoor occasions — professionally installed and planned around your venue.</p>
             <div className="hero-actions">
-              <Link className="button button-primary button-large" href="/our-work">See Our Work <span aria-hidden="true">→</span></Link>
-              <a className="button button-ghost button-large" href="#booking">Choose Your Date</a>
+              <a className="button button-primary button-large" href="#booking">Choose Your Date <span aria-hidden="true">→</span></a>
+              <Link className="button button-ghost button-large" href="/our-work">View Our Work</Link>
             </div>
           </div>
         </div>
@@ -47,16 +47,16 @@ export default function Home() {
       <section className={styles.workFirst} aria-labelledby="work-heading">
         <div className="shell">
           <div className={styles.workHead}>
-            <div><span className="kicker">Our work</span><h2 id="work-heading">See what we actually do.</h2><p>Real It’s Covered installations across different events and settings. Have a look first, then start with your date when you’re ready.</p></div>
+            <div><span className="kicker">Our work</span><h2 id="work-heading">Real events. Extraordinary settings.</h2><p>A quick look at the kind of spaces we create before you start planning yours.</p></div>
             <Link className={`button button-outline ${styles.desktopCta}`} href="/our-work">View Full Gallery →</Link>
           </div>
-          <div className={styles.workGrid}>
-            {work.map(([slug,title,copy,image]) => <Link key={slug} href={`/our-work/${slug}`} className={styles.workCard}>
+          <div className={styles.workCarousel} aria-label="Examples of our work">
+            {work.map(([title,copy,image]) => <article key={title} className={styles.workSlide}>
               <img src={image} alt={`${title} marquee installation`} loading="lazy" />
-              <div className={styles.workCopy}><span>It’s Covered</span><strong>{title}</strong><small>{copy}</small></div>
-            </Link>)}
+              <div className={styles.workCopy}><strong>{title}</strong><small>{copy}</small></div>
+            </article>)}
           </div>
-          <div className={styles.mobileGalleryLink}><Link href="/our-work">View all our work →</Link></div>
+          <div className={styles.mobileGalleryLink}><Link href="/our-work">View Full Gallery →</Link></div>
         </div>
       </section>
 

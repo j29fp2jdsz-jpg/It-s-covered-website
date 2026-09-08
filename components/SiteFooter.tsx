@@ -20,9 +20,9 @@ export default function SiteFooter() {
         </div>
         <div>
           <strong>Contact</strong>
-          <a href="tel:01633123456">01633 123 456</a>
+          <a href="tel:07595497491">07595 497491</a>
           <a href="mailto:info@itscovered.co.uk">info@itscovered.co.uk</a>
-          <span>Monmouthshire · South Wales</span>
+          <span>Llanellen Court Farm, Abergavenny NP7 9HT</span>
         </div>
       </div>
       <div className="shell footer-bottom">© 2026 It’s Covered. All rights reserved.</div>

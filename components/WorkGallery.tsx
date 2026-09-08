@@ -3,10 +3,10 @@
 import { useMemo, useState } from 'react';
 
 const items = [
-  { category:'weddings', label:'Weddings', image:'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg' },
+  { category:'weddings', label:'Golden-hour wedding reception', image:'/images/carousel-wedding.jpg' },
   { category:'weddings', label:'Wedding reception', image:'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg' },
   { category:'weddings', label:'Wedding guests', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg' },
-  { category:'parties', label:'Garden party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg' },
+  { category:'parties', label:'Garden Capri setup', image:'/images/carousel-garden.jpg' },
   { category:'parties', label:'Party setup', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg' },
   { category:'parties', label:'Informal party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg' },
   { category:'corporate', label:'Corporate event', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg' },

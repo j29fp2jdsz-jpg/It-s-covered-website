@@ -8,12 +8,12 @@ export default function OurWorkPage(){
   return <main>
     <SiteHeader />
     <section className={styles.hero}>
-      <img src="https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg" alt="It’s Covered Capri marquee event"/>
+      <img src="/images/carousel-wedding.jpg" alt="Capri marquee wedding reception at golden hour"/>
       <div className={styles.overlay}/>
       <div className={`shell ${styles.heroInner}`}>
         <span className={styles.eyebrow}>Our work</span>
         <h1>Real events. Extraordinary settings.</h1>
-        <p>Explore weddings, parties, corporate occasions and outdoor events, all brought to life with distinctive Capri marquees and thoughtful layouts.</p>
+        <p>Explore weddings, parties, corporate occasions and outdoor events, with a mix of genuine It’s Covered installations and temporary premium visuals showing the direction of the finished portfolio.</p>
       </div>
     </section>
 

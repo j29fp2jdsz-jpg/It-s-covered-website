@@ -14,7 +14,7 @@ export default function SiteHeader() {
 
   useEffect(() => setOpen(false), [pathname]);
 
-  const isActive = (href: string) => href === '/' ? pathname === '/' : pathname === href;
+  const isActive = (href: string) => href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`);
 
   return (
     <header className="site-header">
@@ -24,12 +24,12 @@ export default function SiteHeader() {
           <span className="brand-sub">MARQUEE HIRE</span>
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
-          {navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined} style={isActive(href) ? {color:'#193b2d', borderBottomColor:'#5e7f3c'} : undefined}>{label}</Link>)}
+          {navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}
         </nav>
-        <Link className="button button-primary header-cta" href="/#booking">Start Your Booking</Link>
+        <Link className="button button-primary header-cta" href="/#booking">Choose Your Date</Link>
         <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'}>{open ? '×' : '☰'}</button>
       </div>
-      {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}<Link className="button button-primary" href="/#booking">Start Your Booking</Link></nav>}
+      {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}<Link className="button button-primary" href="/#booking">Choose Your Date</Link></nav>}
     </header>
   );
 }

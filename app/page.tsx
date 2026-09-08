@@ -3,14 +3,6 @@ import BookingWizard from '@/components/BookingWizard';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 
-const steps = [
-  ['1', 'Pick your date', 'Choose your event date.'],
-  ['2', 'Tell us about your event', 'Guest numbers, location and layout.'],
-  ['3', 'Pick your marquee', 'We’ll recommend suitable options.'],
-  ['4', 'Add your extras', 'Furniture, lighting, flooring and more.'],
-  ['5', 'Estimated cost', 'Review your provisional estimate.'],
-];
-
 const packages = [
   {
     title: 'Garden Party',
@@ -52,7 +44,7 @@ export default function Home() {
             <h1>Unforgettable events<br /><span>start here.</span></h1>
             <p className="hero-copy">Stylish, reliable marquee hire for weddings, parties, corporate events and more. Beautiful spaces, professionally installed, with a straightforward booking journey from the very first click.</p>
             <div className="hero-actions">
-              <a className="button button-primary button-large" href="#booking">Start Your Booking <span aria-hidden="true">→</span></a>
+              <a className="button button-primary button-large" href="#booking">Choose Your Date <span aria-hidden="true">→</span></a>
               <Link className="button button-ghost button-large" href="/our-work">View Our Work</Link>
             </div>
             <div className="hero-proof" aria-label="Why choose It's Covered">
@@ -62,31 +54,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="journey-strip" aria-labelledby="journey-title">
-        <div className="shell journey-inner">
-          <div className="journey-intro">
-            <span className="kicker">Simple from the start</span>
-            <h2 id="journey-title">Plan your event in five easy steps</h2>
-            <p>Tell us what you need and we’ll guide you towards the right starting point.</p>
-          </div>
-          <div className="journey-grid compact">
-            {steps.map(([number, title, copy]) => (
-              <article className="journey-card" key={number}>
-                <span className="step-number">{number}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="booking-section" id="booking">
+      <section className="booking-section booking-section-direct" id="booking">
         <div className="shell">
-          <div className="section-heading centered booking-heading">
-            <span className="kicker">Your event starts here</span>
-            <h2>Start your booking</h2>
-            <p>Tell us the basics now. Fin will arrange a site visit afterwards to confirm access, measurements, availability and final pricing.</p>
+          <div className="section-heading centered booking-heading booking-heading-direct">
+            <span className="kicker">Start here</span>
+            <h2>Choose your event date</h2>
+            <p>Pick your date first. From there, we’ll guide you through your event details, suitable marquees, optional extras and your estimated cost.</p>
+            <div className="booking-flow-inline" aria-label="Booking steps">
+              <span className="active">1 Date</span><span>2 Event</span><span>3 Marquee</span><span>4 Extras</span><span>5 Estimate</span>
+            </div>
           </div>
           <BookingWizard />
         </div>
@@ -156,7 +132,7 @@ export default function Home() {
       </section>
 
       <section className="final-cta">
-        <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Let’s make your event extraordinary.</h2><p>Choose your date, tell us about your event and take the first step today.</p></div><a className="button button-light button-large" href="#booking">Start Your Booking <span aria-hidden="true">→</span></a></div>
+        <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Let’s make your event extraordinary.</h2><p>Choose your date, tell us about your event and take the first step today.</p></div><a className="button button-light button-large" href="#booking">Choose Your Date <span aria-hidden="true">→</span></a></div>
       </section>
 
       <SiteFooter />

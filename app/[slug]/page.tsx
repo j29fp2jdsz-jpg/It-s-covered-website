@@ -46,8 +46,9 @@ const pages: Record<string, { title: string; intro: string; cards: { title: stri
     intro: 'Start with the booking planner or get in touch directly if you need help before you begin.',
     cards: [
       { title: 'Start a booking', copy: 'Choose your date and tell us about your event so we can recommend a suitable marquee.' },
-      { title: 'Call us', copy: '01633 123 456' },
+      { title: 'Call us', copy: '07595 497491' },
       { title: 'Email us', copy: 'info@itscovered.co.uk' },
+      { title: 'Find us', copy: 'Llanellen Court Farm, Abergavenny NP7 9HT' },
     ],
   },
 };
@@ -80,7 +81,7 @@ export default async function ContentPage({ params }: { params: Promise<{ slug: 
     <main>
       <SiteHeader />
       <section className="page-hero"><div className="shell"><span className="kicker">It’s Covered</span><h1>{page.title}</h1><p>{page.intro}</p></div></section>
-      <section className="page-content"><div className="shell"><div className="info-grid">{page.cards.map((card) => <article className="info-card" key={card.title}><h3>{card.title}</h3><p>{card.copy}</p>{slug === 'contact' && card.title === 'Call us' ? <a className="text-link" href="tel:01633123456">Call now →</a> : slug === 'contact' && card.title === 'Email us' ? <a className="text-link" href="mailto:info@itscovered.co.uk">Email us →</a> : null}</article>)}</div><div className="centered" style={{marginTop: 34}}><Link className="button button-primary button-large" href="/#booking">Start Your Booking</Link></div></div></section>
+      <section className="page-content"><div className="shell"><div className="info-grid">{page.cards.map((card) => <article className="info-card" key={card.title}><h3>{card.title}</h3><p>{card.copy}</p>{slug === 'contact' && card.title === 'Call us' ? <a className="text-link" href="tel:07595497491">Call now →</a> : slug === 'contact' && card.title === 'Email us' ? <a className="text-link" href="mailto:info@itscovered.co.uk">Email us →</a> : null}</article>)}</div><div className="centered" style={{marginTop: 34}}><Link className="button button-primary button-large" href="/#booking">Start Your Booking</Link></div></div></section>
       <SiteFooter />
     </main>
   );

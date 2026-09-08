@@ -26,7 +26,7 @@ const events = [
 
 export default function Home() {
   return (
-    <main>
+    <main className={styles.homeRoot}>
       <SiteHeader />
 
       <section className="hero" id="home">
@@ -39,9 +39,6 @@ export default function Home() {
             <div className="hero-actions">
               <Link className="button button-primary button-large" href="/our-work">See Our Work <span aria-hidden="true">→</span></Link>
               <a className="button button-ghost button-large" href="#booking">Choose Your Date</a>
-            </div>
-            <div className="hero-proof" aria-label="It’s Covered highlights">
-              <span>Family run</span><span>Monmouthshire based</span><span>Professional setup</span>
             </div>
           </div>
         </div>
@@ -68,7 +65,7 @@ export default function Home() {
           <div className={`section-heading centered booking-heading ${styles.bookingIntro}`}>
             <span className="kicker">Ready to start?</span>
             <h2>Choose your event date.</h2>
-            <p>That’s all we need first. We’ll then guide you through your event, suitable Capri options and any extras.</p>
+            <p>Start with the date. We’ll guide you through your event details, suitable Capri options and any extras.</p>
           </div>
           <BookingWizard />
         </div>
@@ -116,11 +113,10 @@ export default function Home() {
       </section>
 
       <section className="final-cta">
-        <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Start with your date.</h2><p>A few details now makes the site visit and final quote much easier.</p></div><a className="button button-light button-large" href="#booking">Choose Your Date →</a></div>
+        <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Start with your date.</h2><p>A few details now make the site visit and final quote much easier.</p></div><a className="button button-light button-large" href="#booking">Choose Your Date →</a></div>
       </section>
 
       <SiteFooter />
-      <a href="#booking" className={styles.mobileBookingBar}>Choose Your Date →</a>
     </main>
   );
 }

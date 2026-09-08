@@ -5,18 +5,21 @@ import SiteFooter from '@/components/SiteFooter';
 
 const packages = [
   {
+    slug: 'garden-party',
     title: 'Garden Party',
     image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg',
     copy: 'A beautifully simple setup for smaller gatherings, birthdays and relaxed celebrations.',
     meta: 'Ideal for intimate events',
   },
   {
+    slug: 'informal-party',
     title: 'Informal Party',
     image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg',
     copy: 'Flexible space for family parties, engagements and easy-going get-togethers.',
     meta: 'Space to relax and celebrate',
   },
   {
+    slug: '80-guests',
     title: '80 Guests',
     image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg',
     copy: 'A spacious choice for weddings, larger parties and polished corporate occasions.',
@@ -85,7 +88,7 @@ export default function Home() {
                   <span className="package-meta">{item.meta}</span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
-                  <Link className="card-link" href="/packages">View package <span aria-hidden="true">→</span></Link>
+                  <Link className="card-link" href={`/packages/${item.slug}`}>View package <span aria-hidden="true">→</span></Link>
                 </div>
               </article>
             ))}

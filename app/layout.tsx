@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: "It's Covered | Marquee Hire",
-  description: 'Stylish marquee hire for weddings, parties, corporate events and festivals.',
+  title: {
+    default: "It's Covered | Capri Marquee Hire South Wales",
+    template: "%s | It's Covered",
+  },
+  description: 'Capri marquee hire for weddings, parties, corporate events and outdoor occasions across South Wales and beyond.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

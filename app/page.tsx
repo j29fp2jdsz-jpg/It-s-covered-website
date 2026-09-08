@@ -5,21 +5,21 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from './home.module.css';
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg', copy:'A compact Capri setup for smaller celebrations and relaxed garden events.', meta:'20ft × 20ft · intimate events' },
+  { slug:'garden-party', title:'Garden Party', image:'/images/carousel-garden.jpg', copy:'A compact Capri setup for smaller celebrations and relaxed garden events.', meta:'20ft × 20ft · intimate events' },
   { slug:'informal-party', title:'Informal Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', copy:'Flexible space for guests to mingle, eat, drink and celebrate.', meta:'Flexible layout · standing up to 55' },
-  { slug:'80-guests', title:'80 Guests', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated setup · up to 80' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/carousel-wedding.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated setup · up to 80' },
 ];
 
 const work = [
-  ['Weddings','Romantic receptions and evening celebrations','https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
-  ['Parties','Relaxed garden parties and bigger celebrations','https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg'],
-  ['Corporate','Professional hospitality and event spaces','https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
-  ['Festivals & Events','Flexible cover for larger outdoor occasions','https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
+  ['weddings','Weddings','Golden-hour wedding reception','/images/carousel-wedding.jpg'],
+  ['parties','Garden Parties','Bright daytime Capri setup','/images/carousel-garden.jpg'],
+  ['corporate','Larger Events','Professional linked Capri layouts','https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
+  ['festivals-events','Outdoor Events','Flexible cover for larger occasions','https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ] as const;
 
 const events = [
-  ['weddings', 'Weddings', 'Create a beautiful setting for your big day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
-  ['parties', 'Parties', 'Birthdays, anniversaries, engagements and more.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg'],
+  ['weddings', 'Weddings', 'Create a beautiful setting for your big day.', '/images/carousel-wedding.jpg'],
+  ['parties', 'Parties', 'Birthdays, anniversaries, engagements and more.', '/images/carousel-garden.jpg'],
   ['corporate', 'Corporate', 'Professional marquee solutions for business events.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
   ['festivals-events', 'Festivals & Events', 'Flexible cover for shows, community events and festivals.', 'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ];
@@ -37,8 +37,8 @@ export default function Home() {
             <h1>Unforgettable events<br /><span>start here.</span></h1>
             <p className="hero-copy">Distinctive Capri marquees for weddings, parties, corporate events and outdoor occasions — professionally installed and planned around your venue.</p>
             <div className="hero-actions">
-              <a className="button button-primary button-large" href="#booking">Choose Your Date <span aria-hidden="true">→</span></a>
-              <Link className="button button-ghost button-large" href="/our-work">View Our Work</Link>
+              <a className="button button-primary button-large" href="#booking">Choose Your Date</a>
+              <Link className="button button-ghost button-large" href="/our-work">See Our Work <span aria-hidden="true">→</span></Link>
             </div>
           </div>
         </div>
@@ -47,16 +47,22 @@ export default function Home() {
       <section className={styles.workFirst} aria-labelledby="work-heading">
         <div className="shell">
           <div className={styles.workHead}>
-            <div><span className="kicker">Our work</span><h2 id="work-heading">Real events. Extraordinary settings.</h2><p>A quick look at the kind of spaces we create before you start planning yours.</p></div>
+            <div>
+              <span className="kicker">Our work</span>
+              <h2 id="work-heading">A glimpse of what’s possible.</h2>
+              <p>Swipe through a few standout setups, then explore the full gallery if you want more inspiration.</p>
+            </div>
             <Link className={`button button-outline ${styles.desktopCta}`} href="/our-work">View Full Gallery →</Link>
           </div>
-          <div className={styles.workCarousel} aria-label="Examples of our work">
-            {work.map(([title,copy,image]) => <article key={title} className={styles.workSlide}>
-              <img src={image} alt={`${title} marquee installation`} loading="lazy" />
-              <div className={styles.workCopy}><strong>{title}</strong><small>{copy}</small></div>
-            </article>)}
+          <div className={styles.workCarousel} aria-label="Featured It’s Covered work">
+            {work.map(([slug,title,copy,image]) => (
+              <Link key={slug} href={`/our-work?filter=${slug}`} className={styles.workSlide}>
+                <img src={image} alt={`${title} marquee setup`} loading="lazy" />
+                <div className={styles.workCopy}><strong>{title}</strong><small>{copy}</small></div>
+              </Link>
+            ))}
           </div>
-          <div className={styles.mobileGalleryLink}><Link href="/our-work">View Full Gallery →</Link></div>
+          <div className={styles.carouselHint}><span>Swipe to explore</span><Link href="/our-work">View full gallery →</Link></div>
         </div>
       </section>
 

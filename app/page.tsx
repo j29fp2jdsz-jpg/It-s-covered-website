@@ -101,23 +101,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="trust-strip" aria-label="Why choose It’s Covered">
-        <div className="shell trust-grid">
-          {[['01','Family run'],['02','Experienced event setup'],['03','Delivery & installation'],['04','Based in Monmouthshire'],['05','Site visit before confirmation']].map(([number,item])=><div key={item}><span>{number}</span><strong>{item}</strong></div>)}
-        </div>
-      </section>
-
-      <section className={`content-section ${styles.expectSection}`}>
-        <div className="shell">
-          <div className="section-heading"><span className="kicker">What to expect</span><h2>Clear online. Properly checked in person.</h2><p>The website gets the useful information together quickly. The site visit then confirms the practical details before anything is final.</p></div>
-          <div className={styles.expectGrid}>
-            <article><span>01</span><h3>Tell us the basics</h3><p>Date, guest numbers, event type, location and what you want from the space.</p></article>
-            <article><span>02</span><h3>We narrow down the setup</h3><p>The booking journey helps identify suitable Capri sizes and useful extras.</p></article>
-            <article><span>03</span><h3>We confirm it on site</h3><p>Access, measurements, availability and final pricing are checked before confirmation.</p></article>
-          </div>
-        </div>
-      </section>
-
       <section className="final-cta">
         <div className="shell final-cta-inner"><div><span className="kicker light">Ready when you are</span><h2>Start with your date.</h2><p>A few details now make the site visit and final quote much easier.</p></div><a className="button button-light button-large" href="#booking">Choose Your Date →</a></div>
       </section>

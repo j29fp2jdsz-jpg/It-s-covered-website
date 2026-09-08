@@ -7,7 +7,9 @@ import styles from './home.module.css';
 const packages = [
   { slug:'garden-party', title:'Garden Party', image:'/images/carousel-garden.jpg', copy:'A compact Capri setup for smaller celebrations and relaxed garden events.', meta:'20ft × 20ft · intimate events' },
   { slug:'informal-party', title:'Informal Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', copy:'Flexible space for guests to mingle, eat, drink and celebrate.', meta:'Flexible layout · standing up to 55' },
-  { slug:'80-guests', title:'80 Guests', image:'/images/carousel-wedding.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated setup · up to 80' },
+  { slug:'large-party', title:'Large Party', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg', copy:'More room for a lively celebration, bar areas and larger guest numbers.', meta:'28ft × 38ft · standing up to 100' },
+  { slug:'45-guests', title:'45 Guests', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg', copy:'A comfortable seated setup with tables, chairs and matting included.', meta:'Seated layout · around 45 guests' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/carousel-wedding.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated layout · up to 80' },
 ];
 
 const work = [
@@ -77,18 +79,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="content-section packages-section" id="packages">
+      <section className={`content-section packages-section ${styles.packagesSection}`} id="packages">
         <div className="shell">
           <div className="section-row">
-            <div><span className="kicker">Popular choices</span><h2>Useful starting points, not rigid bundles.</h2><p>Choose the package closest to your plans and we’ll tailor the final setup around the venue, access and event.</p></div>
-            <Link className="button button-primary" href="/packages">View All Packages →</Link>
+            <div><span className="kicker">Marquee packages</span><h2>See every package without filling the page.</h2><p>Swipe through the full range and open any package for the detailed setup, capacity and inclusions.</p></div>
+            <Link className="button button-primary" href="/packages">Compare All Packages →</Link>
           </div>
-          <div className="package-grid">
-            {packages.map((item, index) => <article className={`package-card ${index === 2 ? 'package-featured' : ''}`} key={item.title}>
-              <div className="package-image-wrap"><img src={item.image} alt={`${item.title} Capri marquee setup`} loading="lazy" />{index === 2 && <span className="package-badge">Popular</span>}</div>
-              <div className="package-body"><span className="package-meta">{item.meta}</span><h3>{item.title}</h3><p>{item.copy}</p><Link className="card-link" href={`/packages/${item.slug}`}>View package →</Link></div>
-            </article>)}
+          <div className={styles.packageCarousel} aria-label="All marquee packages">
+            {packages.map((item, index) => (
+              <article className={`${styles.packageSlide} ${index === 4 ? styles.packageFeatured : ''}`} key={item.title}>
+                <Link href={`/packages/${item.slug}`} className={styles.packageImageLink} aria-label={`View ${item.title} package`}>
+                  <img src={item.image} alt={`${item.title} Capri marquee setup`} loading="lazy" />
+                  {index === 4 && <span className={styles.packageBadge}>Popular</span>}
+                </Link>
+                <div className={styles.packageBody}>
+                  <span className={styles.packageMeta}>{item.meta}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.copy}</p>
+                  <Link className={styles.packageLink} href={`/packages/${item.slug}`}>View package →</Link>
+                </div>
+              </article>
+            ))}
           </div>
+          <div className={styles.carouselHint}><span>Swipe to compare packages</span><Link href="/packages">View all details →</Link></div>
         </div>
       </section>
 

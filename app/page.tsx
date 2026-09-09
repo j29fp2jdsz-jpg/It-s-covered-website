@@ -31,7 +31,7 @@ export default function Home() {
     <main className={styles.homeRoot}>
       <SiteHeader />
 
-      <section className="hero" id="home">
+      <section className="hero" id="home" style={{backgroundImage:"url('/images/carousel-wedding.jpg')"}}>
         <div className="hero-overlay" />
         <div className="shell hero-content">
           <div className="hero-copy-wrap">
@@ -52,7 +52,7 @@ export default function Home() {
             <div>
               <span className="kicker">Our work</span>
               <h2 id="work-heading">A glimpse of what’s possible.</h2>
-              <p>Swipe through a few standout setups, then explore the full gallery if you want more inspiration.</p>
+              <p>Swipe through standout setups, then open the full gallery when you want more inspiration.</p>
             </div>
             <Link className={`button button-outline ${styles.desktopCta}`} href="/our-work">View Full Gallery →</Link>
           </div>
@@ -82,7 +82,7 @@ export default function Home() {
       <section className={`content-section packages-section ${styles.packagesSection}`} id="packages">
         <div className="shell">
           <div className="section-row">
-            <div><span className="kicker">Marquee packages</span><h2>See every package without filling the page.</h2><p>Swipe through the full range and open any package for the detailed setup, capacity and inclusions.</p></div>
+            <div><span className="kicker">Marquee packages</span><h2>Find the setup that fits your event.</h2><p>Swipe through the full range and open any package for the detailed setup, capacity and inclusions.</p></div>
             <Link className="button button-primary" href="/packages">Compare All Packages →</Link>
           </div>
           <div className={styles.packageCarousel} aria-label="All marquee packages">

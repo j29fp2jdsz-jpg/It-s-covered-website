@@ -8,12 +8,12 @@ export default function OurWorkPage(){
   return <main>
     <SiteHeader />
     <section className={styles.hero}>
-      <img src="/images/carousel-wedding.jpg" alt="Capri marquee wedding reception at golden hour"/>
+      <img src="https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg" alt="It’s Covered marquee event"/>
       <div className={styles.overlay}/>
       <div className={`shell ${styles.heroInner}`}>
         <span className={styles.eyebrow}>Our work</span>
         <h1>Real events. Extraordinary settings.</h1>
-        <p>Explore weddings, parties, corporate occasions and outdoor events brought to life with distinctive Capri marquees and thoughtful layouts.</p>
+        <p>Explore weddings, parties, corporate occasions and outdoor events brought to life with flexible marquee layouts and thoughtful event setups.</p>
       </div>
     </section>
 
@@ -22,8 +22,8 @@ export default function OurWorkPage(){
         <div className={styles.intro}>
           <div>
             <span className={styles.label}>Portfolio</span>
-            <h2>Find the kind of setup you’re planning.</h2>
-            <p>Filter the gallery by event type and browse the strongest examples without all the clutter.</p>
+            <h2>Browse by the kind of event you’re planning.</h2>
+            <p>Use the filters to explore weddings, parties, corporate setups and larger outdoor events.</p>
           </div>
           <Link className="button button-primary" href="/#booking">Choose Your Date →</Link>
         </div>
@@ -33,7 +33,7 @@ export default function OurWorkPage(){
 
     <section className={styles.cta}>
       <div className={`shell ${styles.ctaInner}`}>
-        <div><h2>Seen something you like?</h2><p>Start with your date and we’ll guide you towards the right Capri setup.</p></div>
+        <div><h2>Seen something you like?</h2><p>Start with your date and we’ll guide you towards the right setup.</p></div>
         <Link className="button button-light button-large" href="/#booking">Choose Your Date →</Link>
       </div>
     </section>

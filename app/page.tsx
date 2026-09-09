@@ -5,23 +5,23 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from './home.module.css';
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'/images/carousel-garden.jpg', copy:'A compact Capri setup for smaller celebrations and relaxed garden events.', meta:'20ft × 20ft · intimate events' },
+  { slug:'garden-party', title:'Garden Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg', copy:'A compact Capri setup for smaller celebrations and relaxed garden events.', meta:'20ft × 20ft · intimate events' },
   { slug:'informal-party', title:'Informal Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', copy:'Flexible space for guests to mingle, eat, drink and celebrate.', meta:'Flexible layout · standing up to 55' },
   { slug:'large-party', title:'Large Party', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg', copy:'More room for a lively celebration, bar areas and larger guest numbers.', meta:'28ft × 38ft · standing up to 100' },
   { slug:'45-guests', title:'45 Guests', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg', copy:'A comfortable seated setup with tables, chairs and matting included.', meta:'Seated layout · around 45 guests' },
-  { slug:'80-guests', title:'80 Guests', image:'/images/carousel-wedding.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated layout · up to 80' },
+  { slug:'80-guests', title:'80 Guests', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated layout · up to 80' },
 ];
 
 const work = [
-  ['weddings','Weddings','Golden-hour wedding reception','/images/carousel-wedding.jpg'],
-  ['parties','Garden Parties','Bright daytime Capri setup','/images/carousel-garden.jpg'],
-  ['corporate','Larger Events','Professional linked Capri layouts','https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
+  ['weddings','Weddings','Elegant wedding reception styling','https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
+  ['parties','Garden Parties','Relaxed Capri setup for garden celebrations','https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg'],
+  ['corporate','Larger Events','Professional marquee layouts','https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
   ['festivals-events','Outdoor Events','Flexible cover for larger occasions','https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ] as const;
 
 const events = [
-  ['weddings', 'Weddings', 'Create a beautiful setting for your big day.', '/images/carousel-wedding.jpg'],
-  ['parties', 'Parties', 'Birthdays, anniversaries, engagements and more.', '/images/carousel-garden.jpg'],
+  ['weddings', 'Weddings', 'Create a beautiful setting for your big day.', 'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg'],
+  ['parties', 'Parties', 'Birthdays, anniversaries, engagements and more.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg'],
   ['corporate', 'Corporate', 'Professional marquee solutions for business events.', 'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg'],
   ['festivals-events', 'Festivals & Events', 'Flexible cover for shows, community events and festivals.', 'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg'],
 ];
@@ -31,7 +31,7 @@ export default function Home() {
     <main className={styles.homeRoot}>
       <SiteHeader />
 
-      <section className="hero" id="home" style={{backgroundImage:"url('/images/carousel-wedding.jpg')"}}>
+      <section className="hero" id="home">
         <div className="hero-overlay" />
         <div className="shell hero-content">
           <div className="hero-copy-wrap">

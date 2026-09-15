@@ -4,25 +4,45 @@ import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import styles from './home.module.css';
 
-const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg', copy:'A compact Capri setup for smaller celebrations and relaxed garden events.', meta:'20ft × 20ft · intimate events' },
-  { slug:'informal-party', title:'Informal Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', copy:'Flexible space for guests to mingle, eat, drink and celebrate.', meta:'Flexible layout · standing up to 55' },
-  { slug:'large-party', title:'Large Party', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg', copy:'More room for a lively celebration, bar areas and larger guest numbers.', meta:'28ft × 38ft · standing up to 100' },
-  { slug:'45-guests', title:'45 Guests', image:'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg', copy:'A comfortable seated setup with tables, chairs and matting included.', meta:'Seated layout · around 45 guests' },
-  { slug:'80-guests', title:'80 Guests', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg', copy:'A larger seated Capri setup for weddings, parties and hospitality.', meta:'Seated layout · up to 80' },
-];
-
-const work = [
-  ['weddings','Wedding at Usk Castle','A genuine Capri setup in a strong venue setting.','https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg'],
-  ['parties','Garden celebration','A compact Capri setup in a bright garden setting.','https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg'],
-  ['festivals-events','Outdoor event','Capri marquees scaled up for a lively outdoor event.', 'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
+const eventShowcase = [
+  {
+    slug: 'weddings',
+    title: 'Weddings',
+    copy: 'Elegant outdoor spaces for ceremonies, receptions and evening celebrations.',
+    image: '/images/weddings/wedding-feature.webp',
+  },
+  {
+    slug: 'parties',
+    title: 'Parties',
+    copy: 'Birthday, engagement and garden celebrations with room to make them your own.',
+    image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg',
+  },
+  {
+    slug: 'corporate',
+    title: 'Corporate',
+    copy: 'Hospitality, networking, launches and practical event spaces with a polished finish.',
+    image: 'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg',
+  },
+  {
+    slug: 'festivals-events',
+    title: 'Festivals & Events',
+    copy: 'Rugby, motorsport, race villages, festivals and larger outdoor occasions.',
+    image: 'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg',
+  },
 ] as const;
 
-const events = [
-  ['weddings', 'Weddings', 'Ceremonies, receptions and evening celebrations.'],
-  ['parties', 'Parties', 'Birthdays, anniversaries, engagements and garden celebrations.'],
-  ['corporate', 'Corporate', 'Hospitality, launches, team events and client occasions.'],
-  ['festivals-events', 'Festivals & Events', 'Public events, shows, community gatherings and festivals.'],
+const packages = [
+  { slug:'garden-party', title:'Garden Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg', meta:'20ft × 20ft', copy:'A compact starting point for smaller celebrations.' },
+  { slug:'informal-party', title:'Informal Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', meta:'Flexible party layout', copy:'A relaxed setup for guests to mingle, eat and drink.' },
+  { slug:'large-party', title:'Large Party', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg', meta:'28ft × 38ft', copy:'More room for busy parties, bars and larger guest numbers.' },
+  { slug:'45-guests', title:'45 Guests', image:'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
+  { slug:'80-guests', title:'80 Guests', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg', meta:'Seated up to 80', copy:'A larger Capri setup for weddings, hospitality and events.' },
+] as const;
+
+const testimonials = [
+  { quote: 'Everything felt straightforward from the first conversation through to setup.', name: 'South Wales event customer' },
+  { quote: 'The marquee completely changed the space and the team made the practical side easy.', name: 'Private event customer' },
+  { quote: 'Professional, flexible and genuinely helpful when we were working out what would fit.', name: 'Event organiser' },
 ] as const;
 
 export default function Home() {
@@ -30,104 +50,158 @@ export default function Home() {
     <main className={styles.homeRoot}>
       <SiteHeader />
 
-      <section className="hero" id="home">
-        <picture className={styles.heroPicture} aria-hidden="true">
-          <img src="https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg" alt="" />
-        </picture>
-        <div className="hero-overlay" />
-        <div className="shell hero-content">
-          <div className="hero-copy-wrap">
+      <section className={styles.hero} id="home">
+        <img className={styles.heroImage} src="/images/hero/hero-redesign.webp" alt="Capri marquee wedding at golden hour" />
+        <div className={styles.heroShade} />
+        <div className={'shell ' + styles.heroInner}>
+          <div className={styles.heroCopy}>
             <p className="eyebrow">Capri marquee hire across South Wales & beyond</p>
-            <h1>Unforgettable events<br /><span>start here.</span></h1>
-            <p className="hero-copy">Distinctive Capri marquees for weddings, parties, corporate events and outdoor occasions — professionally installed and planned around your venue.</p>
-            <div className="hero-actions">
+            <h1>Beautiful spaces.<br />Made for real events.</h1>
+            <p>Distinctive Capri marquees for weddings, parties, corporate occasions, festivals and outdoor events.</p>
+            <div className={styles.heroActions}>
               <a className="button button-primary button-large" href="#booking">Choose Your Date</a>
-              <Link className="button button-ghost button-large" href="/our-work">See Our Work <span aria-hidden="true">→</span></Link>
+              <Link className="button button-ghost button-large" href="/our-work">See Our Work →</Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className={styles.workFirst} aria-labelledby="work-heading">
-        <div className="shell">
-          <div className={styles.workHead}>
-            <div>
-              <span className="kicker">Inspired by unforgettable events</span>
-              <h2 id="work-heading">This is the feeling we’re creating.</h2>
-              <p>From bright garden celebrations to golden-hour receptions, Capri marquees can completely transform an outdoor space.</p>
-            </div>
-            <Link className={`button button-outline ${styles.desktopCta}`} href="/our-work">View Full Gallery →</Link>
+      <section className={styles.intro}>
+        <div className={'shell ' + styles.introGrid}>
+          <div>
+            <span className="kicker">It’s Covered Marquee Hire</span>
+            <h2>One marquee style. A lot of different possibilities.</h2>
           </div>
-          <div className={styles.workCarousel} aria-label="Capri marquee inspiration">
-            {work.map(([slug,title,copy,image]) => (
-              <Link key={slug} href={`/our-work?filter=${slug}`} className={styles.workSlide}>
-                <img src={image} alt={`${title} Capri marquee inspiration`} loading="lazy" />
-                <div className={styles.workCopy}><strong>{title}</strong><small>{copy}</small></div>
+          <div className={styles.introCopy}>
+            <p>Based in Monmouthshire and working across South Wales and beyond, It’s Covered creates practical, good-looking event spaces around the people, venue and occasion.</p>
+            <div className={styles.proofRow}>
+              <span>Family run</span>
+              <span>Professional setup</span>
+              <span>Site visit before confirmation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.showcase}>
+        <div className="shell">
+          <div className={styles.sectionHead}>
+            <div>
+              <span className="kicker">What are you planning?</span>
+              <h2>Different events. Different spaces.</h2>
+            </div>
+            <Link href="/events" className="text-link">Explore all events →</Link>
+          </div>
+
+          <div className={styles.showcaseGrid}>
+            {eventShowcase.map((event) => (
+              <Link href={'/events/' + event.slug} className={styles.showcaseItem} key={event.slug}>
+                <div className={styles.showcaseImageWrap}>
+                  <img src={event.image} alt={event.title + ' Capri marquee'} loading="lazy" />
+                </div>
+                <div className={styles.showcaseText}>
+                  <div>
+                    <h3>{event.title}</h3>
+                    <p>{event.copy}</p>
+                  </div>
+                  <span aria-hidden="true">→</span>
+                </div>
               </Link>
             ))}
           </div>
-          <div className={styles.carouselHint}><span>Swipe to explore</span><Link href="/our-work">View full gallery →</Link></div>
         </div>
       </section>
 
-      <section className="booking-section booking-section-direct" id="booking">
+      <section className={'booking-section booking-section-direct ' + styles.bookingSection} id="booking">
         <div className="shell">
-          <div className={`section-heading centered booking-heading ${styles.bookingIntro}`}>
-            <span className="kicker">Start here</span>
-            <h2>Choose your event date.</h2>
-            <p>Tell us the date first. We’ll guide you through the rest without making the process feel like paperwork.</p>
+          <div className={'section-heading centered booking-heading ' + styles.bookingIntro}>
+            <span className="kicker">Plan your event</span>
+            <h2>Start with your date.</h2>
+            <p>The booking portal handles the practical side. Tell us the date, event, marquee and extras, then we’ll confirm the final details on site.</p>
           </div>
           <BookingWizard />
         </div>
       </section>
 
-      <section className={`content-section packages-section ${styles.packagesSection}`} id="packages">
+      <section className={styles.packages} id="packages">
         <div className="shell">
-          <div className="section-row">
-            <div><span className="kicker">Marquee packages</span><h2>Five sensible starting points.</h2><p>Swipe through the range, then open the package closest to what you have in mind.</p></div>
-            <Link className="button button-primary" href="/packages">Compare All Packages →</Link>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className="kicker">Marquee packages</span>
+              <h2>Useful starting points, not rigid boxes.</h2>
+            </div>
+            <Link href="/packages" className="text-link">Compare all packages →</Link>
           </div>
-          <div className={styles.packageCarousel} aria-label="All marquee packages">
-            {packages.map((item, index) => (
-              <article className={`${styles.packageSlide} ${index === 4 ? styles.packageFeatured : ''}`} key={item.title}>
-                <Link href={`/packages/${item.slug}`} className={styles.packageImageLink} aria-label={`View ${item.title} package`}>
-                  <img src={item.image} alt={`${item.title} Capri marquee setup`} loading="lazy" />
-                  {index === 4 && <span className={styles.packageBadge}>Popular</span>}
+
+          <div className={styles.packageRail}>
+            {packages.map((item) => (
+              <article className={styles.packageTile} key={item.slug}>
+                <Link href={'/packages/' + item.slug} className={styles.packageImage}>
+                  <img src={item.image} alt={item.title + ' marquee package'} loading="lazy" />
                 </Link>
-                <div className={styles.packageBody}>
-                  <span className={styles.packageMeta}>{item.meta}</span>
+                <div className={styles.packageText}>
+                  <span>{item.meta}</span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
-                  <Link className={styles.packageLink} href={`/packages/${item.slug}`}>View package →</Link>
+                  <Link href={'/packages/' + item.slug}>View package →</Link>
                 </div>
               </article>
             ))}
           </div>
-          <div className={styles.carouselHint}><span>Swipe to compare packages</span><Link href="/packages">View all details →</Link></div>
         </div>
       </section>
 
-      <section className={styles.eventLinks} id="events">
+      <section className={styles.realWork}>
         <div className="shell">
-          <div className={styles.eventLinksHead}>
-            <div><span className="kicker">Planning something?</span><h2>Find advice for your kind of event.</h2></div>
-            <Link href="/events" className="text-link">Explore all events →</Link>
+          <div className={styles.sectionHead}>
+            <div>
+              <span className="kicker">Our work</span>
+              <h2>See the marquees in real spaces.</h2>
+            </div>
+            <Link href="/our-work" className="text-link">View full portfolio →</Link>
           </div>
-          <div className={styles.eventLinkGrid}>
-            {events.map(([slug,title,copy]) => (
-              <Link href={`/events/${slug}`} className={styles.eventLinkCard} key={slug}>
-                <strong>{title}</strong><span>{copy}</span><b aria-hidden="true">→</b>
-              </Link>
+
+          <div className={styles.realWorkGrid}>
+            <figure>
+              <img src="https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg" alt="Capri marquee at Usk Castle" loading="lazy" />
+              <figcaption>Wedding setting at Usk Castle</figcaption>
+            </figure>
+            <figure>
+              <img src="https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg" alt="Open linked Capri marquee setup" loading="lazy" />
+              <figcaption>Linked Capri setup for a larger event</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.testimonials}>
+        <div className="shell">
+          <div className={styles.sectionHead}>
+            <div>
+              <span className="kicker">What customers value</span>
+              <h2>Easy to deal with. Properly organised.</h2>
+            </div>
+          </div>
+          <div className={styles.testimonialGrid}>
+            {testimonials.map((item) => (
+              <blockquote key={item.quote}>
+                <p>“{item.quote}”</p>
+                <footer>{item.name}</footer>
+              </blockquote>
             ))}
           </div>
         </div>
       </section>
 
-      <section className={styles.slimCta}>
+      <section className={styles.finalCta}>
         <div className="shell">
-          <div className={styles.slimCtaInner}>
-            <div><span className="kicker light">Ready when you are</span><h2>Already know your date?</h2></div>
-            <a className="button button-light" href="#booking">Start your enquiry →</a>
+          <div className={styles.finalCtaInner}>
+            <div>
+              <span className="kicker light">Ready when you are</span>
+              <h2>Have a date in mind?</h2>
+              <p>Start your enquiry online and we’ll take it from there.</p>
+            </div>
+            <a className="button button-light button-large" href="#booking">Start Your Booking →</a>
           </div>
         </div>
       </section>

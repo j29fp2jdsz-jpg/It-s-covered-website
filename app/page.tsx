@@ -2,6 +2,9 @@ import Link from 'next/link';
 import BookingWizard from '@/components/BookingWizard';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
+import heroDesktop from '@/lib/premium/heroDesktop';
+import heroMobile from '@/lib/premium/heroMobile';
+import workGarden from '@/lib/premium/workGarden';
 import styles from './home.module.css';
 
 const packages = [
@@ -13,10 +16,9 @@ const packages = [
 ];
 
 const work = [
-  ['weddings','Wedding at Usk Castle','Elegant Capri setup in a proper venue setting','https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg'],
-  ['parties','Garden celebration','A compact Capri setup in a garden setting','https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg'],
-  ['corporate','Hospitality setup','A larger layout with room to move and entertain','https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg'],
-  ['festivals-events','Outdoor event','Capri marquees used at scale for a busy event','https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
+  ['weddings','Golden-hour wedding','A warm, elegant Capri setting for an unforgettable reception.', heroMobile],
+  ['parties','Garden celebration','Bright, relaxed and open — ideal for a polished garden occasion.', workGarden],
+  ['festivals-events','Outdoor event','Capri marquees scaled up for a lively outdoor event.', 'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
 ] as const;
 
 const events = [
@@ -32,6 +34,10 @@ export default function Home() {
       <SiteHeader />
 
       <section className="hero" id="home">
+        <picture className={styles.heroPicture} aria-hidden="true">
+          <source media="(max-width: 720px)" srcSet={heroMobile} />
+          <img src={heroDesktop} alt="" />
+        </picture>
         <div className="hero-overlay" />
         <div className="shell hero-content">
           <div className="hero-copy-wrap">
@@ -50,16 +56,16 @@ export default function Home() {
         <div className="shell">
           <div className={styles.workHead}>
             <div>
-              <span className="kicker">Selected work</span>
-              <h2 id="work-heading">See the marquees in their element.</h2>
-              <p>A small selection of real setups. Keep this section visual, then head to the full gallery for more.</p>
+              <span className="kicker">Inspired by unforgettable events</span>
+              <h2 id="work-heading">This is the feeling we’re creating.</h2>
+              <p>From bright garden celebrations to golden-hour receptions, Capri marquees can completely transform an outdoor space.</p>
             </div>
             <Link className={`button button-outline ${styles.desktopCta}`} href="/our-work">View Full Gallery →</Link>
           </div>
-          <div className={styles.workCarousel} aria-label="Featured It’s Covered work">
+          <div className={styles.workCarousel} aria-label="Capri marquee inspiration">
             {work.map(([slug,title,copy,image]) => (
               <Link key={slug} href={`/our-work?filter=${slug}`} className={styles.workSlide}>
-                <img src={image} alt={`${title} marquee setup`} loading="lazy" />
+                <img src={image} alt={`${title} Capri marquee inspiration`} loading="lazy" />
                 <div className={styles.workCopy}><strong>{title}</strong><small>{copy}</small></div>
               </Link>
             ))}

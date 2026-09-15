@@ -9,34 +9,34 @@ const eventShowcase = [
     slug: 'weddings',
     title: 'Weddings',
     copy: 'Elegant outdoor spaces for ceremonies, receptions and evening celebrations.',
-    image: '/images/weddings/wedding-feature.webp',
+    image: '/images/weddings/wedding-castle.webp',
   },
   {
     slug: 'parties',
     title: 'Parties',
     copy: 'Birthday, engagement and garden celebrations with room to make them your own.',
-    image: 'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg',
+    image: '/images/parties/party-birthday.webp',
   },
   {
     slug: 'corporate',
     title: 'Corporate',
     copy: 'Hospitality, networking, launches and practical event spaces with a polished finish.',
-    image: 'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg',
+    image: '/images/corporate/corporate-stage.webp',
   },
   {
     slug: 'festivals-events',
     title: 'Festivals & Events',
     copy: 'Rugby, motorsport, race villages, festivals and larger outdoor occasions.',
-    image: 'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg',
+    image: '/images/events/event-rugby.webp',
   },
 ] as const;
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg', meta:'20ft × 20ft', copy:'A compact starting point for smaller celebrations.' },
-  { slug:'informal-party', title:'Informal Party', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg', meta:'Flexible party layout', copy:'A relaxed setup for guests to mingle, eat and drink.' },
-  { slug:'large-party', title:'Large Party', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg', meta:'28ft × 38ft', copy:'More room for busy parties, bars and larger guest numbers.' },
-  { slug:'45-guests', title:'45 Guests', image:'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
-  { slug:'80-guests', title:'80 Guests', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg', meta:'Seated up to 80', copy:'A larger Capri setup for weddings, hospitality and events.' },
+  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'A compact starting point for smaller celebrations.' },
+  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', copy:'A relaxed setup for guests to mingle, eat and drink.' },
+  { slug:'large-party', title:'Large Party', image:'/images/parties/party-beach.webp', meta:'28ft × 38ft', copy:'More room for busy parties, bars and larger guest numbers.' },
+  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-countryside.webp', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'A larger Capri setup for weddings, hospitality and events.' },
 ] as const;
 
 const testimonials = [
@@ -51,7 +51,10 @@ export default function Home() {
       <SiteHeader />
 
       <section className={styles.hero} id="home">
-        <img className={styles.heroImage} src="/images/hero/hero-redesign.webp" alt="Capri marquee wedding at golden hour" />
+        <picture>
+          <source media="(max-width: 720px)" srcSet="/images/hero/hero-mobile.webp" />
+          <img className={styles.heroImage} src="/images/hero/hero-desktop.webp" alt="Capri marquee event at golden hour" />
+        </picture>
         <div className={styles.heroShade} />
         <div className={'shell ' + styles.heroInner}>
           <div className={styles.heroCopy}>
@@ -155,20 +158,20 @@ export default function Home() {
         <div className="shell">
           <div className={styles.sectionHead}>
             <div>
-              <span className="kicker">Our work</span>
-              <h2>See the marquees in real spaces.</h2>
+              <span className="kicker">Visual inspiration</span>
+              <h2>See how different event styles can feel.</h2>
             </div>
-            <Link href="/our-work" className="text-link">View full portfolio →</Link>
+            <Link href="/events" className="text-link">Explore event ideas →</Link>
           </div>
 
           <div className={styles.realWorkGrid}>
             <figure>
-              <img src="https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg" alt="Capri marquee at Usk Castle" loading="lazy" />
-              <figcaption>Wedding setting at Usk Castle</figcaption>
+              <img src="/images/events/event-motocross.webp" alt="Capri marquee used at a motocross event" loading="lazy" />
+              <figcaption>Motorsport event village and hospitality</figcaption>
             </figure>
             <figure>
-              <img src="https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg" alt="Open linked Capri marquee setup" loading="lazy" />
-              <figcaption>Linked Capri setup for a larger event</figcaption>
+              <img src="/images/events/event-registration.webp" alt="Capri marquee used for race registration" loading="lazy" />
+              <figcaption>Running event registration and race support</figcaption>
             </figure>
           </div>
         </div>

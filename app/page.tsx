@@ -13,8 +13,8 @@ const packages = [
 ];
 
 const work = [
-  ['weddings','Golden-hour wedding','A warm, elegant Capri setting for an unforgettable reception.','/images/hero-premium-mobile.svg'],
-  ['parties','Garden celebration','Bright, relaxed and open — ideal for a polished garden occasion.','/images/work-premium-garden.svg'],
+  ['weddings','Wedding at Usk Castle','A genuine Capri setup in a strong venue setting.','https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg'],
+  ['parties','Garden celebration','A compact Capri setup in a bright garden setting.','https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg'],
   ['festivals-events','Outdoor event','Capri marquees scaled up for a lively outdoor event.', 'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
 ] as const;
 
@@ -32,8 +32,7 @@ export default function Home() {
 
       <section className="hero" id="home">
         <picture className={styles.heroPicture} aria-hidden="true">
-          <source media="(max-width: 720px)" srcSet="/images/hero-premium-mobile.svg" />
-          <img src="/images/hero-premium-desktop.svg" alt="" />
+          <img src="https://itscovered.co.uk/wp-content/uploads/2021/03/usk-castle-wedding-capri.jpg" alt="" />
         </picture>
         <div className="hero-overlay" />
         <div className="shell hero-content">

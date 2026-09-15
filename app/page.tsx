@@ -2,9 +2,6 @@ import Link from 'next/link';
 import BookingWizard from '@/components/BookingWizard';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
-import heroDesktop from '@/lib/premium/heroDesktop';
-import heroMobile from '@/lib/premium/heroMobile';
-import workGarden from '@/lib/premium/workGarden';
 import styles from './home.module.css';
 
 const packages = [
@@ -16,8 +13,8 @@ const packages = [
 ];
 
 const work = [
-  ['weddings','Golden-hour wedding','A warm, elegant Capri setting for an unforgettable reception.', heroMobile],
-  ['parties','Garden celebration','Bright, relaxed and open — ideal for a polished garden occasion.', workGarden],
+  ['weddings','Golden-hour wedding','A warm, elegant Capri setting for an unforgettable reception.','/images/hero-premium-mobile.svg'],
+  ['parties','Garden celebration','Bright, relaxed and open — ideal for a polished garden occasion.','/images/work-premium-garden.svg'],
   ['festivals-events','Outdoor event','Capri marquees scaled up for a lively outdoor event.', 'https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'],
 ] as const;
 
@@ -35,8 +32,8 @@ export default function Home() {
 
       <section className="hero" id="home">
         <picture className={styles.heroPicture} aria-hidden="true">
-          <source media="(max-width: 720px)" srcSet={heroMobile} />
-          <img src={heroDesktop} alt="" />
+          <source media="(max-width: 720px)" srcSet="/images/hero-premium-mobile.svg" />
+          <img src="/images/hero-premium-desktop.svg" alt="" />
         </picture>
         <div className="hero-overlay" />
         <div className="shell hero-content">

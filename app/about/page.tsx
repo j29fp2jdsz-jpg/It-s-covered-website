@@ -16,7 +16,7 @@ export default function AboutPage(){
 
     <section className={styles.section}>
       <div className={'shell ' + styles.storyGrid}>
-        <div className={styles.storyImage}><Image src="/images/events/event-rugby.webp" alt="It’s Covered style Capri marquee event" fill sizes="(max-width:760px) 100vw, 52vw"/></div>
+        <div className={styles.storyImage}><Image src="/images/hero/hero-desktop.webp" alt="Capri marquee event setup" fill sizes="(max-width:760px) 100vw, 52vw"/></div>
         <div className={styles.storyCopy}>
           <span className={styles.label}>How we think</span>
           <h2>Make the space look good. Make the day work even better.</h2>

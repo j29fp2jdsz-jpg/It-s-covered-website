@@ -13,7 +13,7 @@ const views = [
 export default function MarqueesPage(){
   return <main><SiteHeader />
     <section className={styles.hero}>
-      <img className={styles.heroImage} src="/images/weddings/wedding-castle-reception.webp" alt="Capri marquee at an outdoor event"/>
+      <img className={styles.heroImage} src="/images/hero/hero-desktop.webp" alt="Capri marquee at an outdoor event"/>
       <div className={styles.heroOverlay}/>
       <div className={'shell ' + styles.heroInner}>
         <span className={styles.eyebrow}>Capri marquees</span>

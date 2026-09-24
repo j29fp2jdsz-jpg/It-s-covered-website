@@ -1,11 +1,54 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import styles from '../site-pages.module.css';
 
-export default function MarqueesPage(){return <main><SiteHeader />
-<section className={styles.hero}><img className={styles.heroImage} src="https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg" alt="Capri marquee"/><div className={styles.heroOverlay}/><div className={`shell ${styles.heroInner}`}><span className={styles.eyebrow}>Capri marquees</span><h1>Distinctive spaces that feel open, elegant and easy.</h1><p>Our Capri marquees create a striking event space without feeling heavy or boxed in. We’ll help you choose the right size and layout for your guests, venue and plans.</p></div></section>
-<section className={styles.section}><div className="shell"><div className={styles.split}><img src="https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg" alt="Large Capri marquee setup"/><div className={styles.copy}><span className={styles.label}>Why Capri</span><h2>More character than a standard marquee.</h2><p>The sculpted canopy and curved openings are what give Capri marquees their recognisable look. They work brilliantly for weddings, parties, hospitality and events where the space itself needs to feel special.</p><ul className={styles.checks}><li>Distinctive curved canopy</li><li>Open, airy entrances</li><li>Flexible side-wall options</li><li>Layouts for seated or standing use</li><li>Works with bars and dance floors</li><li>Professional delivery and setup</li></ul><Link className="button button-primary button-large" href="/packages">See Packages →</Link></div></div></div></section>
-<section className={`${styles.section} ${styles.soft}`}><div className="shell"><div className={styles.sectionHead}><div><span className={styles.label}>Flexible by design</span><h2>Built around the way your event needs to work.</h2><p>Guest numbers matter, but so do seating, catering, entertainment, access and the amount of room you want people to have.</p></div></div><div className={styles.facts}><div className={styles.fact}><strong>Smaller gatherings</strong><span>Compact Capri setups for garden parties and intimate events.</span></div><div className={styles.fact}><strong>Larger celebrations</strong><span>More generous footprints for weddings, parties and hospitality.</span></div><div className={styles.fact}><strong>Tailored layouts</strong><span>Room for tables, bars, buffets, dancing and service areas.</span></div></div></div></section>
-<section className={styles.cta}><div className={`shell ${styles.ctaInner}`}><div><h2>Not sure what size you need?</h2><p>Choose your date, tell us about the event and we’ll recommend the closest fit.</p></div><Link className="button button-light button-large" href="/#booking">Choose Your Date →</Link></div></section>
-<SiteFooter /></main>}
+const views = [
+  ['/images/weddings/wedding-castle.webp','Wedding reception'],
+  ['/images/corporate/corporate-stage.webp','Presentation space'],
+  ['/images/events/event-rugby.webp','Event hospitality'],
+] as const;
+
+export default function MarqueesPage(){
+  return <main><SiteHeader />
+    <section className={styles.hero}>
+      <img className={styles.heroImage} src="/images/weddings/wedding-castle-reception.webp" alt="Capri marquee at an outdoor event"/>
+      <div className={styles.heroOverlay}/>
+      <div className={'shell ' + styles.heroInner}>
+        <span className={styles.eyebrow}>Capri marquees</span>
+        <h1>A marquee that looks different for a reason.</h1>
+        <p>High peaks, sculpted curves and open sides give Capri marquees a lighter feel than a traditional box-style marquee.</p>
+      </div>
+    </section>
+
+    <section className={styles.section}>
+      <div className="shell">
+        <div className={styles.productIntro}>
+          <div><span className={styles.label}>Why Capri</span><h2>Open when you want it. Enclosed when you need it.</h2></div>
+          <div><p>Capri marquees work especially well where the setting matters. Keep the sides open on a warm day, add walls when conditions change, and build the interior around dining, dancing, hospitality or event operations.</p></div>
+        </div>
+
+        <div className={styles.imageStrip}>
+          {views.map(([image,label])=><figure key={image}>
+            <div className={styles.stripImage}><Image src={image} alt={label} fill sizes="(max-width:700px) 84vw, 31vw"/></div>
+            <figcaption>{label}</figcaption>
+          </figure>)}
+        </div>
+      </div>
+    </section>
+
+    <section className={styles.minimalBand}>
+      <div className="shell">
+        <div className={styles.bandGrid}>
+          <div><strong>Small gardens</strong><span>Compact setups without making the space feel boxed in.</span></div>
+          <div><strong>Large celebrations</strong><span>Linked or larger footprints for more guests and more going on.</span></div>
+          <div><strong>Flexible layouts</strong><span>Dining, bars, dancing, presentations and service areas.</span></div>
+          <div><strong>Professional setup</strong><span>Delivery and installation planned around the site and event.</span></div>
+        </div>
+        <div className={styles.inlineAction}><Link className="button button-primary button-large" href="/packages">See Marquee Packages →</Link></div>
+      </div>
+    </section>
+    <SiteFooter />
+  </main>
+}

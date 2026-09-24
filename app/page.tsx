@@ -7,7 +7,7 @@ import styles from './home.module.css';
 
 const moments = [
   { href:'/events/weddings', title:'Wedding receptions', category:'Weddings', image:'/images/weddings/wedding-castle.webp' },
-  { href:'/events/parties', title:'Garden parties', category:'Parties', image:'/images/parties/party-birthday.webp' },
+  { href:'/events/parties', title:'Garden parties', category:'Parties', image:'/images/parties/party-garden.webp' },
   { href:'/events/corporate', title:'Speaker & stage setups', category:'Corporate', image:'/images/corporate/corporate-stage.webp' },
   { href:'/events/festivals-events', title:'Rugby festivals', category:'Festivals & Events', image:'/images/events/event-rugby.webp' },
   { href:'/events/festivals-events', title:'Motorsport event villages', category:'Festivals & Events', image:'/images/events/event-motocross.webp' },

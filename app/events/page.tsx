@@ -1,31 +1,49 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import styles from './events.module.css';
 
-const eventCards = [
-  { slug:'weddings', title:'Weddings', copy:'Elegant, flexible marquee spaces for ceremonies, receptions and evening celebrations.', image:'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg' },
-  { slug:'parties', title:'Parties', copy:'Birthdays, anniversaries, engagements and celebrations built around your guest list and garden.', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg' },
-  { slug:'corporate', title:'Corporate', copy:'Professional event spaces for launches, hospitality, staff events and client occasions.', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg' },
-  { slug:'festivals-events', title:'Festivals & Events', copy:'Reliable, flexible cover for public events, shows, community gatherings and festivals.', image:'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg' },
-];
+const events = [
+  { slug:'weddings', title:'Weddings', kicker:'Ceremony · reception · evening', copy:'Elegant Capri spaces for dining, dancing and celebrating around the setting you chose.', image:'/images/weddings/wedding-castle.webp' },
+  { slug:'parties', title:'Parties', kicker:'Birthdays · engagements · garden parties', copy:'Relaxed or dressed-up spaces with room for food, drinks, music and the people that matter.', image:'/images/parties/party-garden.webp' },
+  { slug:'corporate', title:'Corporate', kicker:'Hospitality · launches · presentations', copy:'Polished event spaces for networking, presentations, client hospitality and team occasions.', image:'/images/corporate/corporate-stage.webp' },
+  { slug:'festivals-events', title:'Festivals & Events', kicker:'Sport · festivals · race villages', copy:'Practical event cover for hospitality, registration, refreshments and high-footfall outdoor use.', image:'/images/events/event-motocross.webp' },
+] as const;
 
 export default function EventsPage(){
   return <main>
     <SiteHeader />
     <section className={styles.hero}>
-      <img className={styles.heroImage} src="https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg" alt="Capri marquee at an event" />
+      <img className={styles.heroImage} src="/images/events/event-rugby.webp" alt="Capri marquee at a sporting event" />
       <div className={styles.heroOverlay}/>
-      <div className={`shell ${styles.heroInner}`}><span className={styles.eyebrow}>Events with It’s Covered</span><h1>Whatever the occasion, we’ll make the space feel right.</h1><p>From intimate garden parties to weddings, corporate hospitality and large public events, we shape the marquee around the atmosphere you want to create.</p></div>
-    </section>
-    <section className={styles.intro}>
-      <div className="shell">
-        <div className={styles.introGrid}><div><span className={styles.label}>Choose your event</span><h2>Start with the occasion.</h2></div><p className={styles.introText}>Every event needs something slightly different. Guest numbers, seating style, bars, dance floors, buffet areas, access and the setting itself all change the right setup. Pick your event type below to see what we’d normally consider and how the process works.</p></div>
-        <div className={styles.cards}>{eventCards.map(card=><Link key={card.slug} href={`/events/${card.slug}`} className={styles.card}><img src={card.image} alt={`${card.title} marquee event`} /><div className={styles.cardOverlay}><h3>{card.title}</h3><p>{card.copy}</p><span>See what’s included →</span></div></Link>)}</div>
+      <div className={'shell ' + styles.heroInner}>
+        <span className={styles.eyebrow}>Events with It’s Covered</span>
+        <h1>One marquee style. Very different events.</h1>
+        <p>Choose the occasion below and see how the same Capri structure can become a completely different space.</p>
       </div>
     </section>
-    <section className={styles.section}><div className="shell"><span className={styles.label}>Handled properly</span><h2>More than just putting up a marquee.</h2><div className={styles.featureGrid}><div className={styles.feature}><strong>Planning the space</strong><p>We consider guest flow, furniture, bars, dance floors, catering and how people will actually use the marquee.</p></div><div className={styles.feature}><strong>Professional installation</strong><p>Delivery, setup and collection are planned around the venue, access and event timings.</p></div><div className={styles.feature}><strong>Site visit before confirmation</strong><p>Final availability, measurements, access and pricing are checked on site before everything is locked in.</p></div></div></div></section>
-    <section className={styles.cta}><div className={`shell ${styles.ctaInner}`}><div><h2>Know your date already?</h2><p>Start there and we’ll guide you through the rest.</p></div><Link href="/#booking" className="button button-light button-large">Choose Your Date →</Link></div></section>
+
+    <section className={styles.eventBrowse}>
+      <div className="shell">
+        {events.map((event,index)=><Link href={'/events/' + event.slug} className={styles.eventRow} key={event.slug}>
+          <div className={styles.eventImage}><Image src={event.image} alt={event.title + ' Capri marquee'} fill sizes="(max-width:760px) 100vw, 56vw"/></div>
+          <div className={styles.eventCopy}>
+            <span>{event.kicker}</span>
+            <h2>{event.title}</h2>
+            <p>{event.copy}</p>
+            <strong>Explore {event.title.toLowerCase()} →</strong>
+          </div>
+        </Link>)}
+      </div>
+    </section>
+
+    <section className={styles.cta}>
+      <div className={'shell ' + styles.ctaInner}>
+        <div><h2>Already know your date?</h2><p>Use the planner and we’ll guide you through the practical details.</p></div>
+        <Link href="/#booking" className="button button-light button-large">Start Your Booking →</Link>
+      </div>
+    </section>
     <SiteFooter />
   </main>
 }

@@ -1,17 +1,21 @@
 'use client';
 
+import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
 const items = [
-  { category:'weddings', label:'Wedding table setting', image:'https://itscovered.co.uk/wp-content/uploads/2023/04/Wedding-Table-Decorations-1.jpg' },
-  { category:'weddings', label:'Wedding guests under a Capri marquee', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Roath-Church-wedding-guests-2-p3mn5mp1l6rj6g6xkazcehi1ih9wl6tvmoxp79anzm.jpg' },
-  { category:'parties', label:'Garden Capri setup', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/20ftx20ft-Capri-Marquee-pkb3062by5kel22h6auixd0e6vqq4oxb593bn22z8y.jpg' },
-  { category:'parties', label:'Party setup', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg' },
-  { category:'parties', label:'Informal party setup', image:'https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/28x28-Caerleon-p3melmwu7h56y7kk1685e7gq9bc6fk45a9i479ymsy.jpg' },
-  { category:'corporate', label:'Larger event setup', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Roath-Church-28x38ft-marquee.jpg' },
-  { category:'corporate', label:'Open marquee layout', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Open-double-canopy.jpg' },
-  { category:'festivals-events', label:'Festival event', image:'https://itscovered.co.uk/wp-content/uploads/2018/12/marquee5.jpg' },
-  { category:'festivals-events', label:'Street food event', image:'https://itscovered.co.uk/wp-content/uploads/2021/03/Streetfood-Warehouse-DJ.jpg' },
+  { category:'weddings', label:'Castle wedding', image:'/images/weddings/wedding-castle.webp' },
+  { category:'weddings', label:'Country wedding', image:'/images/weddings/wedding-countryside.webp' },
+  { category:'weddings', label:'Wedding reception', image:'/images/weddings/wedding-castle-reception.webp' },
+  { category:'parties', label:'Garden party', image:'/images/parties/party-garden.webp' },
+  { category:'parties', label:'Engagement celebration', image:'/images/parties/party-engagement.webp' },
+  { category:'parties', label:'Outdoor party', image:'/images/parties/party-beach.webp' },
+  { category:'corporate', label:'Presentation setup', image:'/images/corporate/corporate-stage.webp' },
+  { category:'corporate', label:'Corporate reception', image:'/images/corporate/corporate-reception.webp' },
+  { category:'corporate', label:'Networking event', image:'/images/corporate/corporate-networking.webp' },
+  { category:'festivals-events', label:'Rugby hospitality', image:'/images/events/event-rugby.webp' },
+  { category:'festivals-events', label:'Motorsport event hub', image:'/images/events/event-motocross.webp' },
+  { category:'festivals-events', label:'Race registration', image:'/images/events/event-registration.webp' },
 ] as const;
 
 const filters = [
@@ -27,12 +31,12 @@ export default function WorkGallery({ classes }: { classes: Record<string,string
   const visible = useMemo(() => active === 'all' ? items : items.filter(item => item.category === active), [active]);
 
   return <>
-    <div className={classes.filterBar} role="tablist" aria-label="Filter our work">
+    <div className={classes.filterBar} role="tablist" aria-label="Filter event inspiration">
       {filters.map(([key,label]) => <button key={key} type="button" role="tab" aria-selected={active===key} className={active===key ? classes.activeFilter : ''} onClick={() => setActive(key)}>{label}</button>)}
     </div>
     <div className={classes.galleryGrid}>
-      {visible.map((item,index) => <figure className={classes.galleryCard} key={`${item.category}-${item.label}-${index}`}>
-        <img src={item.image} alt={item.label} loading="lazy" />
+      {visible.map((item,index) => <figure className={classes.galleryCard} key={item.category + '-' + item.label + '-' + index}>
+        <Image src={item.image} alt={item.label} fill sizes="(max-width:640px) 100vw, (max-width:900px) 50vw, 33vw" />
         <figcaption>{item.label}</figcaption>
       </figure>)}
     </div>

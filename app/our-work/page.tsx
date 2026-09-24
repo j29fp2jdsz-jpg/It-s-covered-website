@@ -7,13 +7,11 @@ import styles from './our-work.module.css';
 export default function OurWorkPage(){
   return <main>
     <SiteHeader />
-    <section className={styles.hero}>
-      <img src="https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg" alt="It’s Covered marquee event"/>
-      <div className={styles.overlay}/>
-      <div className={`shell ${styles.heroInner}`}>
+    <section className={styles.simpleHero}>
+      <div className="shell">
         <span className={styles.eyebrow}>Our work</span>
-        <h1>Real events. Extraordinary settings.</h1>
-        <p>Explore weddings, parties, corporate occasions and outdoor events brought to life with flexible marquee layouts and thoughtful event setups.</p>
+        <h1>Picture the possibilities.</h1>
+        <p>Weddings, parties, hospitality, sport and outdoor events — browse the visual styles and layouts that can be created with Capri marquees.</p>
       </div>
     </section>
 
@@ -21,20 +19,19 @@ export default function OurWorkPage(){
       <div className="shell">
         <div className={styles.intro}>
           <div>
-            <span className={styles.label}>Portfolio</span>
-            <h2>Browse by the kind of event you’re planning.</h2>
-            <p>Use the filters to explore weddings, parties, corporate setups and larger outdoor events.</p>
+            <span className={styles.label}>Gallery</span>
+            <h2>Less explaining. More showing.</h2>
+            <p>Use the filters to jump between different event types.</p>
           </div>
-          <Link className="button button-primary" href="/#booking">Choose Your Date →</Link>
         </div>
         <WorkGallery classes={styles} />
       </div>
     </section>
 
     <section className={styles.cta}>
-      <div className={`shell ${styles.ctaInner}`}>
-        <div><h2>Seen something you like?</h2><p>Start with your date and we’ll guide you towards the right setup.</p></div>
-        <Link className="button button-light button-large" href="/#booking">Choose Your Date →</Link>
+      <div className={'shell ' + styles.ctaInner}>
+        <div><h2>Found the sort of feel you want?</h2><p>Start with your date and we’ll work out the practical setup.</p></div>
+        <Link className="button button-light button-large" href="/#booking">Start Your Booking →</Link>
       </div>
     </section>
     <SiteFooter />

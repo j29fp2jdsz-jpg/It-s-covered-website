@@ -12,15 +12,15 @@ const moments = [
   { href:'/events/festivals-events', title:'Rugby festivals', category:'Festivals & Events', image:'/images/events/event-rugby.webp' },
   { href:'/events/festivals-events', title:'Motorsport event villages', category:'Festivals & Events', image:'/images/events/event-motocross.webp' },
   { href:'/events/festivals-events', title:'Race registration', category:'Festivals & Events', image:'/images/events/event-registration.webp' },
-  { href:'/events/weddings', title:'Country weddings', category:'Weddings', image:'/images/weddings/wedding-countryside.webp' },
-  { href:'/events/parties', title:'Outdoor celebrations', category:'Parties', image:'/images/parties/party-beach.webp' },
+  { href:'/events/weddings', title:'Wedding celebrations', category:'Weddings', image:'/images/weddings/wedding-countryside.webp' },
+  { href:'/events/festivals-events', title:'Beach festivals', category:'Festivals & Events', image:'/images/events/event-beach.webp' },
 ] as const;
 
 const packages = [
   { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'Compact and relaxed for smaller celebrations.' },
   { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', copy:'Space to mingle, eat, drink and celebrate.' },
-  { slug:'large-party', title:'Large Party', image:'/images/parties/party-beach.webp', meta:'28ft × 38ft', copy:'More room for busier parties and larger guest numbers.' },
-  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-countryside.webp', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
+  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', copy:'More room for busier parties and larger guest numbers.' },
+  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
   { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'A larger Capri setup for weddings and hospitality.' },
 ] as const;
 

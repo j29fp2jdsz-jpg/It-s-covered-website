@@ -5,17 +5,18 @@ import { useMemo, useState } from 'react';
 
 const items = [
   { category:'weddings', label:'Castle wedding', image:'/images/weddings/wedding-castle.webp' },
-  { category:'weddings', label:'Country wedding', image:'/images/weddings/wedding-countryside.webp' },
-  { category:'weddings', label:'Wedding reception', image:'/images/weddings/wedding-castle-reception.webp' },
+  { category:'weddings', label:'Wedding reception', image:'/images/weddings/wedding-countryside.webp' },
+  { category:'weddings', label:'Castle reception', image:'/images/weddings/wedding-castle-reception.webp' },
   { category:'parties', label:'Garden party', image:'/images/parties/party-garden.webp' },
   { category:'parties', label:'Engagement celebration', image:'/images/parties/party-engagement.webp' },
-  { category:'parties', label:'Outdoor party', image:'/images/parties/party-beach.webp' },
+  { category:'parties', label:'Birthday celebration', image:'/images/parties/party-birthday.webp' },
   { category:'corporate', label:'Presentation setup', image:'/images/corporate/corporate-stage.webp' },
   { category:'corporate', label:'Corporate reception', image:'/images/corporate/corporate-reception.webp' },
-  { category:'corporate', label:'Networking event', image:'/images/corporate/corporate-networking.webp' },
+  { category:'corporate', label:'Business networking', image:'/images/corporate/corporate-networking.webp' },
   { category:'festivals-events', label:'Rugby hospitality', image:'/images/events/event-rugby.webp' },
   { category:'festivals-events', label:'Motorsport event hub', image:'/images/events/event-motocross.webp' },
   { category:'festivals-events', label:'Race registration', image:'/images/events/event-registration.webp' },
+  { category:'festivals-events', label:'Beach festival', image:'/images/events/event-beach.webp' },
 ] as const;
 
 const filters = [

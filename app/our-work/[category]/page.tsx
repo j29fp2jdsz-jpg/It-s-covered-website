@@ -11,9 +11,9 @@ const work = {
     hero:'/images/weddings/wedding-castle.webp',
     images:[
       ['Castle wedding','/images/weddings/wedding-castle.webp'],
-      ['Country reception','/images/weddings/wedding-countryside.webp'],
+      ['Wedding reception','/images/weddings/wedding-countryside.webp'],
       ['Evening reception','/images/weddings/wedding-castle-reception.webp'],
-      ['Wedding atmosphere','/images/weddings/wedding-sunset-couple.webp'],
+      ['Castle reception','/images/weddings/wedding-castle-reception.webp'],
     ]
   },
   parties: {
@@ -24,7 +24,7 @@ const work = {
       ['Garden party','/images/parties/party-garden.webp'],
       ['Engagement celebration','/images/parties/party-engagement.webp'],
       ['Birthday event','/images/parties/party-birthday.webp'],
-      ['Outdoor celebration','/images/parties/party-beach.webp'],
+      ['Birthday celebration','/images/parties/party-birthday.webp'],
     ]
   },
   corporate: {
@@ -35,7 +35,7 @@ const work = {
       ['Presentation setup','/images/corporate/corporate-stage.webp'],
       ['Corporate reception','/images/corporate/corporate-reception.webp'],
       ['Networking space','/images/corporate/corporate-networking.webp'],
-      ['Evening hospitality','/images/corporate/corporate-soiree.webp'],
+      ['Business networking','/images/corporate/corporate-networking.webp'],
     ]
   },
   'festivals-events': {
@@ -47,6 +47,7 @@ const work = {
       ['Motorsport hub','/images/events/event-motocross.webp'],
       ['Running event','/images/events/event-running.webp'],
       ['Race registration','/images/events/event-registration.webp'],
+      ['Beach festival','/images/events/event-beach.webp'],
     ]
   }
 } as const;

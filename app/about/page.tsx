@@ -1,11 +1,42 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 import styles from '../site-pages.module.css';
 
-export default function AboutPage(){return <main><SiteHeader />
-<section className={styles.hero}><img className={styles.heroImage} src="https://itscovered.co.uk/wp-content/uploads/2021/03/Brilliant-party-Newport.jpg" alt="It’s Covered Capri marquee event"/><div className={styles.heroOverlay}/><div className={`shell ${styles.heroInner}`}><span className={styles.eyebrow}>About It’s Covered</span><h1>Local, experienced and straightforward to deal with.</h1><p>It’s Covered is a family-run marquee hire company based in Monmouthshire, helping customers create memorable events across South Wales and beyond.</p></div></section>
-<section className={styles.section}><div className="shell"><div className={styles.split}><img src="https://itscovered.co.uk/wp-content/uploads/elementor/thumbs/Party-Marquee-Dog-p3meq7elfheddyxmcnbv0jye7qteul968vo36p6qk2.jpg" alt="It’s Covered Capri marquee party setup"/><div className={styles.copy}><span className={styles.label}>How we work</span><h2>Good events need practical planning.</h2><p>The marquee has to work with the venue, the access, the guest flow and everything else happening on the day — not just look good in a photograph.</p><p>We keep the first enquiry simple, then confirm the practical details properly with a site visit before anything is final.</p><ul className={styles.checks}><li>Family-run service</li><li>Based in Monmouthshire</li><li>South Wales and beyond</li><li>Professional delivery and setup</li><li>Site visit before final confirmation</li><li>Events of different sizes</li></ul></div></div></div></section>
-<section className={`${styles.section} ${styles.soft}`}><div className="shell"><div className={styles.sectionHead}><div><span className={styles.label}>What matters</span><h2>Make the process clear from the beginning.</h2><p>You should be able to understand your options, know what happens next and get useful guidance without being buried in unnecessary information.</p></div></div><div className={styles.facts}><div className={styles.fact}><strong>Clear communication</strong><span>Know what’s included, what still needs checking and what happens next.</span></div><div className={styles.fact}><strong>Sensible recommendations</strong><span>Guest numbers, layout and venue needs guide the marquee options we suggest.</span></div><div className={styles.fact}><strong>Proper confirmation</strong><span>The site visit makes sure the final plan works in the real world.</span></div></div></div></section>
-<section className={styles.cta}><div className={`shell ${styles.ctaInner}`}><div><h2>Planning something?</h2><p>Start with the date and we’ll guide you from there.</p></div><Link className="button button-light button-large" href="/#booking">Choose Your Date →</Link></div></section>
-<SiteFooter /></main>}
+export default function AboutPage(){
+  return <main><SiteHeader />
+    <section className={styles.simpleHero}>
+      <div className="shell">
+        <span className={styles.label}>About It’s Covered</span>
+        <h1>Local people. Proper setup. No unnecessary fuss.</h1>
+        <p>It’s Covered is a family-run marquee hire company based in Monmouthshire, working across South Wales and beyond.</p>
+      </div>
+    </section>
+
+    <section className={styles.section}>
+      <div className={'shell ' + styles.storyGrid}>
+        <div className={styles.storyImage}><Image src="/images/events/event-rugby.webp" alt="It’s Covered style Capri marquee event" fill sizes="(max-width:760px) 100vw, 52vw"/></div>
+        <div className={styles.storyCopy}>
+          <span className={styles.label}>How we think</span>
+          <h2>Make the space look good. Make the day work even better.</h2>
+          <p>Marquee hire is only useful if the setup works in the real world. Where people arrive, where the bar sits, how catering gets in, whether guests can move comfortably and what happens if the weather changes all matter.</p>
+          <p>We keep the early stages simple, talk through what you actually need and confirm the practical details before the event. We’d rather recommend the right setup than make things more complicated than they need to be.</p>
+          <Link className="text-link" href="/marquees">Why we use Capri marquees →</Link>
+        </div>
+      </div>
+    </section>
+
+    <section className={styles.minimalBand}>
+      <div className="shell">
+        <div className={styles.bandGrid}>
+          <div><strong>Monmouthshire based</strong><span>Local knowledge with events across South Wales and beyond.</span></div>
+          <div><strong>Family run</strong><span>A straightforward service rather than a faceless booking process.</span></div>
+          <div><strong>Site-led planning</strong><span>The venue and access matter just as much as the guest count.</span></div>
+          <div><strong>Flexible events</strong><span>Weddings, parties, corporate hospitality, sport and public events.</span></div>
+        </div>
+      </div>
+    </section>
+    <SiteFooter />
+  </main>
+}

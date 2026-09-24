@@ -52,7 +52,7 @@ img { display: block; max-width: 100%; }
 .header-cta { white-space: nowrap; }
 .text-link { color: var(--green-dark); font-weight: 800; }
 
-.hero { min-height: 650px; display: grid; align-items: center; position: relative; overflow: hidden; background-image: url('https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'); background-size: cover; background-position: center 52%; }
+.hero { min-height: 650px; display: grid; align-items: center; position: relative; overflow: hidden; background-image: url('/images/hero/hero-desktop.webp'); background-size: cover; background-position: center 52%; }
 .hero::after { content: ''; position: absolute; inset: auto 0 0 0; height: 150px; background: linear-gradient(180deg, transparent, rgba(9,22,16,.20)); pointer-events: none; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,23,17,.90) 0%, rgba(10,23,17,.72) 34%, rgba(10,23,17,.33) 64%, rgba(10,23,17,.10) 100%); }
 .hero-content { position: relative; z-index: 2; color: white; padding: 108px 0 96px; }
@@ -180,7 +180,7 @@ blockquote { margin: 0; padding: 26px; border: 1px solid var(--line); border-rad
 .stars { color: var(--gold); letter-spacing: .08em; margin-bottom: 12px; font-size: 13px; }
 blockquote cite { display: block; color: var(--green-dark); font-style: normal; font-weight: 900; margin-top: 15px; }
 
-.work-teaser { min-height: 500px; position: relative; display: grid; align-items: center; overflow: hidden; background-image: url('https://itscovered.co.uk/wp-content/uploads/2026/06/Marquee-Wedding-festival0.jpg'); background-size: cover; background-position: center 48%; }
+.work-teaser { min-height: 500px; position: relative; display: grid; align-items: center; overflow: hidden; background-image: url('/images/events/event-rugby.webp'); background-size: cover; background-position: center 48%; }
 .work-teaser-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,31,22,.86) 0%, rgba(12,31,22,.64) 44%, rgba(12,31,22,.18) 78%); }
 .work-teaser-content { position: relative; z-index: 1; color: white; padding: 88px 0; max-width: 1240px; }
 .work-teaser h2 { color: white; max-width: 700px; }

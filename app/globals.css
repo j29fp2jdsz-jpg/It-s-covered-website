@@ -310,3 +310,7 @@ blockquote cite { display: block; color: var(--green-dark); font-style: normal; 
   .wizard-progress{padding-bottom:18px;margin-bottom:22px}
   .wizard-actions{padding-top:18px}
 }
+
+.brand-logo{display:flex;align-items:center;margin-right:auto;line-height:1}
+.brand-logo img{display:block;width:168px;height:auto;max-height:58px;object-fit:contain;object-position:left center}
+@media(max-width:760px){.brand-logo img{width:142px;max-height:50px}}

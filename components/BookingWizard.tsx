@@ -28,11 +28,11 @@ type SavedEnquiry = {
 };
 
 const marqueeOptions = [
-  { id: 'garden', name: 'Garden Party', capacity: 30, copy: 'Ideal for smaller garden celebrations.' },
-  { id: '45-guests', name: '45 Guests', capacity: 45, copy: 'A seated starting point for smaller weddings and events.' },
-  { id: 'informal', name: 'Informal Party', capacity: 55, copy: 'A flexible option for relaxed parties and gatherings.' },
-  { id: '80-guests', name: '80 Guests', capacity: 80, copy: 'A spacious setup for weddings, parties and corporate events.' },
-  { id: 'large', name: 'Large Party', capacity: 100, copy: 'For bigger guest lists and events needing more room.' },
+  { id: 'garden', name: 'Garden Party', capacity: 30, copy: '20ft × 20ft option for smaller garden events.' },
+  { id: '45-guests', name: '45 Guests', capacity: 45, copy: 'Seated package option for up to 45 guests.' },
+  { id: 'informal', name: 'Informal Party', capacity: 55, copy: 'Standing-party option for up to 55 guests.' },
+  { id: '80-guests', name: '80 Guests', capacity: 80, copy: 'Seated package option for up to 80 guests.' },
+  { id: 'large', name: 'Large Party', capacity: 100, copy: '28ft × 38ft standing-party option for up to 100 guests.' },
 ];
 
 const packagePresets = {
@@ -207,7 +207,7 @@ export default function BookingWizard() {
       <div className="wizard-card success-card" role="status">
         <span className="success-mark">✓</span>
         <h3>Enquiry sent.</h3>
-        <p>Thanks {contact.name}. It’s Covered now has the details needed to review your event and arrange a site visit to confirm access, measurements, availability and final pricing.</p>
+        <p>Thanks {contact.name}. It’s Covered now has the details needed to review your event and arrange a site visit to confirm access, measurements, availability and the final setup.</p>
         <button className="button button-outline" type="button" onClick={() => { setSubmitted(false); setStep(1); }}>Start another enquiry</button>
       </div>
     );
@@ -221,7 +221,7 @@ export default function BookingWizard() {
         <div><span>Included</span><strong>{activePackage.includes.length} items</strong></div>
       </div>}
       <div className="wizard-progress" aria-label={`Step ${step} of 5`}>
-        {['Date', 'Event', 'Marquee', 'Extras', 'Estimate'].map((label, index) => (
+        {['Date', 'Event', 'Marquee', 'Extras', 'Review'].map((label, index) => (
           <button type="button" key={label} className={step === index + 1 ? 'progress-step active' : step > index + 1 ? 'progress-step complete' : 'progress-step'} onClick={() => index + 1 < step && setStep(index + 1)} aria-current={step === index + 1 ? 'step' : undefined}>
             <span>{index + 1}</span>{label}
           </button>
@@ -229,7 +229,7 @@ export default function BookingWizard() {
       </div>
 
       {step === 1 && <section className="wizard-panel">
-        <span className="kicker">Step 1 of 5</span><h3>Pick your date</h3><p>Choose the date you’re planning for. Availability will be checked against the marquee and stock required for your final setup.</p>
+        <span className="kicker">Step 1 of 5</span><h3>Pick your date</h3><p>Choose your event date first. We’ll carry it through the enquiry with the marquee, package and equipment you select.</p>
         {activePackage && <div className="package-preset">
           <div><span className="package-preset-kicker">Package selected</span><strong>{activePackage.name}</strong><small>{activePackage.capacity}</small></div>
           <ul>{activePackage.includes.map((item) => <li key={item}>{item}</li>)}</ul>
@@ -240,7 +240,7 @@ export default function BookingWizard() {
       </section>}
 
       {step === 2 && <section className="wizard-panel form-grid">
-        <div className="full-field"><span className="kicker">Step 2 of 5</span><h3>Tell us about your event</h3><p>These details let us recommend a realistic setup before the site visit.</p></div>
+        <div className="full-field"><span className="kicker">Step 2 of 5</span><h3>Tell us about your event</h3><p>Guest numbers, layout, surface and access help narrow down which marquee setup is practical for the site.</p></div>
         <label>Event type<select className="field-control" value={details.type} onChange={(e) => setDetails({...details, type: e.target.value})}><option>Wedding</option><option>Birthday / Party</option><option>Corporate</option><option>Festival / Event</option><option>Other</option></select></label>
         <label>Guest count<input className="field-control" type="number" min="1" max="500" value={details.guests} onChange={(e) => setDetails({...details, guests: Number(e.target.value)})} /></label>
         <label>Layout<select className="field-control" value={details.style} onChange={(e) => setDetails({...details, style: e.target.value})}><option>Seated</option><option>Standing</option><option>Mixed</option></select></label>
@@ -249,7 +249,7 @@ export default function BookingWizard() {
         <label>Installation surface<select className="field-control" value={details.surface} onChange={(e) => setDetails({...details, surface: e.target.value})}><option>Grass</option><option>Concrete</option><option>Tarmac</option><option>Gravel</option><option>Other / unsure</option></select></label>
         <label>How close can the van get?<select className="field-control" value={details.access} onChange={(e) => setDetails({...details, access: e.target.value})}><option>Under 10m</option><option>10–25m</option><option>25–50m</option><option>50–100m</option><option>More than 100m / difficult access</option></select></label>
         <fieldset className="full-field check-group"><legend>Do you need space for any of these?</legend>{[['dancefloor','Dance floor'],['bar','Bar'],['buffet','Buffet']].map(([key,label]) => <label className="check-option" key={key}><input type="checkbox" checked={Boolean(details[key as keyof EventDetails])} onChange={(e) => setDetails({...details, [key]: e.target.checked})} />{label}</label>)}</fieldset>
-        <label className="full-field">Anything else Fin should know? <span style={{fontWeight:400, color:'#687068'}}>(optional)</span><textarea className="field-control" style={{minHeight:92, resize:'vertical'}} value={details.notes} onChange={(e) => setDetails({...details, notes:e.target.value})} placeholder="Steps, slopes, narrow gates, timings or anything unusual about the site." /></label>
+        <label className="full-field">Anything else we should know? <span style={{fontWeight:400, color:'#687068'}}>(optional)</span><textarea className="field-control" style={{minHeight:92, resize:'vertical'}} value={details.notes} onChange={(e) => setDetails({...details, notes:e.target.value})} placeholder="Steps, slopes, narrow gates, timings or anything unusual about the site." /></label>
       </section>}
 
       {step === 3 && <section className="wizard-panel">
@@ -289,7 +289,7 @@ export default function BookingWizard() {
         <label>Your name<input className="field-control" autoComplete="name" value={contact.name} onChange={(e) => setContact({...contact, name:e.target.value})} /></label>
         <label>Email address<input className="field-control" type="email" autoComplete="email" value={contact.email} onChange={(e) => setContact({...contact, email:e.target.value})} /></label>
         <label>Phone number<input className="field-control" type="tel" autoComplete="tel" value={contact.phone} onChange={(e) => setContact({...contact, phone:e.target.value})} /></label>
-        <div style={{display:'flex', alignItems:'end'}}><p style={{margin:0, color:'#687068', fontSize:14}}>Next step: Fin reviews this enquiry and arranges the site visit before anything is finally confirmed.</p></div>
+        <div style={{display:'flex', alignItems:'end'}}><p style={{margin:0, color:'#687068', fontSize:14}}>Next step: the enquiry is reviewed and a site visit can be arranged to check access, measurements and the proposed layout.</p></div>
         {submitError && <div className="provisional-note full-field" role="alert"><strong>{submitError}</strong><div style={{marginTop:12}}><a className="button button-outline" href={mailtoHref}>Send completed enquiry by email</a></div></div>}
       </section>}
 

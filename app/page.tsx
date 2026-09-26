@@ -17,11 +17,11 @@ const moments = [
 ] as const;
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'Compact and relaxed for smaller celebrations.' },
-  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', copy:'Space to mingle, eat, drink and celebrate.' },
-  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', copy:'More room for busier parties and larger guest numbers.' },
-  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
-  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'A larger Capri setup for weddings and hospitality.' },
+  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'18-seat garden setup with tables, chairs, lighting and side walls.' },
+  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', copy:'Standing party setup for up to 55 with lighting and side walls.' },
+  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', copy:'28ft × 38ft standing setup for celebrations of up to 100.' },
+  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', copy:'Seated setup for 45 with tables, chairs, matting and side walls.' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'Seated setup for 80 with tables, chairs, matting and side walls.' },
 ] as const;
 
 export default function Home() {

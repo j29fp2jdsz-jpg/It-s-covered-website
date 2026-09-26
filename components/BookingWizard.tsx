@@ -148,6 +148,7 @@ export default function BookingWizard() {
   const chosen = marqueeOptions.find((item) => item.id === marquee) ?? recommended;
   const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
   const includedExtras = activePackage ? [...activePackage.includedExtras] : [];
+  const addedExtras = extras.filter((item) => !includedExtras.includes(item));
   const toggleExtra = (extra: string) => {
     if (includedExtras.includes(extra)) return;
     setExtras((current) => current.includes(extra) ? current.filter((item) => item !== extra) : [...current, extra]);
@@ -175,10 +176,12 @@ export default function BookingWizard() {
       `Event: ${details.type}`, `Guests: ${details.guests}`, `Layout: ${details.style}`, `Venue: ${details.venue || 'Not supplied'}`,
       `Postcode: ${details.postcode}`, `Surface: ${details.surface}`, `Van access: ${details.access}`,
       `Space needed: ${[details.dancefloor && 'Dance floor', details.bar && 'Bar', details.buffet && 'Buffet'].filter(Boolean).join(', ') || 'None specified'}`,
-      `Selected package: ${activePackage?.name || 'Custom / no package'}`, `Selected marquee: ${chosen.name}`, `Included / selected items: ${extras.join(', ') || 'None selected'}`, `Notes: ${details.notes || 'None'}`,
+      `Selected package: ${activePackage?.name || 'Custom / no package'}`, `Selected marquee: ${chosen.name}`,
+      `Package includes: ${activePackage?.includes.join(', ') || 'Not applicable'}`,
+      `Added extras: ${addedExtras.join(', ') || 'None selected'}`, `Notes: ${details.notes || 'None'}`,
     ].join('\n'));
     return `mailto:info@itscovered.co.uk?subject=${subject}&body=${body}`;
-  }, [contact, date, details, chosen.name, extras, activePackage?.name]);
+  }, [contact, date, details, chosen.name, extras, activePackage?.name, activePackage?.includes, addedExtras]);
 
   async function submitEnquiry() {
     if (!stepValid || sending) return;
@@ -274,7 +277,8 @@ export default function BookingWizard() {
           <div><span>Event date</span><strong>{new Date(`${date}T12:00:00`).toLocaleDateString('en-GB')}</strong></div><div><span>Event</span><strong>{details.type} · {details.guests} guests</strong></div>
           {activePackage && <div><span>Selected package</span><strong>{activePackage.name} · {activePackage.capacity}</strong></div>}
           <div><span>Selected marquee</span><strong>{chosen.name}</strong></div><div><span>Location</span><strong>{details.venue ? `${details.venue}, ` : ''}{details.postcode}</strong></div>
-          <div><span>{activePackage ? 'Included / selected items' : 'Optional extras'}</span><strong>{extras.length ? extras.join(', ') : 'None selected'}</strong></div><div className="estimate-total"><span>Estimated cost</span><strong>Pricing to be added</strong></div>
+          {activePackage && <div><span>Package includes</span><strong>{activePackage.includes.join(', ')}</strong></div>}
+          <div><span>{activePackage ? 'Added extras' : 'Optional extras'}</span><strong>{activePackage ? (addedExtras.length ? addedExtras.join(', ') : 'None added') : (extras.length ? extras.join(', ') : 'None selected')}</strong></div><div className="estimate-total"><span>Estimated cost</span><strong>Pricing to be added</strong></div>
         </div>
         <p className="provisional-note full-field">This is an initial estimate based on the information provided. Final pricing and availability will be confirmed following a site visit.</p>
         <label>Your name<input className="field-control" autoComplete="name" value={contact.name} onChange={(e) => setContact({...contact, name:e.target.value})} /></label>

@@ -5,28 +5,28 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from '../site-pages.module.css';
 
 const views = [
-  ['/images/weddings/wedding-castle.webp','Wedding reception'],
-  ['/images/corporate/corporate-stage.webp','Presentation space'],
-  ['/images/events/event-rugby.webp','Event hospitality'],
+  ['/images/real-work/linked-capri-wide.jpg','Linked Capri setup'],
+  ['/images/real-work/large-linked-setup.jpg','Large event setup'],
+  ['/images/real-work/night-party.jpg','Evening marquee setup'],
 ] as const;
 
 export default function MarqueesPage(){
   return <main><SiteHeader />
     <section className={styles.hero}>
-      <img className={styles.heroImage} src="/images/hero/hero-desktop.webp" alt="Capri marquee at an outdoor event"/>
+      <img className={styles.heroImage} src="/images/hero/hero-desktop.webp" alt="Marquee at an outdoor event"/>
       <div className={styles.heroOverlay}/>
       <div className={'shell ' + styles.heroInner}>
-        <span className={styles.eyebrow}>Capri marquees</span>
+        <span className={styles.eyebrow}>Capri & Hex marquees</span>
         <h1>A marquee that looks different for a reason.</h1>
-        <p>Capri marquees use twin peaks, curved roof lines and open sides to create a lighter structure with fewer visual barriers around the event.</p>
+        <p>Capri marquees bring the distinctive twin-peak, curved-roof look seen across our larger event setups. We also have two Hex marquees for events that suit a different footprint.</p>
       </div>
     </section>
 
     <section className={styles.section}>
       <div className="shell">
         <div className={styles.productIntro}>
-          <div><span className={styles.label}>Why Capri</span><h2>Open when you want it. Enclosed when you need it.</h2></div>
-          <div><p>The open-sided shape works well in gardens, venues and event fields where you still want views out. Plain or clear side walls can be added when shelter is needed, while the floor plan can be set up for dining, standing guests, bars, presentations or event operations.</p></div>
+          <div><span className={styles.label}>Marquee options</span><h2>Different footprints for different events.</h2></div>
+          <div><p>Capri marquees work well in gardens, venues and event fields where open sides and flowing roof lines suit the setting. Plain or clear side walls can be added when shelter is needed. Our Hex marquees give us another option when the site or event layout calls for a different shape.</p></div>
         </div>
 
         <div className={styles.imageStrip}>

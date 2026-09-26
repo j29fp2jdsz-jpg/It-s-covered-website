@@ -40,7 +40,7 @@ export default async function PackagePage({params}:{params:Promise<{package:stri
           <p>{item.ideal}</p>
           <ul className={styles.checks}>{item.includes.map(x=><li key={x}>{x}</li>)}</ul>
           <p className={styles.note}>This is an initial package price. Final pricing and availability are confirmed after the site visit once access, delivery, layout and extras have been checked.</p>
-          <Link className="button button-primary button-large" href="/#booking">Start Your Booking →</Link>
+          <Link className="button button-primary button-large" href={'/?package=' + slug + '#booking'}>Choose this package & date →</Link>
         </div>
       </div>
     </section>

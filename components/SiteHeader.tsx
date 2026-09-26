@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -19,9 +20,8 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell nav-wrap">
-        <Link className="brand" href="/" aria-label="It's Covered home">
-          <span className="brand-main">itscovered</span>
-          <span className="brand-sub">MARQUEE HIRE</span>
+        <Link className="brand brand-logo" href="/" aria-label="It's Covered home">
+          <Image src="/images/brand/itscovered-logo.webp" alt="It's Covered Marquee Hire" width={270} height={94} priority />
         </Link>
         <nav className="desktop-nav" aria-label="Main navigation">
           {navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}

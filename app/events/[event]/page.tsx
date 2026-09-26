@@ -7,28 +7,52 @@ import styles from '../events.module.css';
 
 const eventPages = {
   weddings: {
-    title:'Wedding Marquee Hire', eyebrow:'Weddings', intro:'Create a wedding space that feels completely yours — from relaxed countryside receptions to polished evening celebrations.',
-    image:'/images/weddings/wedding-castle.webp', detail:'/images/weddings/wedding-countryside.webp',
-    body:'A Capri marquee gives you room to shape the day around the venue rather than hiding it. Dining, bars, dancing and guest flow can all be planned around the atmosphere you want.',
-    bullets:['Seated dining layouts','Bars and dance floors','Furniture, lighting and flooring','Ceremony or reception layouts']
+    title:'Wedding Marquee Hire',
+    eyebrow:'Weddings',
+    intro:'Create a wedding reception that feels connected to the venue — with space for dinner, speeches, a bar and the evening celebration.',
+    image:'/images/weddings/wedding-castle.webp',
+    detail:'/images/weddings/wedding-countryside.webp',
+    sectionLabel:'Wedding receptions',
+    sectionTitle:'Plan the room around the way your wedding day actually runs.',
+    body:'A wedding marquee needs to change character through the day. Guests need somewhere comfortable to sit and eat, speeches need clear sightlines, catering needs workable access, and the evening needs enough room for drinks and dancing without everything feeling cramped.',
+    bullets:['Dining tables and guest seating','Space for speeches, bar and evening entertainment','Flooring, lighting and furniture options','Layouts shaped around the venue and guest numbers'],
+    cta:'Plan Your Wedding Marquee'
   },
   parties: {
-    title:'Party Marquee Hire', eyebrow:'Parties', intro:'Birthdays, anniversaries, engagements and garden parties that feel like a proper occasion.',
-    image:'/images/parties/party-garden.webp', detail:'/images/parties/party-engagement.webp',
-    body:'Party setups can stay relaxed or be dressed up completely. The important bit is getting enough room for the way people will actually use the space.',
-    bullets:['Small to larger celebrations','Standing, seated or mixed layouts','Bars, buffet areas and dancing','Lighting, heating and furniture']
+    title:'Party Marquee Hire',
+    eyebrow:'Parties',
+    intro:'Give birthdays, anniversaries, engagements and garden parties a proper focal point — without turning the garden into a formal venue.',
+    image:'/images/parties/party-garden.webp',
+    detail:'/images/parties/party-engagement.webp',
+    sectionLabel:'Parties & celebrations',
+    sectionTitle:'Leave enough room for people to move, mingle and actually enjoy the party.',
+    body:'Party layouts are usually less about rows of seating and more about flow. We look at where people will gather, whether you want a bar or buffet, how much standing space you need and whether dancing or entertainment needs its own area.',
+    bullets:['Standing, seated or mixed party layouts','Bar and buffet space','Room for music, dancing or entertainment','Furniture, lighting and heating options'],
+    cta:'Plan Your Party'
   },
   corporate: {
-    title:'Corporate Marquee Hire', eyebrow:'Corporate', intro:'Professional event space for hospitality, launches, presentations, staff events and client occasions.',
-    image:'/images/corporate/corporate-stage.webp', detail:'/images/corporate/corporate-reception.webp',
-    body:'Corporate events need clear guest flow and a polished finish. The layout can be built around presentation space, networking, catering and hospitality.',
-    bullets:['Networking and hospitality','Presentation layouts','Catering and service areas','Event-timed installation']
+    title:'Corporate Marquee Hire',
+    eyebrow:'Corporate',
+    intro:'Create a professional temporary space for presentations, hospitality, launches, staff events and client occasions.',
+    image:'/images/corporate/corporate-stage.webp',
+    detail:'/images/corporate/corporate-reception.webp',
+    sectionLabel:'Corporate events',
+    sectionTitle:'Build the layout around the purpose of the event.',
+    body:'A presentation needs sightlines and seating. A networking event needs open circulation. Hospitality needs catering and service space. We plan the marquee around what guests and staff actually need to do rather than forcing every corporate event into the same layout.',
+    bullets:['Presentation and speaker areas','Networking and reception layouts','Catering and service space','Installation planned around event timings'],
+    cta:'Plan Your Corporate Event'
   },
   'festivals-events': {
-    title:'Festival & Event Marquee Hire', eyebrow:'Festivals & Events', intro:'Flexible cover for sport, public events, shows, race villages and larger outdoor occasions.',
-    image:'/images/events/event-motocross.webp', detail:'/images/events/event-registration.webp',
-    body:'Outdoor events often need the marquee to do a practical job as well as look good — registration, hospitality, refreshments, information or a central event hub.',
-    bullets:['Sport and public events','Registration and hospitality','Open-sided high-footfall layouts','Access and site planning']
+    title:'Festival & Event Marquee Hire',
+    eyebrow:'Festivals & Events',
+    intro:'Practical Capri cover for sport, race villages, festivals, public events and busy outdoor sites.',
+    image:'/images/events/event-motocross.webp',
+    detail:'/images/events/event-registration.webp',
+    sectionLabel:'Festivals, sport & public events',
+    sectionTitle:'At a busy event, the marquee needs to do a job.',
+    body:'These setups are often less about table plans and more about function. A Capri can become registration, hospitality, refreshments, information, shelter or a central event hub, with open sides helping people move through quickly on high-footfall sites.',
+    bullets:['Registration and check-in areas','Sport and event hospitality','Open-sided high-footfall layouts','Site access and operational positioning'],
+    cta:'Plan Your Event Setup'
   }
 } as const;
 
@@ -49,11 +73,11 @@ export default async function EventDetailPage({params}:{params:Promise<{event:st
       <div className={'shell ' + styles.detailGrid}>
         <div className={styles.detailImageWrap}><Image className={styles.detailImage} src={data.detail} alt={data.eyebrow + ' event setup'} fill sizes="(max-width:900px) 100vw, 52vw"/></div>
         <div className={styles.detailCopy}>
-          <span className={styles.label}>Designed around the event</span>
-          <h2>The layout should make the day easier.</h2>
+          <span className={styles.label}>{data.sectionLabel}</span>
+          <h2>{data.sectionTitle}</h2>
           <p>{data.body}</p>
           <ul className={styles.checkList}>{data.bullets.map(item=><li key={item}>{item}</li>)}</ul>
-          <Link href="/#booking" className="button button-primary button-large">Start Your Booking →</Link>
+          <Link href="/#booking" className="button button-primary button-large">{data.cta} →</Link>
         </div>
       </div>
     </section>

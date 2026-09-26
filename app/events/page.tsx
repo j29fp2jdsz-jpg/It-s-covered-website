@@ -5,8 +5,8 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from './events.module.css';
 
 const events = [
-  { slug:'weddings', title:'Weddings', kicker:'Ceremony · reception · evening', copy:'Reception spaces built around dining, speeches, a bar and the move into the evening celebration.', image:'/images/weddings/wedding-castle.webp' },
-  { slug:'parties', title:'Parties', kicker:'Birthdays · engagements · garden parties', copy:'Garden celebrations with room to mingle, serve food and drinks, add music and keep the party flowing.', image:'/images/parties/party-garden.webp' },
+  { slug:'weddings', title:'Weddings', kicker:'Ceremony · reception · evening', copy:'Reception spaces built around dining, speeches, a bar and the move into the evening celebration.', image:'/images/real-work/wedding-day-capri.webp' },
+  { slug:'parties', title:'Parties', kicker:'Birthdays · engagements · garden parties', copy:'Garden celebrations with room to mingle, serve food and drinks, add music and keep the party flowing.', image:'/images/real-work/garden-evening.jpg' },
   { slug:'corporate', title:'Corporate', kicker:'Hospitality · launches · presentations', copy:'Purpose-built temporary space for presentations, networking, hospitality, launches and staff events.', image:'/images/corporate/corporate-stage.webp' },
   { slug:'festivals-events', title:'Festivals & Events', kicker:'Sport · festivals · race villages', copy:'Working event space for registration, hospitality, refreshments, shelter and busy public sites.', image:'/images/events/event-motocross.webp' },
 ] as const;

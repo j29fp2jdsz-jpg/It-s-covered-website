@@ -9,7 +9,7 @@ export default function ContactPage(){
       <div className="shell">
         <span className={styles.label}>Contact</span>
         <h1>Got an event in mind?</h1>
-        <p>If you know the date, the booking planner is the quickest way to start. If you’d rather talk first, call or email us.</p>
+        <p>For a new event, the booking planner collects the date, guest count, venue and setup requirements. For anything else, call or email us directly.</p>
       </div>
     </section>
 
@@ -24,7 +24,7 @@ export default function ContactPage(){
         <div className={styles.contactAction}>
           <span className={styles.label}>Know your date?</span>
           <h2>Start the booking online.</h2>
-          <p>It takes you through the details we need without making the first enquiry complicated.</p>
+          <p>Add the date, event type, guest numbers, venue details and any package or extras you already have in mind.</p>
           <Link className="button button-primary button-large" href="/#booking">Start Your Booking →</Link>
         </div>
       </div>

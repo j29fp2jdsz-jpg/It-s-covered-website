@@ -18,7 +18,7 @@ export default function MarqueesPage(){
       <div className={'shell ' + styles.heroInner}>
         <span className={styles.eyebrow}>Capri marquees</span>
         <h1>A marquee that looks different for a reason.</h1>
-        <p>High peaks, sculpted curves and open sides give Capri marquees a lighter feel than a traditional box-style marquee.</p>
+        <p>Capri marquees use twin peaks, curved roof lines and open sides to create a lighter structure with fewer visual barriers around the event.</p>
       </div>
     </section>
 
@@ -26,7 +26,7 @@ export default function MarqueesPage(){
       <div className="shell">
         <div className={styles.productIntro}>
           <div><span className={styles.label}>Why Capri</span><h2>Open when you want it. Enclosed when you need it.</h2></div>
-          <div><p>Capri marquees work especially well where the setting matters. Keep the sides open on a warm day, add walls when conditions change, and build the interior around dining, dancing, hospitality or event operations.</p></div>
+          <div><p>The open-sided shape works well in gardens, venues and event fields where you still want views out. Plain or clear side walls can be added when shelter is needed, while the floor plan can be set up for dining, standing guests, bars, presentations or event operations.</p></div>
         </div>
 
         <div className={styles.imageStrip}>
@@ -44,7 +44,7 @@ export default function MarqueesPage(){
           <div><strong>Small gardens</strong><span>Compact setups without making the space feel boxed in.</span></div>
           <div><strong>Large celebrations</strong><span>Linked or larger footprints for more guests and more going on.</span></div>
           <div><strong>Flexible layouts</strong><span>Dining, bars, dancing, presentations and service areas.</span></div>
-          <div><strong>Professional setup</strong><span>Delivery and installation planned around the site and event.</span></div>
+          <div><strong>Site access matters</strong><span>Vehicle access, surface and working space are checked before the final setup is confirmed.</span></div>
         </div>
         <div className={styles.inlineAction}><Link className="button button-primary button-large" href="/packages">See Marquee Packages →</Link></div>
       </div>

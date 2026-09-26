@@ -115,7 +115,15 @@ export default function BookingWizard() {
         if (saved.marquee) setMarquee(saved.marquee);
         if (saved.extras) setExtras(saved.extras);
         if (saved.contact) setContact(saved.contact);
-        if (saved.packageSlug) setPackageSlug(saved.packageSlug);
+        if (saved.packageSlug) {
+          setPackageSlug(saved.packageSlug);
+          const savedPreset = packagePresets[saved.packageSlug as keyof typeof packagePresets];
+          if (savedPreset) {
+            setMarquee(savedPreset.marquee);
+            setExtras((saved.extras?.length ? saved.extras : [...savedPreset.includedExtras]));
+            setDetails((current) => ({ ...current, guests: savedPreset.guests, style: savedPreset.style }));
+          }
+        }
       }
 
       const requestedPackage = new URLSearchParams(window.location.search).get('package') || '';
@@ -142,11 +150,16 @@ export default function BookingWizard() {
   }, [details.guests, spaceBuffer]);
 
   useEffect(() => {
-    if (!packageSlug) setMarquee(recommended.id);
-  }, [recommended.id, packageSlug]);
+    if (activePackage) {
+      if (marquee !== activePackage.marquee) setMarquee(activePackage.marquee);
+      return;
+    }
+    setMarquee(recommended.id);
+  }, [recommended.id, activePackage, marquee]);
 
-  const chosen = marqueeOptions.find((item) => item.id === marquee) ?? recommended;
   const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
+  const effectiveMarquee = activePackage?.marquee ?? marquee;
+  const chosen = marqueeOptions.find((item) => item.id === effectiveMarquee) ?? recommended;
   const includedExtras: string[] = activePackage ? [...activePackage.includedExtras] : [];
   const addedExtras = extras.filter((item) => !includedExtras.includes(item));
   const toggleExtra = (extra: string) => {

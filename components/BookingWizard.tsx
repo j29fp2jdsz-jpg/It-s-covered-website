@@ -215,6 +215,11 @@ export default function BookingWizard() {
 
   return (
     <div className="wizard-card">
+      {activePackage && <div className="wizard-package-summary">
+        <div><span>Selected package</span><strong>{activePackage.name}</strong></div>
+        <div><span>Capacity</span><strong>{activePackage.capacity}</strong></div>
+        <div><span>Included</span><strong>{activePackage.includes.length} items</strong></div>
+      </div>}
       <div className="wizard-progress" aria-label={`Step ${step} of 5`}>
         {['Date', 'Event', 'Marquee', 'Extras', 'Estimate'].map((label, index) => (
           <button type="button" key={label} className={step === index + 1 ? 'progress-step active' : step > index + 1 ? 'progress-step complete' : 'progress-step'} onClick={() => index + 1 < step && setStep(index + 1)} aria-current={step === index + 1 ? 'step' : undefined}>

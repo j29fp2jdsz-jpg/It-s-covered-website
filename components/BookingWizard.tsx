@@ -149,6 +149,8 @@ export default function BookingWizard() {
     return marqueeOptions.find((option) => option.capacity >= effectiveGuests) ?? marqueeOptions[marqueeOptions.length - 1];
   }, [details.guests, spaceBuffer]);
 
+  const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
+
   useEffect(() => {
     if (activePackage) {
       if (marquee !== activePackage.marquee) setMarquee(activePackage.marquee);
@@ -157,7 +159,6 @@ export default function BookingWizard() {
     setMarquee(recommended.id);
   }, [recommended.id, activePackage, marquee]);
 
-  const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
   const effectiveMarquee = activePackage?.marquee ?? marquee;
   const chosen = marqueeOptions.find((item) => item.id === effectiveMarquee) ?? recommended;
   const includedExtras: string[] = activePackage ? [...activePackage.includedExtras] : [];

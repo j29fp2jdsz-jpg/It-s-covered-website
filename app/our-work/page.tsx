@@ -11,7 +11,7 @@ export default function OurWorkPage(){
       <div className="shell">
         <span className={styles.eyebrow}>Our work</span>
         <h1>Picture the possibilities.</h1>
-        <p>Weddings, parties, hospitality, sport and outdoor events — browse the visual styles and layouts that can be created with Capri marquees.</p>
+        <p>Browse wedding receptions, garden parties, corporate setups, rugby hospitality, race registration and other ways Capri marquees can be used.</p>
       </div>
     </section>
 
@@ -20,8 +20,8 @@ export default function OurWorkPage(){
         <div className={styles.intro}>
           <div>
             <span className={styles.label}>Gallery</span>
-            <h2>Less explaining. More showing.</h2>
-            <p>Use the filters to jump between different event types.</p>
+            <h2>See how the setup changes with the event.</h2>
+            <p>Filter by weddings, parties, corporate events or festivals and sport.</p>
           </div>
         </div>
         <WorkGallery classes={styles} />
@@ -30,7 +30,7 @@ export default function OurWorkPage(){
 
     <section className={styles.cta}>
       <div className={'shell ' + styles.ctaInner}>
-        <div><h2>Found the sort of feel you want?</h2><p>Start with your date and we’ll work out the practical setup.</p></div>
+        <div><h2>Seen a layout that suits your event?</h2><p>Use the booking planner to add your date, guest count, venue and any extras you need.</p></div>
         <Link className="button button-light button-large" href="/#booking">Start Your Booking →</Link>
       </div>
     </section>

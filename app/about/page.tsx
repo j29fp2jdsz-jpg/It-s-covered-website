@@ -20,8 +20,8 @@ export default function AboutPage(){
         <div className={styles.storyCopy}>
           <span className={styles.label}>How we think</span>
           <h2>Make the space look good. Make the day work even better.</h2>
-          <p>Marquee hire is only useful if the setup works in the real world. Where people arrive, where the bar sits, how catering gets in, whether guests can move comfortably and what happens if the weather changes all matter.</p>
-          <p>We keep the early stages simple, talk through what you actually need and confirm the practical details before the event. We’d rather recommend the right setup than make things more complicated than they need to be.</p>
+          <p>The practical details decide whether a marquee actually works. Vehicle access, the ground surface, where guests enter, where catering operates and whether the layout needs room for a bar, buffet, dance floor or presentation all affect the final setup.</p>
+          <p>The booking planner collects the basics first, then the site visit is used to check access, measurements and the layout in person before the final setup is agreed.</p>
           <Link className="text-link" href="/marquees">Why we use Capri marquees →</Link>
         </div>
       </div>

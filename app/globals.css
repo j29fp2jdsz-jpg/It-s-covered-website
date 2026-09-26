@@ -316,3 +316,7 @@ blockquote cite { display: block; color: var(--green-dark); font-style: normal; 
 .brand-logo{display:flex;align-items:center;margin-right:auto;line-height:1}
 .brand-logo img{display:block;width:174px;height:auto;max-height:58px;object-fit:contain;object-position:left center}
 @media(max-width:760px){.brand-logo img{width:150px;max-height:52px}}
+
+.brand-logo{display:flex;align-items:center;margin-right:auto;line-height:1}
+.brand-image{display:block;width:168px;height:auto;object-fit:contain;object-position:left center}
+@media(max-width:760px){.brand-image{width:150px}}

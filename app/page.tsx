@@ -39,7 +39,7 @@ export default function Home() {
           <div className={styles.heroCopy}>
             <p className="eyebrow">Capri marquee hire across South Wales & beyond</p>
             <h1>Beautiful spaces.<br />Made for real events.</h1>
-            <p>Weddings, parties, corporate occasions, festivals and outdoor events — professionally installed around your venue.</p>
+            <p>Capri marquees for wedding receptions, garden parties, corporate hospitality, race villages and outdoor events across South Wales.</p>
             <div className={styles.heroActions}>
               <a className="button button-primary button-large" href="#booking">Start Your Booking</a>
               <Link className="button button-ghost button-large" href="/our-work">See Our Work →</Link>
@@ -55,7 +55,7 @@ export default function Home() {
             <h2>One distinctive marquee. Loads of possibilities.</h2>
           </div>
           <div className={styles.introCopy}>
-            <p>Based in Monmouthshire, we create flexible Capri marquee spaces for events across South Wales and beyond — then handle the setup properly.</p>
+            <p>Based in Monmouthshire, we supply and install Capri marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
             <div className={styles.proofRow}>
               <span>Family run</span>
               <span>Professional setup</span>
@@ -98,7 +98,7 @@ export default function Home() {
           <div className={styles.sectionHead}>
             <div>
               <span className="kicker">Marquee packages</span>
-              <h2>A simple place to start.</h2>
+              <h2>Pick the setup closest to your event.</h2>
             </div>
             <Link href="/packages" className="text-link">Compare all packages →</Link>
           </div>
@@ -127,7 +127,7 @@ export default function Home() {
           <div className={'section-heading centered booking-heading ' + styles.bookingIntro}>
             <span className="kicker">Plan your event</span>
             <h2>Start with your date.</h2>
-            <p>Tell us when and what you’re planning. The portal guides you through the rest, then we confirm the details with a site visit.</p>
+            <p>Choose the date, tell us the event type and guest count, then add the furniture or extras your setup needs.</p>
           </div>
           <BookingWizard />
         </div>
@@ -136,9 +136,9 @@ export default function Home() {
         <div className="shell">
           <div className={styles.finalCtaInner}>
             <div>
-              <span className="kicker light">Ready when you are</span>
-              <h2>Have a date in mind?</h2>
-              <p>Start your enquiry online and we’ll take it from there.</p>
+              <span className="kicker light">Start planning</span>
+              <h2>Know the date? Build the setup.</h2>
+              <p>Choose a package or start from your guest count and work through the booking planner.</p>
             </div>
             <a className="button button-light button-large" href="#booking">Start Your Booking →</a>
           </div>

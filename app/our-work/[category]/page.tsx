@@ -12,7 +12,6 @@ const work = {
     images:[
       ['Castle wedding','/images/weddings/wedding-castle.webp'],
       ['Wedding reception','/images/weddings/wedding-countryside.webp'],
-      ['Evening reception','/images/weddings/wedding-castle-reception.webp'],
       ['Castle reception','/images/weddings/wedding-castle-reception.webp'],
     ]
   },
@@ -23,7 +22,6 @@ const work = {
     images:[
       ['Garden party','/images/parties/party-garden.webp'],
       ['Engagement celebration','/images/parties/party-engagement.webp'],
-      ['Birthday event','/images/parties/party-birthday.webp'],
       ['Birthday celebration','/images/parties/party-birthday.webp'],
     ]
   },
@@ -34,7 +32,6 @@ const work = {
     images:[
       ['Presentation setup','/images/corporate/corporate-stage.webp'],
       ['Corporate reception','/images/corporate/corporate-reception.webp'],
-      ['Networking space','/images/corporate/corporate-networking.webp'],
       ['Business networking','/images/corporate/corporate-networking.webp'],
     ]
   },

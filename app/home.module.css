@@ -62,4 +62,3 @@
 .packageLinks{display:flex;gap:14px;flex-wrap:wrap}.packageLinks a:last-child{color:#6f8f5f}
 @media(max-width:720px){.packageLinks{gap:12px}.packageLinks a{font-size:14px}}
 
-.packagePrice{display:block;margin:2px 0 10px;color:#17382c;font-size:18px;letter-spacing:-.02em}

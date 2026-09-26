@@ -34,7 +34,7 @@ export default function PackagesPage(){
               <span>{item.meta}</span>
               <h2>{item.title}</h2>
               <p>{item.copy}</p>
-              <Link href={'/packages/' + item.slug}>View package →</Link>
+              <div className={styles.packageBrowseLinks}><Link href={'/packages/' + item.slug}>View details →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose package →</Link></div>
             </div>
           </article>)}
         </div>

@@ -17,11 +17,11 @@ const moments = [
 ] as const;
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', price:'From £510', copy:'Compact and relaxed for smaller celebrations.' },
-  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', price:'From £516', copy:'Space to mingle, eat, drink and celebrate.' },
-  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', price:'From £587', copy:'More room for busier parties and larger guest numbers.' },
-  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', price:'From £1,035', copy:'A comfortable seated package with the essentials covered.' },
-  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', price:'From £1,286', copy:'A larger Capri setup for weddings and hospitality.' },
+  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'Compact and relaxed for smaller celebrations.' },
+  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', copy:'Space to mingle, eat, drink and celebrate.' },
+  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', copy:'More room for busier parties and larger guest numbers.' },
+  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'A larger Capri setup for weddings and hospitality.' },
 ] as const;
 
 export default function Home() {
@@ -123,7 +123,6 @@ export default function Home() {
                   <span>{item.meta}</span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
-                  <strong className={styles.packagePrice}>{item.price}</strong>
                   <div className={styles.packageLinks}><Link href={'/packages/' + item.slug}>View package →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose package →</Link></div>
                 </div>
               </article>

@@ -26,10 +26,10 @@ export default function SiteHeader() {
         <nav className="desktop-nav" aria-label="Main navigation">
           {navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}
         </nav>
-        <Link className="button button-primary header-cta" href="/#booking">Choose Your Date</Link>
+        <Link className="button button-primary header-cta" href="/#booking">Start Your Booking</Link>
         <button className="menu-button" type="button" onClick={() => setOpen(!open)} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? 'Close navigation' : 'Open navigation'}>{open ? '×' : '☰'}</button>
       </div>
-      {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}<Link className="button button-primary" href="/#booking">Choose Your Date</Link></nav>}
+      {open && <nav id="mobile-menu" className="mobile-nav" aria-label="Mobile navigation">{navItems.map(([label, href]) => <Link key={label} href={href} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>)}<Link className="button button-primary" href="/#booking">Start Your Booking</Link></nav>}
       <style jsx global>{`
         .desktop-nav a[aria-current='page']{color:#19392d;border-bottom-color:#6f8f5f}
         @media(max-width:760px){

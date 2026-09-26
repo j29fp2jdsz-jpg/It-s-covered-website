@@ -6,8 +6,8 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from './home.module.css';
 
 const moments = [
-  { href:'/events/weddings', title:'Wedding receptions', category:'Weddings', image:'/images/weddings/wedding-castle.webp' },
-  { href:'/events/parties', title:'Garden parties', category:'Parties', image:'/images/parties/party-garden.webp' },
+  { href:'/events/weddings', title:'Wedding receptions', category:'Weddings', image:'/images/real-work/wedding-day-capri.webp' },
+  { href:'/events/parties', title:'Garden parties', category:'Parties', image:'/images/real-work/garden-evening.jpg' },
   { href:'/events/corporate', title:'Speaker & stage setups', category:'Corporate', image:'/images/corporate/corporate-stage.webp' },
   { href:'/events/festivals-events', title:'Rugby festivals', category:'Festivals & Events', image:'/images/events/event-rugby.webp' },
   { href:'/events/festivals-events', title:'Motorsport event villages', category:'Festivals & Events', image:'/images/events/event-motocross.webp' },
@@ -53,10 +53,10 @@ export default function Home() {
           <div className={styles.introPanel}>
             <div className={styles.introLead}>
               <span className="kicker">It’s Covered Marquee Hire</span>
-              <h2>One distinctive marquee.<br />Built around your event.</h2>
+              <h2>Distinctive marquees.<br />Built around your event.</h2>
             </div>
             <div className={styles.introDetails}>
-              <p>Based in Monmouthshire, we supply and install Capri marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
+              <p>Based in Monmouthshire, we supply and install Capri and Hex marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
               <div className={styles.proofGrid}>
                 <div><span className={styles.proofIcon}>✓</span><strong>Family run</strong></div>
                 <div><span className={styles.proofIcon}>✓</span><strong>Professional setup</strong></div>

@@ -5,10 +5,10 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from './events.module.css';
 
 const events = [
-  { slug:'weddings', title:'Weddings', kicker:'Ceremony · reception · evening', copy:'Elegant Capri spaces for dining, dancing and celebrating around the setting you chose.', image:'/images/weddings/wedding-castle.webp' },
-  { slug:'parties', title:'Parties', kicker:'Birthdays · engagements · garden parties', copy:'Relaxed or dressed-up spaces with room for food, drinks, music and the people that matter.', image:'/images/parties/party-garden.webp' },
-  { slug:'corporate', title:'Corporate', kicker:'Hospitality · launches · presentations', copy:'Polished event spaces for networking, presentations, client hospitality and team occasions.', image:'/images/corporate/corporate-stage.webp' },
-  { slug:'festivals-events', title:'Festivals & Events', kicker:'Sport · festivals · race villages', copy:'Practical event cover for hospitality, registration, refreshments and high-footfall outdoor use.', image:'/images/events/event-motocross.webp' },
+  { slug:'weddings', title:'Weddings', kicker:'Ceremony · reception · evening', copy:'Reception spaces built around dining, speeches, a bar and the move into the evening celebration.', image:'/images/weddings/wedding-castle.webp' },
+  { slug:'parties', title:'Parties', kicker:'Birthdays · engagements · garden parties', copy:'Garden celebrations with room to mingle, serve food and drinks, add music and keep the party flowing.', image:'/images/parties/party-garden.webp' },
+  { slug:'corporate', title:'Corporate', kicker:'Hospitality · launches · presentations', copy:'Purpose-built temporary space for presentations, networking, hospitality, launches and staff events.', image:'/images/corporate/corporate-stage.webp' },
+  { slug:'festivals-events', title:'Festivals & Events', kicker:'Sport · festivals · race villages', copy:'Working event space for registration, hospitality, refreshments, shelter and busy public sites.', image:'/images/events/event-motocross.webp' },
 ] as const;
 
 export default function EventsPage(){

@@ -92,16 +92,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={'booking-section booking-section-direct ' + styles.bookingSection} id="booking">
-        <div className="shell">
-          <div className={'section-heading centered booking-heading ' + styles.bookingIntro}>
-            <span className="kicker">Plan your event</span>
-            <h2>Start with your date.</h2>
-            <p>Tell us when and what you’re planning. The portal guides you through the rest, then we confirm the details with a site visit.</p>
-          </div>
-          <BookingWizard />
-        </div>
-      </section>
 
       <section className={styles.packages} id="packages">
         <div className="shell">
@@ -123,7 +113,7 @@ export default function Home() {
                   <span>{item.meta}</span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
-                  <div className={styles.packageLinks}><Link href={'/packages/' + item.slug}>View package →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose package →</Link></div>
+                  <div className={styles.packageLinks}><Link href={'/packages/' + item.slug}>View package →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose this package →</Link></div>
                 </div>
               </article>
             ))}
@@ -132,6 +122,16 @@ export default function Home() {
         </div>
       </section>
 
+      <section className={'booking-section booking-section-direct ' + styles.bookingSection} id="booking">
+        <div className="shell">
+          <div className={'section-heading centered booking-heading ' + styles.bookingIntro}>
+            <span className="kicker">Plan your event</span>
+            <h2>Start with your date.</h2>
+            <p>Tell us when and what you’re planning. The portal guides you through the rest, then we confirm the details with a site visit.</p>
+          </div>
+          <BookingWizard />
+        </div>
+      </section>
       <section className={styles.finalCta}>
         <div className="shell">
           <div className={styles.finalCtaInner}>

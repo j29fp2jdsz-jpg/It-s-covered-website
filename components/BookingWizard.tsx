@@ -24,14 +24,64 @@ type SavedEnquiry = {
   marquee: string;
   extras: string[];
   contact: ContactDetails;
+  packageSlug?: string;
 };
 
 const marqueeOptions = [
   { id: 'garden', name: 'Garden Party', capacity: 30, copy: 'Ideal for smaller garden celebrations.' },
+  { id: '45-guests', name: '45 Guests', capacity: 45, copy: 'A seated starting point for smaller weddings and events.' },
   { id: 'informal', name: 'Informal Party', capacity: 55, copy: 'A flexible option for relaxed parties and gatherings.' },
   { id: '80-guests', name: '80 Guests', capacity: 80, copy: 'A spacious setup for weddings, parties and corporate events.' },
-  { id: 'large', name: 'Large Event', capacity: 120, copy: 'For bigger guest lists and events needing more room.' },
+  { id: 'large', name: 'Large Party', capacity: 100, copy: 'For bigger guest lists and events needing more room.' },
 ];
+
+const packagePresets = {
+  'garden-party': {
+    name: 'Garden Party',
+    marquee: 'garden',
+    guests: 18,
+    style: 'Seated',
+    includedExtras: ['Tables', 'Chairs', 'Lighting', 'Side walls'],
+    includes: ['20ft × 20ft Capri marquee', '18 chairs', '3 × 4ft round tables', '1 × trestle table', 'Twinkle lights', 'Plain + clear side walls'],
+    capacity: '18 seated as standard',
+  },
+  'informal-party': {
+    name: 'Informal Party',
+    marquee: 'informal',
+    guests: 55,
+    style: 'Standing',
+    includedExtras: ['Lighting', 'Side walls'],
+    includes: ['Capri marquee', 'Standing room for 55', 'Twinkle lights', 'Plain + clear side walls'],
+    capacity: 'Up to 55 standing',
+  },
+  'large-party': {
+    name: 'Large Party',
+    marquee: 'large',
+    guests: 100,
+    style: 'Standing',
+    includedExtras: ['Lighting', 'Side walls'],
+    includes: ['28ft × 38ft Capri marquee', 'Standing room for 100', 'Twinkle lights', 'Plain + clear side walls'],
+    capacity: 'Up to 100 standing',
+  },
+  '45-guests': {
+    name: '45 Guests',
+    marquee: '45-guests',
+    guests: 45,
+    style: 'Seated',
+    includedExtras: ['Tables', 'Chairs', 'Flooring', 'Side walls'],
+    includes: ['20ft × 30ft Capri marquee', '6 × 4ft round tables', '2 × trestle tables', '45 chairs', 'Dandydura matting', 'Plain + clear side walls'],
+    capacity: 'Up to 45 seated',
+  },
+  '80-guests': {
+    name: '80 Guests',
+    marquee: '80-guests',
+    guests: 80,
+    style: 'Seated',
+    includedExtras: ['Tables', 'Chairs', 'Flooring', 'Side walls'],
+    includes: ['28ft × 38ft Capri marquee', '8 × 5ft round tables', '2 × trestle tables', '80 chairs', 'Dandydura matting', 'Plain + clear side walls'],
+    capacity: 'Up to 80 seated',
+  },
+} as const;
 
 const extrasList = ['Tables', 'Chairs', 'Flooring', 'Lighting', 'Heating', 'Dance floor', 'Side walls', 'Furniture'];
 const STORAGE_KEY = 'its-covered-enquiry-v1';
@@ -48,6 +98,7 @@ export default function BookingWizard() {
   });
   const [marquee, setMarquee] = useState('80-guests');
   const [extras, setExtras] = useState<string[]>([]);
+  const [packageSlug, setPackageSlug] = useState('');
   const [contact, setContact] = useState<ContactDetails>({ name: '', email: '', phone: '' });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -64,6 +115,16 @@ export default function BookingWizard() {
         if (saved.marquee) setMarquee(saved.marquee);
         if (saved.extras) setExtras(saved.extras);
         if (saved.contact) setContact(saved.contact);
+        if (saved.packageSlug) setPackageSlug(saved.packageSlug);
+      }
+
+      const requestedPackage = new URLSearchParams(window.location.search).get('package') || '';
+      const preset = packagePresets[requestedPackage as keyof typeof packagePresets];
+      if (preset) {
+        setPackageSlug(requestedPackage);
+        setMarquee(preset.marquee);
+        setExtras([...preset.includedExtras]);
+        setDetails((current) => ({ ...current, guests: preset.guests, style: preset.style }));
       }
     } catch {}
     setLoaded(true);
@@ -71,8 +132,8 @@ export default function BookingWizard() {
 
   useEffect(() => {
     if (!loaded) return;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ date, details, marquee, extras, contact }));
-  }, [loaded, date, details, marquee, extras, contact]);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ date, details, marquee, extras, contact, packageSlug }));
+  }, [loaded, date, details, marquee, extras, contact, packageSlug]);
 
   const spaceBuffer = (details.dancefloor ? 15 : 0) + (details.bar ? 10 : 0) + (details.buffet ? 10 : 0) + (details.style === 'Seated' ? 10 : 0);
   const recommended = useMemo(() => {
@@ -81,11 +142,16 @@ export default function BookingWizard() {
   }, [details.guests, spaceBuffer]);
 
   useEffect(() => {
-    setMarquee(recommended.id);
-  }, [recommended.id]);
+    if (!packageSlug) setMarquee(recommended.id);
+  }, [recommended.id, packageSlug]);
 
   const chosen = marqueeOptions.find((item) => item.id === marquee) ?? recommended;
-  const toggleExtra = (extra: string) => setExtras((current) => current.includes(extra) ? current.filter((item) => item !== extra) : [...current, extra]);
+  const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
+  const includedExtras = activePackage ? [...activePackage.includedExtras] : [];
+  const toggleExtra = (extra: string) => {
+    if (includedExtras.includes(extra)) return;
+    setExtras((current) => current.includes(extra) ? current.filter((item) => item !== extra) : [...current, extra]);
+  };
 
   const stepValid = useMemo(() => {
     if (step === 1) return Boolean(date);
@@ -109,10 +175,10 @@ export default function BookingWizard() {
       `Event: ${details.type}`, `Guests: ${details.guests}`, `Layout: ${details.style}`, `Venue: ${details.venue || 'Not supplied'}`,
       `Postcode: ${details.postcode}`, `Surface: ${details.surface}`, `Van access: ${details.access}`,
       `Space needed: ${[details.dancefloor && 'Dance floor', details.bar && 'Bar', details.buffet && 'Buffet'].filter(Boolean).join(', ') || 'None specified'}`,
-      `Selected marquee: ${chosen.name}`, `Extras: ${extras.join(', ') || 'None selected'}`, `Notes: ${details.notes || 'None'}`,
+      `Selected package: ${activePackage?.name || 'Custom / no package'}`, `Selected marquee: ${chosen.name}`, `Included / selected items: ${extras.join(', ') || 'None selected'}`, `Notes: ${details.notes || 'None'}`,
     ].join('\n'));
     return `mailto:info@itscovered.co.uk?subject=${subject}&body=${body}`;
-  }, [contact, date, details, chosen.name, extras]);
+  }, [contact, date, details, chosen.name, extras, activePackage?.name]);
 
   async function submitEnquiry() {
     if (!stepValid || sending) return;
@@ -121,7 +187,7 @@ export default function BookingWizard() {
     try {
       const response = await fetch('/api/enquiry', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ date, details, marquee: chosen, extras, contact }),
+        body: JSON.stringify({ date, details, marquee: chosen, extras, contact, package: activePackage ? { slug: packageSlug, ...activePackage } : null }),
       });
       if (!response.ok) throw new Error('Delivery is not configured yet');
       setSubmitted(true);
@@ -156,6 +222,10 @@ export default function BookingWizard() {
 
       {step === 1 && <section className="wizard-panel">
         <span className="kicker">Step 1 of 5</span><h3>Pick your date</h3><p>Choose the date you’re planning for. Availability will be checked against the marquee and stock required for your final setup.</p>
+        {activePackage && <div className="package-preset">
+          <div><span className="package-preset-kicker">Package selected</span><strong>{activePackage.name}</strong><small>{activePackage.capacity}</small></div>
+          <ul>{activePackage.includes.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>}
         <label className="field-label" htmlFor="event-date">Event date</label>
         <input id="event-date" className="field-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().toISOString().slice(0,10)} />
         {date && <p className="provisional-note">Great — we’ll carry {new Date(`${date}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })} through the rest of your enquiry.</p>}
@@ -175,24 +245,36 @@ export default function BookingWizard() {
       </section>}
 
       {step === 3 && <section className="wizard-panel">
-        <span className="kicker">Step 3 of 5</span><h3>Pick your marquee</h3>
-        <p>For {details.guests} guests{spaceBuffer ? ' plus the extra space you asked for' : ''}, we recommend <strong>{recommended.name}</strong>. You can still choose another suitable option.</p>
-        <div className="choice-grid">{marqueeOptions.map((option) => <button type="button" key={option.id} className={`choice-card ${marquee === option.id ? 'selected' : ''}`} onClick={() => setMarquee(option.id)}>
-          {recommended.id === option.id && <span className="recommend-badge">Recommended</span>}<strong>{option.name}</strong><span>Up to {option.capacity} guests</span><small>{option.copy}</small>
-        </button>)}</div>
+        <span className="kicker">Step 3 of 5</span><h3>{activePackage ? 'Your package setup' : 'Pick your marquee'}</h3>
+        {activePackage ? <>
+          <p>You chose the <strong>{activePackage.name}</strong> package. Its standard setup is already loaded below.</p>
+          <div className="package-preset package-preset-large">
+            <div><span className="package-preset-kicker">Preset package</span><strong>{activePackage.name}</strong><small>{activePackage.capacity}</small></div>
+            <ul>{activePackage.includes.map((item) => <li key={item}>{item}</li>)}</ul>
+          </div>
+        </> : <>
+          <p>For {details.guests} guests{spaceBuffer ? ' plus the extra space you asked for' : ''}, we recommend <strong>{recommended.name}</strong>. You can still choose another suitable option.</p>
+          <div className="choice-grid">{marqueeOptions.map((option) => <button type="button" key={option.id} className={`choice-card ${marquee === option.id ? 'selected' : ''}`} onClick={() => setMarquee(option.id)}>
+            {recommended.id === option.id && <span className="recommend-badge">Recommended</span>}<strong>{option.name}</strong><span>Up to {option.capacity} guests</span><small>{option.copy}</small>
+          </button>)}</div>
+        </>}
       </section>}
 
       {step === 4 && <section className="wizard-panel">
-        <span className="kicker">Step 4 of 5</span><h3>Optional extras</h3><p>Add anything you’re considering. Nothing here is locked in until the site visit and final confirmation.</p>
-        <div className="extras-grid">{extrasList.map((extra) => <button type="button" key={extra} aria-pressed={extras.includes(extra)} className={`extra-card ${extras.includes(extra) ? 'selected' : ''}`} onClick={() => toggleExtra(extra)}><span>{extras.includes(extra) ? '✓' : '+'}</span>{extra}</button>)}</div>
+        <span className="kicker">Step 4 of 5</span><h3>{activePackage ? 'Included items & extras' : 'Optional extras'}</h3><p>{activePackage ? 'Items included in your package are already selected. Add anything else you want us to consider.' : 'Add anything you’re considering. Nothing here is locked in until the site visit and final confirmation.'}</p>
+        <div className="extras-grid">{extrasList.map((extra) => {
+          const included = includedExtras.includes(extra);
+          return <button type="button" key={extra} aria-pressed={extras.includes(extra)} disabled={included} className={`extra-card ${extras.includes(extra) ? 'selected' : ''} ${included ? 'included' : ''}`} onClick={() => toggleExtra(extra)}><span>{included ? '✓' : extras.includes(extra) ? '✓' : '+'}</span>{extra}{included && <small>Included</small>}</button>;
+        })}</div>
       </section>}
 
       {step === 5 && <section className="wizard-panel form-grid">
         <div className="full-field"><span className="kicker">Step 5 of 5</span><h3>Review your enquiry</h3><p>Pricing will plug into this screen next. For now, check the event details and tell us how to contact you.</p></div>
         <div className="estimate-box full-field">
           <div><span>Event date</span><strong>{new Date(`${date}T12:00:00`).toLocaleDateString('en-GB')}</strong></div><div><span>Event</span><strong>{details.type} · {details.guests} guests</strong></div>
+          {activePackage && <div><span>Selected package</span><strong>{activePackage.name} · {activePackage.capacity}</strong></div>}
           <div><span>Selected marquee</span><strong>{chosen.name}</strong></div><div><span>Location</span><strong>{details.venue ? `${details.venue}, ` : ''}{details.postcode}</strong></div>
-          <div><span>Optional extras</span><strong>{extras.length ? extras.join(', ') : 'None selected'}</strong></div><div className="estimate-total"><span>Estimated cost</span><strong>Pricing to be added</strong></div>
+          <div><span>{activePackage ? 'Included / selected items' : 'Optional extras'}</span><strong>{extras.length ? extras.join(', ') : 'None selected'}</strong></div><div className="estimate-total"><span>Estimated cost</span><strong>Pricing to be added</strong></div>
         </div>
         <p className="provisional-note full-field">This is an initial estimate based on the information provided. Final pricing and availability will be confirmed following a site visit.</p>
         <label>Your name<input className="field-control" autoComplete="name" value={contact.name} onChange={(e) => setContact({...contact, name:e.target.value})} /></label>

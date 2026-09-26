@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { useMemo, useState } from 'react';
 
 const items = [
-  { category:'weddings', label:'Castle wedding', image:'/images/weddings/wedding-castle.webp' },
-  { category:'weddings', label:'Wedding reception', image:'/images/weddings/wedding-countryside.webp' },
-  { category:'weddings', label:'Castle reception', image:'/images/weddings/wedding-castle-reception.webp' },
-  { category:'parties', label:'Garden party', image:'/images/parties/party-garden.webp' },
-  { category:'parties', label:'Engagement celebration', image:'/images/parties/party-engagement.webp' },
-  { category:'parties', label:'Birthday celebration', image:'/images/parties/party-birthday.webp' },
+  { category:'weddings', label:'Wedding marquee', image:'/images/real-work/wedding-day-capri.webp' },
+  { category:'weddings', label:'Wedding guests under cover', image:'/images/real-work/wedding-guests.jpg' },
+  { category:'weddings', label:'Large linked reception setup', image:'/images/real-work/large-guest-setup.jpg' },
+  { category:'parties', label:'Garden evening party', image:'/images/real-work/garden-evening.jpg' },
+  { category:'parties', label:'Night-time party setup', image:'/images/real-work/night-party.jpg' },
+  { category:'parties', label:'Venue setup with side walls', image:'/images/real-work/venue-sidewalls.jpg' },
   { category:'corporate', label:'Presentation setup', image:'/images/corporate/corporate-stage.webp' },
   { category:'corporate', label:'Corporate reception', image:'/images/corporate/corporate-reception.webp' },
   { category:'corporate', label:'Business networking', image:'/images/corporate/corporate-networking.webp' },

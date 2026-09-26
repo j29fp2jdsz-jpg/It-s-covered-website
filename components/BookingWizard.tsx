@@ -147,7 +147,7 @@ export default function BookingWizard() {
 
   const chosen = marqueeOptions.find((item) => item.id === marquee) ?? recommended;
   const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
-  const includedExtras = activePackage ? [...activePackage.includedExtras] : [];
+  const includedExtras: string[] = activePackage ? [...activePackage.includedExtras] : [];
   const addedExtras = extras.filter((item) => !includedExtras.includes(item));
   const toggleExtra = (extra: string) => {
     if (includedExtras.includes(extra)) return;

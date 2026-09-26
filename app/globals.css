@@ -311,6 +311,14 @@ blockquote cite { display: block; color: var(--green-dark); font-style: normal; 
   .wizard-actions{padding-top:18px}
 }
 
-.brand-logo{display:flex;align-items:center;margin-right:auto;line-height:1}
-.brand-logo img{display:block;width:168px;height:auto;max-height:58px;object-fit:contain;object-position:left center}
-@media(max-width:760px){.brand-logo img{width:142px;max-height:50px}}
+
+.brand-wordmark{position:relative;display:grid;grid-template-rows:27px 30px 10px;align-items:end;width:184px;min-width:184px;margin-right:auto;line-height:1}
+.brand-canopy{width:184px;height:36px;overflow:visible;align-self:end}
+.brand-word{font-family:Georgia,"Times New Roman",serif;font-size:32px;font-weight:700;letter-spacing:-.065em;color:#174b2d;line-height:.86}
+.brand-tag{font-size:7px;font-weight:900;letter-spacing:.34em;color:#315f41;text-align:center;padding-left:.34em}
+@media(max-width:760px){
+  .brand-wordmark{width:150px;min-width:150px;grid-template-rows:23px 25px 9px}
+  .brand-canopy{width:150px;height:30px}
+  .brand-word{font-size:27px}
+  .brand-tag{font-size:6px}
+}

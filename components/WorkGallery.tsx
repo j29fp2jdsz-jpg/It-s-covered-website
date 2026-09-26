@@ -29,6 +29,7 @@ const filters = [
 
 export default function WorkGallery({ classes }: { classes: Record<string,string> }) {
   const [active, setActive] = useState<(typeof filters)[number][0]>('all');
+  const [selected, setSelected] = useState<(typeof items)[number] | null>(null);
   const visible = useMemo(() => active === 'all' ? items : items.filter(item => item.category === active), [active]);
 
   return <>
@@ -36,10 +37,17 @@ export default function WorkGallery({ classes }: { classes: Record<string,string
       {filters.map(([key,label]) => <button key={key} type="button" role="tab" aria-selected={active===key} className={active===key ? classes.activeFilter : ''} onClick={() => setActive(key)}>{label}</button>)}
     </div>
     <div className={classes.galleryGrid}>
-      {visible.map((item,index) => <figure className={classes.galleryCard} key={item.category + '-' + item.label + '-' + index}>
+      {visible.map((item,index) => <button type="button" className={classes.galleryCard} key={item.category + '-' + item.label + '-' + index} onClick={() => setSelected(item)} aria-label={'Open ' + item.label}>
         <Image src={item.image} alt={item.label} fill sizes="(max-width:640px) 100vw, (max-width:900px) 50vw, 33vw" />
-        <figcaption>{item.label}</figcaption>
-      </figure>)}
+        <span className={classes.galleryCaption}>{item.label}</span>
+      </button>)}
     </div>
+    {selected && <div className={classes.lightbox} role="dialog" aria-modal="true" aria-label={selected.label} onClick={() => setSelected(null)}>
+      <button type="button" className={classes.lightboxClose} onClick={() => setSelected(null)} aria-label="Close image">×</button>
+      <div className={classes.lightboxImage} onClick={(event) => event.stopPropagation()}>
+        <Image src={selected.image} alt={selected.label} fill sizes="95vw" priority />
+        <span>{selected.label}</span>
+      </div>
+    </div>}
   </>;
 }

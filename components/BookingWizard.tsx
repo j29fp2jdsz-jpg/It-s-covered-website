@@ -272,15 +272,15 @@ export default function BookingWizard() {
       </section>}
 
       {step === 5 && <section className="wizard-panel form-grid">
-        <div className="full-field"><span className="kicker">Step 5 of 5</span><h3>Review your enquiry</h3><p>Pricing will plug into this screen next. For now, check the event details and tell us how to contact you.</p></div>
+        <div className="full-field"><span className="kicker">Step 5 of 5</span><h3>Review your enquiry</h3><p>Check the event details, package and any extras you’ve added, then tell us how to contact you.</p></div>
         <div className="estimate-box full-field">
           <div><span>Event date</span><strong>{new Date(`${date}T12:00:00`).toLocaleDateString('en-GB')}</strong></div><div><span>Event</span><strong>{details.type} · {details.guests} guests</strong></div>
           {activePackage && <div><span>Selected package</span><strong>{activePackage.name} · {activePackage.capacity}</strong></div>}
           <div><span>Selected marquee</span><strong>{chosen.name}</strong></div><div><span>Location</span><strong>{details.venue ? `${details.venue}, ` : ''}{details.postcode}</strong></div>
           {activePackage && <div><span>Package includes</span><strong>{activePackage.includes.join(', ')}</strong></div>}
-          <div><span>{activePackage ? 'Added extras' : 'Optional extras'}</span><strong>{activePackage ? (addedExtras.length ? addedExtras.join(', ') : 'None added') : (extras.length ? extras.join(', ') : 'None selected')}</strong></div><div className="estimate-total"><span>Estimated cost</span><strong>Pricing to be added</strong></div>
+          <div><span>{activePackage ? 'Added extras' : 'Optional extras'}</span><strong>{activePackage ? (addedExtras.length ? addedExtras.join(', ') : 'None added') : (extras.length ? extras.join(', ') : 'None selected')}</strong></div>
         </div>
-        <p className="provisional-note full-field">This is an initial estimate based on the information provided. Final pricing and availability will be confirmed following a site visit.</p>
+        <p className="provisional-note full-field">This enquiry is based on the information provided. Availability and final event details will be confirmed following a site visit.</p>
         <label>Your name<input className="field-control" autoComplete="name" value={contact.name} onChange={(e) => setContact({...contact, name:e.target.value})} /></label>
         <label>Email address<input className="field-control" type="email" autoComplete="email" value={contact.email} onChange={(e) => setContact({...contact, email:e.target.value})} /></label>
         <label>Phone number<input className="field-control" type="tel" autoComplete="tel" value={contact.phone} onChange={(e) => setContact({...contact, phone:e.target.value})} /></label>

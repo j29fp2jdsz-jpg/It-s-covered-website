@@ -6,7 +6,7 @@ const resendKey = process.env.RESEND_API_KEY;
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { date, details, marquee, extras, contact } = body ?? {};
+    const { date, details, marquee, extras, contact, package: selectedPackage } = body ?? {};
 
     if (!date || !details?.postcode || !marquee?.name || !contact?.name || !contact?.email || !contact?.phone) {
       return NextResponse.json({ ok: false, error: 'Missing required enquiry details.' }, { status: 400 });
@@ -33,11 +33,13 @@ export async function POST(request: Request) {
       `Van access: ${details.access}`,
       `Space needed for: ${spaceNeeds}`,
       '',
+      `Selected package: ${selectedPackage?.name || 'Custom / no package'}`,
       `Selected marquee: ${marquee.name}`,
-      `Extras: ${extras?.length ? extras.join(', ') : 'None selected'}`,
+      `Package includes: ${selectedPackage?.includes?.length ? selectedPackage.includes.join(', ') : 'Not applicable'}`,
+      `Selected extras: ${extras?.length ? extras.join(', ') : 'None selected'}`,
       `Notes: ${details.notes || 'None'}`,
       '',
-      'Please contact the customer to review the enquiry and arrange a site visit before confirming final availability and pricing.',
+      'Please contact the customer to review the enquiry and arrange a site visit before confirming availability, access, measurements and the final setup.',
     ].join('\n');
 
     const response = await fetch('https://api.resend.com/emails', {

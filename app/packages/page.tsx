@@ -5,11 +5,11 @@ import SiteFooter from '@/components/SiteFooter';
 import styles from '../site-pages.module.css';
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'A compact starting point for smaller garden celebrations.' },
-  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible layout · up to 55 standing', copy:'Relaxed space for guests to mingle, eat and celebrate.' },
-  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft · up to 100 standing', copy:'More room for bigger guest lists, bars and dancing.' },
-  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'20ft × 30ft · up to 45 seated', copy:'A practical seated starting point for smaller weddings and events.' },
-  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'28ft × 38ft · up to 80 seated', copy:'A larger seated package for weddings and hospitality.' },
+  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', price:'From £510', copy:'A compact starting point for smaller garden celebrations.' },
+  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible layout · up to 55 standing', price:'From £516', copy:'Relaxed space for guests to mingle, eat and celebrate.' },
+  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft · up to 100 standing', price:'From £587', copy:'More room for bigger guest lists, bars and dancing.' },
+  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'20ft × 30ft · up to 45 seated', price:'From £1,035', copy:'A practical seated starting point for smaller weddings and events.' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'28ft × 38ft · up to 80 seated', price:'From £1,286', copy:'A larger seated package for weddings and hospitality.' },
 ] as const;
 
 export default function PackagesPage(){
@@ -34,6 +34,7 @@ export default function PackagesPage(){
               <span>{item.meta}</span>
               <h2>{item.title}</h2>
               <p>{item.copy}</p>
+              <strong className={styles.packageBrowsePrice}>{item.price}</strong>
               <div className={styles.packageBrowseLinks}><Link href={'/packages/' + item.slug}>View details →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose package →</Link></div>
             </div>
           </article>)}

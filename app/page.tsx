@@ -17,17 +17,11 @@ const moments = [
 ] as const;
 
 const packages = [
-  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', copy:'Compact and relaxed for smaller celebrations.' },
-  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', copy:'Space to mingle, eat, drink and celebrate.' },
-  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', copy:'More room for busier parties and larger guest numbers.' },
-  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', copy:'A comfortable seated package with the essentials covered.' },
-  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'A larger Capri setup for weddings and hospitality.' },
-] as const;
-
-const testimonials = [
-  { quote:'Everything felt straightforward from the first conversation through to setup.', name:'South Wales event customer' },
-  { quote:'The marquee completely changed the space and the practical side was made easy.', name:'Private event customer' },
-  { quote:'Professional, flexible and genuinely helpful when we were working out what would fit.', name:'Event organiser' },
+  { slug:'garden-party', title:'Garden Party', image:'/images/parties/party-garden.webp', meta:'20ft × 20ft', price:'From £510', copy:'Compact and relaxed for smaller celebrations.' },
+  { slug:'informal-party', title:'Informal Party', image:'/images/parties/party-engagement.webp', meta:'Flexible party layout', price:'From £516', copy:'Space to mingle, eat, drink and celebrate.' },
+  { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', price:'From £587', copy:'More room for busier parties and larger guest numbers.' },
+  { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', price:'From £1,035', copy:'A comfortable seated package with the essentials covered.' },
+  { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', price:'From £1,286', copy:'A larger Capri setup for weddings and hospitality.' },
 ] as const;
 
 export default function Home() {
@@ -47,7 +41,7 @@ export default function Home() {
             <h1>Beautiful spaces.<br />Made for real events.</h1>
             <p>Weddings, parties, corporate occasions, festivals and outdoor events — professionally installed around your venue.</p>
             <div className={styles.heroActions}>
-              <a className="button button-primary button-large" href="#booking">Choose Your Date</a>
+              <a className="button button-primary button-large" href="#booking">Start Your Booking</a>
               <Link className="button button-ghost button-large" href="/our-work">See Our Work →</Link>
             </div>
           </div>
@@ -129,31 +123,13 @@ export default function Home() {
                   <span>{item.meta}</span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
+                  <strong className={styles.packagePrice}>{item.price}</strong>
                   <div className={styles.packageLinks}><Link href={'/packages/' + item.slug}>View package →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose package →</Link></div>
                 </div>
               </article>
             ))}
           </div>
           <div className={styles.swipeHint}>Swipe to compare →</div>
-        </div>
-      </section>
-
-      <section className={styles.testimonials}>
-        <div className="shell">
-          <div className={styles.sectionHead}>
-            <div>
-              <span className="kicker">What customers value</span>
-              <h2>Easy to deal with. Properly organised.</h2>
-            </div>
-          </div>
-          <div className={styles.testimonialGrid}>
-            {testimonials.map((item) => (
-              <blockquote key={item.quote}>
-                <p>“{item.quote}”</p>
-                <footer>{item.name}</footer>
-              </blockquote>
-            ))}
-          </div>
         </div>
       </section>
 

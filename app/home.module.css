@@ -58,3 +58,6 @@
   .hero{min-height:585px}.heroCopy h1{font-size:40px}
   .momentRail{grid-auto-columns:82%}.packageRail{grid-auto-columns:89%}
 }
+
+.packageLinks{display:flex;gap:14px;flex-wrap:wrap}.packageLinks a:last-child{color:#6f8f5f}
+@media(max-width:720px){.packageLinks{gap:12px}.packageLinks a{font-size:14px}}

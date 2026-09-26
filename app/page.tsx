@@ -129,7 +129,7 @@ export default function Home() {
                   <span>{item.meta}</span>
                   <h3>{item.title}</h3>
                   <p>{item.copy}</p>
-                  <Link href={'/packages/' + item.slug}>View package →</Link>
+                  <div className={styles.packageLinks}><Link href={'/packages/' + item.slug}>View package →</Link><Link href={'/?package=' + item.slug + '#booking'}>Choose package →</Link></div>
                 </div>
               </article>
             ))}

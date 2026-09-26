@@ -8,21 +8,22 @@ const work = {
   weddings: {
     title:'Wedding Gallery',
     intro:'Ceremony, reception and evening inspiration using Capri marquees in very different settings.',
-    hero:'/images/weddings/wedding-castle.webp',
+    hero:'/images/real-work/wedding-day-capri.webp',
     images:[
-      ['Castle wedding','/images/weddings/wedding-castle.webp'],
-      ['Wedding reception','/images/weddings/wedding-countryside.webp'],
-      ['Castle reception','/images/weddings/wedding-castle-reception.webp'],
+      ['Wedding marquee','/images/real-work/wedding-day-capri.webp'],
+      ['Wedding guests under cover','/images/real-work/wedding-guests.jpg'],
+      ['Large linked reception setup','/images/real-work/large-guest-setup.jpg'],
+      ['Linked Capri layout','/images/real-work/linked-capri-wide.jpg'],
     ]
   },
   parties: {
     title:'Party Gallery',
     intro:'Garden parties, birthdays, engagements and outdoor celebrations with room to make the space your own.',
-    hero:'/images/parties/party-garden.webp',
+    hero:'/images/real-work/garden-evening.jpg',
     images:[
-      ['Garden party','/images/parties/party-garden.webp'],
-      ['Engagement celebration','/images/parties/party-engagement.webp'],
-      ['Birthday celebration','/images/parties/party-birthday.webp'],
+      ['Garden evening party','/images/real-work/garden-evening.jpg'],
+      ['Night-time party setup','/images/real-work/night-party.jpg'],
+      ['Venue setup with side walls','/images/real-work/venue-sidewalls.jpg'],
     ]
   },
   corporate: {

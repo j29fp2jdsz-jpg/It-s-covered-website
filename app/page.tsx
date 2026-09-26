@@ -49,17 +49,19 @@ export default function Home() {
       </section>
 
       <section className={styles.intro}>
-        <div className={'shell ' + styles.introGrid}>
-          <div>
-            <span className="kicker">It’s Covered Marquee Hire</span>
-            <h2>One distinctive marquee. Loads of possibilities.</h2>
-          </div>
-          <div className={styles.introCopy}>
-            <p>Based in Monmouthshire, we supply and install Capri marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
-            <div className={styles.proofRow}>
-              <span>Family run</span>
-              <span>Professional setup</span>
-              <span>Site visit before confirmation</span>
+        <div className="shell">
+          <div className={styles.introPanel}>
+            <div className={styles.introLead}>
+              <span className="kicker">It’s Covered Marquee Hire</span>
+              <h2>One distinctive marquee.<br />Built around your event.</h2>
+            </div>
+            <div className={styles.introDetails}>
+              <p>Based in Monmouthshire, we supply and install Capri marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
+              <div className={styles.proofGrid}>
+                <div><span className={styles.proofIcon}>✓</span><strong>Family run</strong></div>
+                <div><span className={styles.proofIcon}>✓</span><strong>Professional setup</strong></div>
+                <div><span className={styles.proofIcon}>✓</span><strong>Site visit before confirmation</strong></div>
+              </div>
             </div>
           </div>
         </div>

@@ -35,7 +35,7 @@
 .packageTile{scroll-snap-align:start}.packageImage{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#eef2ec}.packageImage img{object-fit:cover;transition:transform .4s ease}.packageTile:hover img{transform:scale(1.025)}
 .packageText{padding:15px 1px 0}.packageText>span{display:block;color:#7c8b7f;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.packageText h3{font-family:var(--font-display);font-weight:600;font-size:28px;margin:5px 0 6px;letter-spacing:-.02em}.packageText p{margin:0 0 10px;color:#6b736d;line-height:1.45;font-size:14px}.packageText a{font-weight:900;color:#17382c;font-size:14px}
 
-.testimonials{background:#f7f8f4}.testimonialGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}.testimonialGrid blockquote{margin:0;padding:24px 0 0;border-top:2px solid #b8c8b0}.testimonialGrid p{font-size:19px;line-height:1.5;margin:0 0 18px}.testimonialGrid footer{font-size:12px;color:#778078;font-weight:800}
+.testimonials{background:#f7f4ed}.testimonialGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}.testimonialGrid blockquote{margin:0;padding:24px 0 0;border-top:1px solid #b49a68;background:transparent;box-shadow:none;border-radius:0}.testimonialGrid p{font-family:var(--font-display);font-size:23px;line-height:1.35;margin:0 0 18px;color:#17372d}.testimonialGrid footer{font-size:12px;color:#778078;font-weight:800}.reviewNote{margin:22px 0 0;color:#777b73;font-size:12px}.coverageSection{padding:64px 0;background:#17372d;color:#fff}.coverageInner{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:end}.coverageInner h2{font-family:var(--font-display);font-weight:500;font-size:clamp(38px,4vw,56px);line-height:1.02;letter-spacing:-.035em;margin:9px 0 0}.coverageInner p{margin:0;color:rgba(255,255,255,.78);font-size:17px;line-height:1.7}
 
 .finalCta{padding:50px 0;background:#17382c;color:#fff}.finalCtaInner{display:flex;justify-content:space-between;gap:40px;align-items:center}.finalCta h2{font-size:clamp(36px,4vw,52px);margin:8px 0 6px;letter-spacing:-.045em}.finalCta p{margin:0;color:rgba(255,255,255,.76)}
 
@@ -47,13 +47,13 @@
   .hero{min-height:590px}
   .introPanel{grid-template-columns:1fr;gap:28px;padding:42px}
   .proofGrid{grid-template-columns:1fr 1fr}
-  .testimonialGrid{grid-template-columns:1fr}
+  .testimonialGrid{grid-template-columns:1fr}.coverageInner{grid-template-columns:1fr;gap:24px}
 }
 @media(max-width:720px){
   .hero{min-height:545px}.heroImage{object-position:64% center}.heroShade{background:linear-gradient(0deg,rgba(8,25,18,.96) 0%,rgba(8,25,18,.68) 38%,rgba(8,25,18,.08) 74%)}
   .heroInner{padding-bottom:24px}.heroCopy h1{font-size:47px;line-height:.98;max-width:95%;margin:8px 0 14px}.heroCopy>p:not(.eyebrow){font-size:15px;line-height:1.5;max-width:95%}
   .heroActions{display:grid;grid-template-columns:1fr;gap:9px;margin-top:19px}.heroActions :global(.button){width:100%}
-  .intro,.moments,.packages,.testimonials{padding:44px 0}.intro h2,.sectionHead h2{font-size:38px;line-height:1.01}.introPanel{padding:30px 22px 24px;border-radius:18px;gap:24px}.introPanel:before{width:5px}.introDetails{padding-left:0}.introDetails>p{font-size:16px;line-height:1.58;margin-bottom:20px}.proofGrid{grid-template-columns:1fr;gap:8px}.proofGrid>div{min-height:48px;padding:10px 12px}.proofGrid strong{font-size:13px}
+  .intro,.moments,.packages,.testimonials{padding:44px 0}.coverageSection{padding:46px 0}.coverageInner h2{font-size:39px}.coverageInner p{font-size:15px}.intro h2,.sectionHead h2{font-size:38px;line-height:1.01}.introPanel{padding:30px 22px 24px;border-radius:18px;gap:24px}.introPanel:before{width:5px}.introDetails{padding-left:0}.introDetails>p{font-size:16px;line-height:1.58;margin-bottom:20px}.proofGrid{grid-template-columns:1fr;gap:8px}.proofGrid>div{min-height:48px;padding:10px 12px}.proofGrid strong{font-size:13px}
   .sectionHead{align-items:flex-start;flex-direction:column;margin-bottom:18px}
   .momentRail{grid-auto-columns:78%;gap:12px;margin-right:-14px;padding-right:14px}.momentImage{aspect-ratio:4/3}.momentCaption{padding-top:10px}.momentCaption strong{font-size:20px}
   .swipeHint{display:block}

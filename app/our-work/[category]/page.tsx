@@ -7,13 +7,13 @@ import styles from '../../site-pages.module.css';
 const work = {
   weddings: {
     title:'Wedding Gallery',
-    intro:'Ceremony, reception and evening inspiration using Capri marquees in very different settings.',
+    intro:'Ceremony, reception and evening inspiration using marquee setups in very different settings.',
     hero:'/images/real-work/wedding-day-capri.webp',
     images:[
       ['Wedding marquee','/images/real-work/wedding-day-capri.webp'],
       ['Wedding guests under cover','/images/real-work/wedding-guests.jpg'],
       ['Large linked reception setup','/images/real-work/large-guest-setup.jpg'],
-      ['Linked Capri layout','/images/real-work/linked-capri-wide.jpg'],
+      ['Linked marquee layout','/images/real-work/linked-capri-wide.jpg'],
     ]
   },
   parties: {

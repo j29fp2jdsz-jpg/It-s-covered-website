@@ -29,6 +29,21 @@ export default function MarqueesPage(){
           <div><p>Capri marquees work well in gardens, venues and event fields where open sides and flowing roof lines suit the setting. Plain or clear side walls can be added when shelter is needed. Our Hex marquees give us another option when the site or event layout calls for a different shape.</p></div>
         </div>
 
+        <div className={styles.marqueeTypes}>
+          <article>
+            <span className={styles.label}>Capri</span>
+            <h3>Flowing lines, open sides and flexible linked layouts.</h3>
+            <p>The Capri range gives the distinctive high-peak look seen across our wedding, party and event setups. Different sizes can be used as a starting point for seated or standing layouts, with plain and clear side-wall options included in selected packages.</p>
+            <Link href="/packages" className="text-link">See Capri package options →</Link>
+          </article>
+          <article>
+            <span className={styles.label}>Hex</span>
+            <h3>Another footprint when the site calls for something different.</h3>
+            <p>It’s Covered also has two Hex marquees. Tell us the guest numbers, event style and available space and we can check whether a Hex setup is the better fit for the site.</p>
+            <Link href="/#booking" className="text-link">Ask about a Hex setup →</Link>
+          </article>
+        </div>
+
         <div className={styles.imageStrip}>
           {views.map(([image,label])=><figure key={image}>
             <div className={styles.stripImage}><Image src={image} alt={label} fill sizes="(max-width:700px) 84vw, 31vw"/></div>
@@ -46,7 +61,7 @@ export default function MarqueesPage(){
           <div><strong>Flexible layouts</strong><span>Dining, bars, dancing, presentations and service areas.</span></div>
           <div><strong>Site access matters</strong><span>Vehicle access, surface and working space are checked before the final setup is confirmed.</span></div>
         </div>
-        <div className={styles.inlineAction}><Link className="button button-primary button-large" href="/packages">See Marquee Packages →</Link></div>
+        <div className={styles.inlineAction}><Link className="button button-primary button-large" href="/#booking">Start with your date →</Link></div>
       </div>
     </section>
     <SiteFooter />

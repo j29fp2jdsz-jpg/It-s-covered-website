@@ -43,7 +43,7 @@ export default function Home() {
             <h1>Beautiful spaces.<br />Made for real events.</h1>
             <p>Distinctive marquee hire for weddings, garden parties, corporate hospitality, race villages and outdoor events across South Wales.</p>
             <div className={styles.heroActions}>
-              <a className="button button-primary button-large" href="#booking">Start Your Booking</a>
+              <a className={"button button-large " + styles.heroPrimaryCta} href="#booking">Start Your Booking <span aria-hidden="true">→</span></a>
               <Link className="button button-ghost button-large" href="/our-work">See Our Work →</Link>
             </div>
           </div>

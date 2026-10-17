@@ -16,13 +16,13 @@ export default function AboutPage(){
 
     <section className={styles.section}>
       <div className={'shell ' + styles.storyGrid}>
-        <div className={styles.storyImage}><Image src="/images/hero/hero-desktop.webp" alt="Capri marquee event setup" fill sizes="(max-width:760px) 100vw, 52vw"/></div>
+        <div className={styles.storyImage}><Image src="/images/hero/hero-desktop.webp" alt="Marquee event setup" fill sizes="(max-width:760px) 100vw, 52vw"/></div>
         <div className={styles.storyCopy}>
           <span className={styles.label}>How we think</span>
           <h2>Make the space look good. Make the day work even better.</h2>
           <p>The practical details decide whether a marquee actually works. Vehicle access, the ground surface, where guests enter, where catering operates and whether the layout needs room for a bar, buffet, dance floor or presentation all affect the final setup.</p>
           <p>The booking planner collects the basics first, then the site visit is used to check access, measurements and the layout in person before the final setup is agreed.</p>
-          <Link className="text-link" href="/marquees">Why we use Capri marquees →</Link>
+          <Link className="text-link" href="/marquees">Explore our marquees →</Link>
         </div>
       </div>
     </section>

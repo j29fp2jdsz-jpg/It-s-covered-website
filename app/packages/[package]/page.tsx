@@ -49,6 +49,24 @@ const data = {
     includes:['28ft × 38ft marquee','8 × 5ft round tables','2 × trestle tables','80 chairs','Dandydura matting','Plain + clear side walls'],
     ideal:'Suited to larger wedding receptions, seated celebrations and corporate hospitality.',
     note:'This preset covers the core seated setup. Extra furniture, lighting, heating, a dance floor and other additions can be selected during booking.'
+  },
+  '100-guests': {
+    title:'100 Guests', image:'/images/real-work/large-linked-setup.jpg', secondary:'/images/real-work/large-guest-setup.jpg',
+    intro:'A linked marquee layout for larger seated celebrations where dining, circulation and atmosphere all need more room.',
+    size:'Two 28ft × 28ft marquees', capacity:'Up to 100 seated',
+    sectionLabel:'100 Guest package', sectionTitle:'A linked layout for a full guest list without making the room feel cramped.',
+    includes:['Two 28ft × 28ft marquees','10 × 5ft round tables','3 × trestle tables','100 chairs','12 uplights','Plain + clear side walls'],
+    ideal:'A strong starting point for larger weddings, private celebrations and hospitality events.',
+    note:'This is a larger linked setup. Final layout, access and any flooring or additional event requirements are confirmed after the site visit.'
+  },
+  'large-wedding': {
+    title:'Large Wedding', image:'/images/real-work/large-guest-setup.jpg', secondary:'/images/real-work/large-linked-setup.jpg',
+    intro:'A substantial linked setup for larger wedding receptions and formal seated events where dining and dancing need their own space.',
+    size:'Three 38ft × 28ft marquees', capacity:'Up to 150 seated',
+    sectionLabel:'Large Wedding package', sectionTitle:'A full-scale wedding layout with room for dinner, dancing and a larger guest list.',
+    includes:['Three 38ft × 28ft marquees','15 × 5ft round tables','3 × trestle tables','150 chairs','Dance floor','Plain + clear side walls'],
+    ideal:'Designed as a starting point for large wedding receptions and major seated celebrations.',
+    note:'This is the largest published package from the existing range. Final positioning, access, furniture and event requirements are confirmed after the site visit.'
   }
 } as const;
 

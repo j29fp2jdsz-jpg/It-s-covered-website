@@ -37,9 +37,9 @@ export default function Home() {
         <div className={styles.heroShade} />
         <div className={'shell ' + styles.heroInner}>
           <div className={styles.heroCopy}>
-            <p className="eyebrow">Capri marquee hire across South Wales & beyond</p>
+            <p className="eyebrow">Marquee hire across South Wales & beyond</p>
             <h1>Beautiful spaces.<br />Made for real events.</h1>
-            <p>Capri marquees for wedding receptions, garden parties, corporate hospitality, race villages and outdoor events across South Wales.</p>
+            <p>Distinctive Capri and Hex marquees for weddings, garden parties, corporate hospitality, race villages and outdoor events across South Wales.</p>
             <div className={styles.heroActions}>
               <a className="button button-primary button-large" href="#booking">Start Your Booking</a>
               <Link className="button button-ghost button-large" href="/our-work">See Our Work →</Link>
@@ -59,6 +59,7 @@ export default function Home() {
               <p>Based in Monmouthshire, we supply and install Capri and Hex marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
               <div className={styles.proofGrid}>
                 <div><span className={styles.proofIcon}>✓</span><strong>Family run</strong></div>
+                <div><span className={styles.proofIcon}>✓</span><strong>Capri + Hex options</strong></div>
                 <div><span className={styles.proofIcon}>✓</span><strong>Professional setup</strong></div>
                 <div><span className={styles.proofIcon}>✓</span><strong>Site visit before confirmation</strong></div>
               </div>
@@ -121,6 +122,43 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.swipeHint}>Swipe to compare →</div>
+        </div>
+      </section>
+
+      <section className={styles.faqSection}>
+        <div className="shell">
+          <div className={styles.sectionHead}>
+            <div>
+              <span className="kicker">Before you book</span>
+              <h2>Useful answers before we visit the site.</h2>
+            </div>
+          </div>
+          <div className={styles.faqGrid}>
+            <details>
+              <summary>How do I know which marquee or package I need?</summary>
+              <p>Start with your guest numbers and whether the event is seated, standing or mixed. The planner also asks about bars, buffets, dance floors, surface and access so we can narrow down a practical starting setup.</p>
+            </details>
+            <details>
+              <summary>Can I start an enquiry before every detail is decided?</summary>
+              <p>Yes. A date, guest count and venue postcode are enough to begin. You can add the package, layout and extras you already know about, then the practical details are refined before final confirmation.</p>
+            </details>
+            <details>
+              <summary>What extras can I include?</summary>
+              <p>The planner currently covers tables, chairs, flooring, lighting, heating, dance floor, side walls and furniture. Package items are shown separately from anything you add.</p>
+            </details>
+            <details>
+              <summary>Do you carry out a site visit?</summary>
+              <p>Yes. Access, measurements, surface, proposed layout and final event details are checked before the setup is confirmed.</p>
+            </details>
+            <details>
+              <summary>Do you only have Capri marquees?</summary>
+              <p>No. Alongside the Capri range, It’s Covered also has two Hex marquees. Tell us about the site and event and we can confirm which style is the better fit.</p>
+            </details>
+            <details>
+              <summary>Where do you cover?</summary>
+              <p>It’s Covered is based in Monmouthshire and works across South Wales and beyond. Event location is captured in the booking planner so travel and site logistics can be checked properly.</p>
+            </details>
+          </div>
         </div>
       </section>
 

@@ -11,7 +11,7 @@ export default function OurWorkPage(){
       <div className="shell">
         <span className={styles.eyebrow}>Our work</span>
         <h1>Picture the possibilities.</h1>
-        <p>Browse wedding receptions, garden parties, corporate setups, rugby hospitality, race registration and other ways Capri marquees can be used.</p>
+        <p>Browse wedding receptions, garden parties, corporate setups, rugby hospitality, race registration and other ways marquees can be used.</p>
       </div>
     </section>
 

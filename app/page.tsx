@@ -22,6 +22,8 @@ const packages = [
   { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft', copy:'28ft × 38ft standing setup for celebrations of up to 100.' },
   { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'Seated around 45', copy:'Seated setup for 45 with tables, chairs, matting and side walls.' },
   { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'Seated up to 80', copy:'Seated setup for 80 with tables, chairs, matting and side walls.' },
+  { slug:'100-guests', title:'100 Guests', image:'/images/real-work/large-linked-setup.jpg', meta:'Linked setup · up to 100 seated', copy:'A linked marquee layout with tables, chairs, uplighting and side walls.' },
+  { slug:'large-wedding', title:'Large Wedding', image:'/images/real-work/large-guest-setup.jpg', meta:'Large linked layout · up to 150 seated', copy:'A larger wedding setup with dining space, side walls and a dance floor.' },
 ] as const;
 
 export default function Home() {
@@ -119,6 +121,35 @@ export default function Home() {
         </div>
       </section>
 
+      <section className={styles.testimonials}>
+        <div className="shell">
+          <div className={styles.sectionHead}>
+            <div>
+              <span className="kicker">Kind words from past events</span>
+              <h2>Trusted for the bits that matter.</h2>
+            </div>
+          </div>
+          <div className={styles.testimonialGrid}>
+            <blockquote><p>“Helpful, communicative and highly professional.”</p><footer>Liz Mance · Raglan</footer></blockquote>
+            <blockquote><p>“Nothing was too much trouble.”</p><footer>Emma Bevan-Henderson · Tretower</footer></blockquote>
+            <blockquote><p>“Delightful, friendly, helpful guys.”</p><footer>Fiona Cameron · Usk</footer></blockquote>
+          </div>
+          <p className={styles.reviewNote}>Selected comments from customers featured on the existing It’s Covered website.</p>
+        </div>
+      </section>
+
+      <section className={styles.coverageSection}>
+        <div className="shell">
+          <div className={styles.coverageInner}>
+            <div>
+              <span className="kicker">Based in Monmouthshire</span>
+              <h2>South Wales, the Borders and beyond.</h2>
+            </div>
+            <p>We regularly work across Abergavenny, Monmouth, Chepstow, Newport, Cardiff, Swansea, Hereford, Bristol and surrounding areas. Tell us where the event is and we’ll confirm the practical travel and site details.</p>
+          </div>
+        </div>
+      </section>
+
       <section className={styles.faqSection}>
         <div className="shell">
           <div className={styles.sectionHead}>
@@ -150,7 +181,7 @@ export default function Home() {
             </details>
             <details>
               <summary>Where do you cover?</summary>
-              <p>It’s Covered is based in Monmouthshire and works across South Wales and beyond. Event location is captured in the booking planner so travel and site logistics can be checked properly.</p>
+              <p>It’s Covered is based in Monmouthshire and regularly works across South Wales and into the West of England, including Abergavenny, Monmouth, Chepstow, Newport, Cardiff, Swansea, Hereford and Bristol. Event location is captured in the booking planner so travel and site logistics can be checked properly.</p>
             </details>
           </div>
         </div>

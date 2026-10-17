@@ -14,11 +14,13 @@
   --shadow: 0 22px 60px rgba(20,44,34,.09);
   --shadow-soft: 0 12px 34px rgba(20,44,34,.06);
   --radius: 14px;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Baskerville, Georgia, serif;
+  --font-body: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); background: #f8f6f1; -webkit-font-smoothing: antialiased; }
+body { margin: 0; font-family: var(--font-body); color: var(--ink); background: #f8f6f1; -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
@@ -88,7 +90,9 @@ img { display: block; max-width: 100%; }
 .section-heading { max-width: 780px; margin: 0 0 40px; }
 .section-heading.centered { margin-inline: auto; }
 .booking-heading { margin-bottom: 38px; }
-.section-heading h2, .section-row h2, .work-teaser h2, .final-cta h2, .page-hero h1 { margin: 10px 0 13px; font-size: clamp(38px, 4.2vw, 58px); line-height: 1.01; color: var(--green-dark); letter-spacing: -.045em; }
+.section-heading h2, .section-row h2, .work-teaser h2, .final-cta h2, .page-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 500; margin: 10px 0 13px; font-size: clamp(38px, 4.2vw, 58px); line-height: 1.01; color: var(--green-dark); letter-spacing: -.045em; }
 .section-heading p, .section-row p { color: var(--muted); font-size: 17px; line-height: 1.65; }
 .section-row { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 34px; }
 .section-row > div { max-width: 760px; }
@@ -104,7 +108,7 @@ img { display: block; max-width: 100%; }
 .progress-step.active span { box-shadow: 0 0 0 5px rgba(111,143,95,.12); }
 .wizard-panel { min-height: 330px; animation: fadeUp .25s ease; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-.wizard-panel h3 { color: var(--green-dark); font-size: 34px; margin: 8px 0 8px; letter-spacing: -.035em; }
+.wizard-panel h3 { font-family: var(--font-display); font-weight: 500; color: var(--green-dark); font-size: 36px; margin: 8px 0 8px; letter-spacing: -.035em; }
 .wizard-panel > p { color: var(--muted); margin-top: 0; line-height: 1.6; }
 .field-label, .form-grid label { display: grid; gap: 8px; font-weight: 800; color: var(--green-dark); font-size: 14px; }
 .field-control { width: 100%; min-height: 50px; border: 1px solid #cdd7c9; border-radius: 11px; padding: 11px 13px; background: white; color: var(--ink); transition: border-color .2s ease, box-shadow .2s ease; }
@@ -118,7 +122,7 @@ textarea.field-control { line-height: 1.5; }
 .choice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 24px; }
 .choice-card { position: relative; text-align: left; border: 1px solid var(--line); background: #fffefa; border-radius: 10px; padding: 23px; display: grid; gap: 7px; color: var(--ink); transition: .2s ease; }
 .choice-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
-.choice-card strong { font-size: 19px; color: var(--green-dark); }
+.choice-card strong { font-family: var(--font-display); font-weight: 600; font-size: 21px; color: var(--green-dark); }
 .choice-card span, .choice-card small { color: var(--muted); }
 .choice-card small { line-height: 1.5; }
 .choice-card.selected { border: 2px solid var(--green); background: #f4f8f1; box-shadow: 0 10px 28px rgba(25,57,45,.08); }
@@ -153,7 +157,7 @@ textarea.field-control { line-height: 1.5; }
 .package-badge { position: absolute; top: 14px; right: 14px; background: var(--green-dark); color: white; border-radius: 999px; padding: 7px 10px; font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
 .package-body { padding: 22px; }
 .package-meta { display: inline-block; margin-bottom: 8px; color: var(--green); font-size: 11px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
-.package-body h3 { margin: 0 0 8px; color: var(--green-dark); font-size: 27px; letter-spacing: -.03em; }
+.package-body h3 { font-family: var(--font-display); font-weight: 600; margin: 0 0 8px; color: var(--green-dark); font-size: 29px; letter-spacing: -.025em; }
 .package-body p { color: var(--muted); line-height: 1.6; min-height: 76px; }
 .card-link { display: inline-flex; align-items: center; gap: 8px; color: var(--green-dark); font-weight: 900; }
 
@@ -163,7 +167,7 @@ textarea.field-control { line-height: 1.5; }
 .event-card:hover img { transform: scale(1.05); filter: saturate(1.04); }
 .event-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; color: white; background: linear-gradient(180deg, rgba(7,18,12,.02) 28%, rgba(7,18,12,.87) 100%); }
 .event-kicker { font-size: 10px; text-transform: uppercase; letter-spacing: .13em; opacity: .78; font-weight: 900; margin-bottom: 7px; }
-.event-overlay h3 { margin: 0 0 7px; font-size: 27px; letter-spacing: -.03em; }
+.event-overlay h3 { font-family: var(--font-display); font-weight: 600; margin: 0 0 7px; font-size: 29px; letter-spacing: -.02em; }
 .event-overlay p { margin: 0 0 14px; line-height: 1.45; font-size: 14px; color: rgba(255,255,255,.86); }
 .event-link { font-weight: 900; display: inline-flex; gap: 6px; align-items: center; }
 
@@ -326,3 +330,22 @@ blockquote cite { display: block; color: var(--green-dark); font-style: normal; 
 .desktop-nav a{letter-spacing:.015em}
 .text-link{border-bottom:1px solid rgba(23,55,45,.22);padding-bottom:2px}
 .text-link:hover{border-bottom-color:#b49a68}
+
+/* Premium-but-readable type hierarchy */
+.hero h1,
+.page-hero h1,
+.section-heading h2,
+.section-row h2,
+.work-teaser h2,
+.final-cta h2,
+.wizard-panel h3,
+.package-body h3,
+.event-overlay h3 {
+  text-rendering: optimizeLegibility;
+}
+@media(max-width:720px){
+  .wizard-panel h3{font-size:31px;line-height:1.06;letter-spacing:-.025em}
+  .choice-card strong{font-size:20px;line-height:1.08}
+  .package-body h3{font-size:27px;line-height:1.06}
+  .event-overlay h3{font-size:27px;line-height:1.06}
+}

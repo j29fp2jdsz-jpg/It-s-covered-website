@@ -172,19 +172,6 @@ export default function Home() {
           <BookingWizard />
         </div>
       </section>
-      <section className={styles.finalCta}>
-        <div className="shell">
-          <div className={styles.finalCtaInner}>
-            <div>
-              <span className="kicker light">Start planning</span>
-              <h2>Know the date? Build the setup.</h2>
-              <p>Choose a package or start from your guest count and work through the booking planner.</p>
-            </div>
-            <a className="button button-light button-large" href="#booking">Start Your Booking →</a>
-          </div>
-        </div>
-      </section>
-
       <SiteFooter />
     </main>
   );

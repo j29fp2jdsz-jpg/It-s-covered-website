@@ -38,8 +38,8 @@ const eventPages = {
     detail:'/images/corporate/corporate-reception.webp',
     sectionLabel:'Corporate events',
     sectionTitle:'Build the layout around the purpose of the event.',
-    body:'A presentation needs sightlines and seating. A networking event needs open circulation. Hospitality needs catering and service space. We plan the marquee around what guests and staff actually need to do rather than forcing every corporate event into the same layout.',
-    bullets:['Presentation and speaker areas','Networking and reception layouts','Catering and service space','Installation planned around event timings'],
+    body:'A presentation needs sightlines and seating. A networking event needs open circulation. Hospitality needs catering and service space. We plan the marquee around what guests and staff actually need to do rather than forcing every corporate event into the same layout. Tailored event-management support is also available for corporate clients.',
+    bullets:['Presentation and speaker areas','Networking and reception layouts','Catering and service space','Installation planned around event timings','Tailored corporate event-management support'],
     cta:'Plan Your Corporate Event'
   },
   'festivals-events': {

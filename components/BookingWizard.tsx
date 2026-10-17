@@ -169,9 +169,9 @@ export default function BookingWizard() {
   };
 
   const stepValid = useMemo(() => {
-    if (step === 1) return details.guests > 0 && details.guests <= 500 && postcodeLooksValid(details.postcode);
-    if (step === 2) return Boolean(activePackage);
-    if (step === 3) return Boolean(date);
+    if (step === 1) return Boolean(date);
+    if (step === 2) return details.guests > 0 && details.guests <= 500 && postcodeLooksValid(details.postcode);
+    if (step === 3) return Boolean(activePackage);
     if (step === 4) return true;
     return contact.name.trim().length > 1 && emailLooksValid(contact.email) && contact.phone.trim().length >= 7;
   }, [step, date, details, marquee, contact]);
@@ -235,18 +235,27 @@ export default function BookingWizard() {
         <div><span>Included</span><strong>{activePackage.includes.length} items</strong></div>
       </div>}
       <div className="wizard-progress" aria-label={`Step ${step} of 5`}>
-        {['Event', 'Package', 'Date', 'Extras', 'Review'].map((label, index) => (
+        {['Date', 'Event', 'Package', 'Extras', 'Review'].map((label, index) => (
           <button type="button" key={label} className={step === index + 1 ? 'progress-step active' : step > index + 1 ? 'progress-step complete' : 'progress-step'} onClick={() => index + 1 < step && setStep(index + 1)} aria-current={step === index + 1 ? 'step' : undefined}>
             <span>{index + 1}</span>{label}
           </button>
         ))}
       </div>
 
-      {step === 1 && <section className="wizard-panel form-grid">
+      {step === 1 && <section className="wizard-panel">
+        <span className="kicker">Step 1 of 5</span>
+        <h3>Pick your date</h3>
+        <p>Start with the date you have in mind. We’ll carry it through the rest of the enquiry while you tell us about the event and choose the most suitable setup.</p>
+        <label className="field-label" htmlFor="event-date">Event date</label>
+        <input id="event-date" className="field-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().toISOString().slice(0,10)} />
+        {date && <p className="provisional-note">Great — we’ll carry {new Date(`${date}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })} through the rest of your enquiry.</p>}
+      </section>}
+
+      {step === 2 && <section className="wizard-panel form-grid">
         <div className="full-field">
-          <span className="kicker">Step 1 of 5</span>
+          <span className="kicker">Step 2 of 5</span>
           <h3>Tell us about your event</h3>
-          <p>Start with the event itself. Guest numbers, layout, venue, surface and access let us recommend the closest package before you choose one.</p>
+          <p>Guest numbers, layout, venue, surface and access help us recommend the closest package before you choose one.</p>
         </div>
         <label>Event type<select className="field-control" value={details.type} onChange={(e) => setDetails({...details, type: e.target.value})}><option>Wedding</option><option>Birthday / Party</option><option>Corporate</option><option>Festival / Event</option><option>Other</option></select></label>
         <label>Guest count<input className="field-control" type="number" min="1" max="500" value={details.guests} onChange={(e) => setDetails({...details, guests: Number(e.target.value)})} /></label>
@@ -259,8 +268,8 @@ export default function BookingWizard() {
         <label className="full-field">Anything else we should know? <span style={{fontWeight:400, color:'#687068'}}>(optional)</span><textarea className="field-control" style={{minHeight:92, resize:'vertical'}} value={details.notes} onChange={(e) => setDetails({...details, notes:e.target.value})} placeholder="Steps, slopes, narrow gates, timings or anything unusual about the site." /></label>
       </section>}
 
-      {step === 2 && <section className="wizard-panel">
-        <span className="kicker">Step 2 of 5</span>
+      {step === 3 && <section className="wizard-panel">
+        <span className="kicker">Step 3 of 5</span>
         <h3>Choose your package</h3>
         <p>Based on {details.guests} guests{spaceBuffer ? ' and the extra space you asked for' : ''}, our closest starting point is <strong>{recommended.name}</strong>. You can choose that or another package if it suits your plans better.</p>
         <div className="choice-grid">
@@ -278,18 +287,6 @@ export default function BookingWizard() {
             </button>
           ))}
         </div>
-      </section>}
-
-      {step === 3 && <section className="wizard-panel">
-        <span className="kicker">Step 3 of 5</span>
-        <h3>Pick your date</h3>
-        <p>Now we know the kind of event and the package you’re considering, add the date so availability can be checked with the right setup in mind.</p>
-        {activePackage && <div className="package-preset">
-          <div><span className="package-preset-kicker">Package selected</span><strong>{activePackage.name}</strong><small>{activePackage.capacity}</small></div>
-        </div>}
-        <label className="field-label" htmlFor="event-date">Event date</label>
-        <input id="event-date" className="field-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().toISOString().slice(0,10)} />
-        {date && <p className="provisional-note">Great — we’ll carry {new Date(`${date}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })} through to your review.</p>}
       </section>}
 
       {step === 4 && <section className="wizard-panel">
@@ -319,7 +316,7 @@ export default function BookingWizard() {
 
       <div className="wizard-actions">
         {step > 1 && <button className="button button-outline" type="button" onClick={back}>Back</button>}
-        {step < 5 ? <button className="button button-primary" type="button" onClick={next} disabled={!stepValid}>{step === 1 ? 'Show Recommended Packages' : step === 2 ? 'Choose My Date' : step === 4 ? 'Review My Enquiry' : 'Continue'}</button> : <button className="button button-primary" type="button" onClick={submitEnquiry} disabled={!stepValid || sending}>{sending ? 'Sending…' : 'Send My Enquiry & Arrange Site Visit'}</button>}
+        {step < 5 ? <button className="button button-primary" type="button" onClick={next} disabled={!stepValid}>{step === 1 ? 'Add Event Details' : step === 2 ? 'Show Recommended Packages' : step === 4 ? 'Review My Enquiry' : 'Continue'}</button> : <button className="button button-primary" type="button" onClick={submitEnquiry} disabled={!stepValid || sending}>{sending ? 'Sending…' : 'Send My Enquiry & Arrange Site Visit'}</button>}
       </div>
     </div>
   );

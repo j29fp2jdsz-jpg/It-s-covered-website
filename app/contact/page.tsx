@@ -20,6 +20,7 @@ export default function ContactPage(){
           <a className={styles.bigContact} href="tel:07595497491">07595 497491</a>
           <a className={styles.bigContact} href="mailto:info@itscovered.co.uk">info@itscovered.co.uk</a>
           <p>Llanellen Court Farm<br/>Abergavenny<br/>NP7 9HT</p>
+          <p><strong>Office hours</strong><br/>Monday–Friday · 9:00–17:00</p>
         </div>
         <div className={styles.contactAction}>
           <span className={styles.label}>Know your date?</span>
@@ -27,6 +28,15 @@ export default function ContactPage(){
           <p>Add the date, event type, guest numbers, venue details and any package or extras you already have in mind.</p>
           <Link className="button button-primary button-large" href="/#booking">Start Your Booking →</Link>
         </div>
+      </div>
+    </section>
+    <section className={styles.relatedSection}>
+      <div className="shell">
+        <span className={styles.label}>Areas we cover</span>
+        <div className={styles.related}>
+          {['Abergavenny','Monmouth','Chepstow','Newport','Cardiff','Swansea','Hereford','Bristol'].map(area=><span key={area}>{area}</span>)}
+        </div>
+        <p style={{maxWidth:760,marginTop:18,color:'#6d746d',lineHeight:1.65}}>Based in Monmouthshire, It’s Covered works across South Wales and into the West of England. If your event is elsewhere, send the location through the booking planner and we can confirm whether it is practical.</p>
       </div>
     </section>
     <SiteFooter />

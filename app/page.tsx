@@ -57,12 +57,6 @@ export default function Home() {
             </div>
             <div className={styles.introDetails}>
               <p>Based in Monmouthshire, we supply and install marquees for events of different sizes, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
-              <div className={styles.proofGrid}>
-                <div><span className={styles.proofIcon}>✓</span><strong>Family run</strong></div>
-                <div><span className={styles.proofIcon}>✓</span><strong>Flexible marquee options</strong></div>
-                <div><span className={styles.proofIcon}>✓</span><strong>Professional setup</strong></div>
-                <div><span className={styles.proofIcon}>✓</span><strong>Site visit before confirmation</strong></div>
-              </div>
             </div>
           </div>
         </div>

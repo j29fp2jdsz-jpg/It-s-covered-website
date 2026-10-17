@@ -15,19 +15,19 @@ export default function EventsPage(){
   return <main>
     <SiteHeader />
     <section className={styles.hero}>
-      <img className={styles.heroImage} src="/images/events/event-rugby.webp" alt="Capri marquee at a sporting event" />
+      <img className={styles.heroImage} src="/images/events/event-rugby.webp" alt="Marquee at a sporting event" />
       <div className={styles.heroOverlay}/>
       <div className={'shell ' + styles.heroInner}>
         <span className={styles.eyebrow}>Events with It’s Covered</span>
         <h1>One marquee style. Very different events.</h1>
-        <p>Choose the occasion below and see how the same Capri structure can become a completely different space.</p>
+        <p>Choose the occasion below and see how the right marquee setup can become a completely different space.</p>
       </div>
     </section>
 
     <section className={styles.eventBrowse}>
       <div className="shell">
         {events.map((event,index)=><Link href={'/events/' + event.slug} className={styles.eventRow} key={event.slug}>
-          <div className={styles.eventImage}><Image src={event.image} alt={event.title + ' Capri marquee'} fill sizes="(max-width:760px) 100vw, 56vw"/></div>
+          <div className={styles.eventImage}><Image src={event.image} alt={event.title + ' marquee'} fill sizes="(max-width:760px) 100vw, 56vw"/></div>
           <div className={styles.eventCopy}>
             <span>{event.kicker}</span>
             <h2>{event.title}</h2>

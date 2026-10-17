@@ -46,7 +46,7 @@ const packagePresets = {
     bar: false,
     buffet: false,
     includedExtras: ['Tables', 'Chairs', 'Lighting', 'Side walls'],
-    includes: ['20ft × 20ft Capri marquee', '18 chairs', '3 × 4ft round tables', '1 × trestle table', 'Twinkle lights', 'Plain + clear side walls'],
+    includes: ['20ft × 20ft marquee', '18 chairs', '3 × 4ft round tables', '1 × trestle table', 'Twinkle lights', 'Plain + clear side walls'],
     capacity: '18 seated as standard',
   },
   'informal-party': {
@@ -59,7 +59,7 @@ const packagePresets = {
     bar: false,
     buffet: false,
     includedExtras: ['Lighting', 'Side walls'],
-    includes: ['Capri marquee', 'Standing room for 55', 'Twinkle lights', 'Plain + clear side walls'],
+    includes: ['marquee', 'Standing room for 55', 'Twinkle lights', 'Plain + clear side walls'],
     capacity: 'Up to 55 standing',
   },
   'large-party': {
@@ -72,7 +72,7 @@ const packagePresets = {
     bar: false,
     buffet: false,
     includedExtras: ['Lighting', 'Side walls'],
-    includes: ['28ft × 38ft Capri marquee', 'Standing room for 100', 'Twinkle lights', 'Plain + clear side walls'],
+    includes: ['28ft × 38ft marquee', 'Standing room for 100', 'Twinkle lights', 'Plain + clear side walls'],
     capacity: 'Up to 100 standing',
   },
   '45-guests': {
@@ -85,7 +85,7 @@ const packagePresets = {
     bar: false,
     buffet: false,
     includedExtras: ['Tables', 'Chairs', 'Flooring', 'Side walls'],
-    includes: ['20ft × 30ft Capri marquee', '6 × 4ft round tables', '2 × trestle tables', '45 chairs', 'Dandydura matting', 'Plain + clear side walls'],
+    includes: ['20ft × 30ft marquee', '6 × 4ft round tables', '2 × trestle tables', '45 chairs', 'Dandydura matting', 'Plain + clear side walls'],
     capacity: 'Up to 45 seated',
   },
   '80-guests': {
@@ -98,7 +98,7 @@ const packagePresets = {
     bar: false,
     buffet: false,
     includedExtras: ['Tables', 'Chairs', 'Flooring', 'Side walls'],
-    includes: ['28ft × 38ft Capri marquee', '8 × 5ft round tables', '2 × trestle tables', '80 chairs', 'Dandydura matting', 'Plain + clear side walls'],
+    includes: ['28ft × 38ft marquee', '8 × 5ft round tables', '2 × trestle tables', '80 chairs', 'Dandydura matting', 'Plain + clear side walls'],
     capacity: 'Up to 80 seated',
   },
 } as const;

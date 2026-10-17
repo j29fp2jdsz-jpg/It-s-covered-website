@@ -1,15 +1,15 @@
 .homeRoot{background:#f8f6f1;color:#17372d}
 .hero{position:relative;min-height:650px;display:flex;align-items:flex-end;overflow:hidden;background:#17382c}
 .hero picture{position:absolute;inset:0}.heroImage{width:100%;height:100%;object-fit:cover;object-position:center 52%;display:block}
-.heroShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,25,18,.82) 0%,rgba(8,25,18,.52) 36%,rgba(8,25,18,.07) 72%),linear-gradient(0deg,rgba(8,25,18,.30),transparent 48%)}
+.heroShade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,25,18,.86) 0%,rgba(8,25,18,.55) 38%,rgba(8,25,18,.10) 72%),linear-gradient(0deg,rgba(8,25,18,.36),transparent 52%)}
 .heroInner{position:relative;z-index:2;padding-bottom:58px}
 .heroCopy{max-width:720px;color:#fff}.heroCopy h1{font-family:var(--font-display);font-weight:500;font-size:clamp(58px,6.4vw,90px);line-height:.96;letter-spacing:-.038em;margin:12px 0 22px}
 .heroCopy>p:not(.eyebrow){max-width:600px;font-size:18px;line-height:1.6;color:rgba(255,255,255,.88)}
 .heroActions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 
 .intro{padding:70px 0;background:#f3f0e9}
-.introPanel{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:center;padding:52px 54px;background:#fffdf8;border:1px solid #dedfd5;border-radius:16px;box-shadow:0 22px 60px rgba(20,44,34,.07);overflow:hidden}
-.introPanel:before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:#b49a68}
+.introPanel{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:center;padding:58px 58px;background:#fffdf8;border:1px solid rgba(173,139,82,.28);border-radius:4px;box-shadow:0 22px 60px rgba(20,44,34,.06);overflow:hidden}
+.introPanel:before{content:"";position:absolute;left:16px;top:16px;bottom:16px;width:1px;background:#ad8b52}
 .introLead{max-width:650px}
 .intro h2,.sectionHead h2{font-family:var(--font-display);font-weight:500;font-size:clamp(39px,4.1vw,58px);line-height:1.01;letter-spacing:-.035em;margin:10px 0 0;color:#17372d}
 .introDetails{padding-left:8px}
@@ -23,7 +23,7 @@
 .sectionHead{display:flex;justify-content:space-between;gap:28px;align-items:end;margin-bottom:26px}.sectionHead>div{max-width:760px}
 
 .momentRail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(275px,28%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 8px;scrollbar-width:none}.momentRail::-webkit-scrollbar{display:none}
-.momentCard{display:block;color:inherit;scroll-snap-align:start}.momentImage{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e8eee5}.momentImage img{object-fit:cover;transition:transform .45s ease}.momentCard:hover .momentImage img{transform:scale(1.025)}
+.momentCard{display:block;color:inherit;scroll-snap-align:start}.momentImage{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e8eee5;border:1px solid rgba(173,139,82,.22);padding:5px}.momentImage img{object-fit:cover;transition:transform .45s ease}.momentCard:hover .momentImage img{transform:scale(1.025)}
 .momentCaption{padding-top:11px}.momentCaption span{display:block;color:#7b887e;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}.momentCaption strong{font-family:var(--font-display);font-weight:600;font-size:20px;letter-spacing:-.015em}
 .swipeHint{display:none;margin-top:11px;color:#7a857d;font-size:12px;font-weight:800}
 
@@ -32,7 +32,7 @@
 
 .packages{overflow:hidden;background:#fff;padding-bottom:66px}
 .packageRail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(310px,30%);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 10px;scrollbar-width:none}.packageRail::-webkit-scrollbar{display:none}
-.packageTile{scroll-snap-align:start}.packageImage{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#eef2ec}.packageImage img{object-fit:cover;transition:transform .4s ease}.packageTile:hover img{transform:scale(1.025)}
+.packageTile{scroll-snap-align:start}.packageImage{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:#eef2ec;border:1px solid rgba(173,139,82,.22);padding:5px}.packageImage img{object-fit:cover;transition:transform .4s ease}.packageTile:hover img{transform:scale(1.025)}
 .packageText{padding:15px 1px 0}.packageText>span{display:block;color:#7c8b7f;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.packageText h3{font-family:var(--font-display);font-weight:600;font-size:28px;margin:5px 0 6px;letter-spacing:-.02em}.packageText p{margin:0 0 10px;color:#6b736d;line-height:1.45;font-size:14px}.packageText a{font-weight:900;color:#17382c;font-size:14px}
 
 .testimonials{background:#f7f4ed}.testimonialGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}.testimonialGrid blockquote{margin:0;padding:24px 0 0;border-top:1px solid #b49a68;background:transparent;box-shadow:none;border-radius:0}.testimonialGrid p{font-family:var(--font-display);font-size:23px;line-height:1.35;margin:0 0 18px;color:#17372d}.testimonialGrid footer{font-size:12px;color:#778078;font-weight:800}.reviewNote{margin:22px 0 0;color:#777b73;font-size:12px}.coverageSection{padding:64px 0;background:#17372d;color:#fff}.coverageInner{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:end}.coverageInner h2{font-family:var(--font-display);font-weight:500;font-size:clamp(38px,4vw,56px);line-height:1.02;letter-spacing:-.035em;margin:9px 0 0}.coverageInner p{margin:0;color:rgba(255,255,255,.78);font-size:17px;line-height:1.7}
@@ -67,13 +67,13 @@
   .momentRail{grid-auto-columns:82%}.packageRail{grid-auto-columns:89%}
 }
 
-.packageLinks{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.packageLinks a:first-child{font-weight:800}.packageLinks a:last-child{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:10px;background:#19392d;color:#fff!important;font-weight:900}
+.packageLinks{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.packageLinks a:first-child{font-weight:800}.packageLinks a:last-child{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:5px;background:#17372d;color:#fff!important;font-weight:900}
 @media(max-width:720px){.packageLinks{gap:12px}.packageLinks a{font-size:14px}}
 
 
 .faqSection{padding:80px 0;background:#f5f2eb;border-top:1px solid #dfdfd5}
 .faqGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.faqGrid details{background:#fff;border:1px solid #dfe6dc;border-radius:10px;padding:0 20px}
+.faqGrid details{background:#fffdf8;border:1px solid rgba(173,139,82,.24);border-radius:4px;padding:0 20px}
 .faqGrid summary{cursor:pointer;list-style:none;padding:20px 28px 20px 0;font-family:var(--font-display);font-size:19px;font-weight:600;color:#17372d;position:relative}
 .faqGrid summary::-webkit-details-marker{display:none}
 .faqGrid summary:after{content:'+';position:absolute;right:0;top:18px;font-size:22px;font-weight:500;color:#6f8f5f}
@@ -108,4 +108,36 @@
     border-radius:10px;
     box-shadow:0 18px 38px rgba(4,18,13,.34), 0 0 0 1px rgba(180,154,104,.35);
   }
+}
+
+.sectionHead{position:relative;padding-top:18px}
+.sectionHead:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:54px;height:1px;
+  background:#ad8b52;
+}
+.momentCaption,.packageText{padding-left:2px}
+.momentCaption span,.packageText>span{color:#8c7755}
+.testimonialGrid blockquote{position:relative}
+.testimonialGrid blockquote:before{
+  content:"“";
+  position:absolute;
+  top:6px;left:0;
+  font-family:var(--font-display);
+  font-size:48px;
+  line-height:1;
+  color:rgba(173,139,82,.38);
+  transform:translateY(-100%);
+}
+.coverageSection{border-top:1px solid rgba(173,139,82,.32);border-bottom:1px solid rgba(173,139,82,.25)}
+@media(max-width:720px){
+  .heroInner{padding-bottom:30px}
+  .heroCopy h1{font-size:46px;line-height:.96}
+  .heroCopy>p:not(.eyebrow){font-size:15px;line-height:1.55}
+  .introPanel{padding:34px 24px 28px;border-radius:3px}
+  .introPanel:before{left:10px;top:10px;bottom:10px}
+  .momentImage,.packageImage{padding:4px}
+  .sectionHead{padding-top:15px}
 }

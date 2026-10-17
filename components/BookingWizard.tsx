@@ -33,6 +33,8 @@ const marqueeOptions = [
   { id: 'informal', name: 'Informal Party', capacity: 55, copy: 'Standing-party option for up to 55 guests.' },
   { id: '80-guests', name: '80 Guests', capacity: 80, copy: 'Seated package option for up to 80 guests.' },
   { id: 'large', name: 'Large Party', capacity: 100, copy: '28ft × 38ft standing-party option for up to 100 guests.' },
+  { id: '100-guests', name: '100 Guests', capacity: 100, copy: 'Linked seated setup for up to 100 guests.' },
+  { id: 'large-wedding', name: 'Large Wedding', capacity: 150, copy: 'Large linked seated setup for up to 150 guests.' },
 ];
 
 const packagePresets = {
@@ -101,6 +103,32 @@ const packagePresets = {
     includes: ['28ft × 38ft marquee', '8 × 5ft round tables', '2 × trestle tables', '80 chairs', 'Dandydura matting', 'Plain + clear side walls'],
     capacity: 'Up to 80 seated',
   },
+  '100-guests': {
+    name: '100 Guests',
+    marquee: '100-guests',
+    eventType: 'Wedding',
+    guests: 100,
+    style: 'Seated',
+    dancefloor: false,
+    bar: false,
+    buffet: false,
+    includedExtras: ['Tables', 'Chairs', 'Lighting', 'Side walls'],
+    includes: ['Two 28ft × 28ft marquees', '10 × 5ft round tables', '3 × trestle tables', '100 chairs', '12 uplights', 'Plain + clear side walls'],
+    capacity: 'Up to 100 seated',
+  },
+  'large-wedding': {
+    name: 'Large Wedding',
+    marquee: 'large-wedding',
+    eventType: 'Wedding',
+    guests: 150,
+    style: 'Seated',
+    dancefloor: true,
+    bar: false,
+    buffet: false,
+    includedExtras: ['Tables', 'Chairs', 'Dance floor', 'Side walls'],
+    includes: ['Three 38ft × 28ft marquees', '15 × 5ft round tables', '3 × trestle tables', '150 chairs', 'Dance floor', 'Plain + clear side walls'],
+    capacity: 'Up to 150 seated',
+  },
 } as const;
 
 const extrasList = ['Tables', 'Chairs', 'Flooring', 'Lighting', 'Heating', 'Dance floor', 'Side walls', 'Furniture'];
@@ -166,8 +194,11 @@ export default function BookingWizard() {
   const spaceBuffer = (details.dancefloor ? 15 : 0) + (details.bar ? 10 : 0) + (details.buffet ? 10 : 0) + (details.style === 'Seated' ? 10 : 0);
   const recommended = useMemo(() => {
     const effectiveGuests = details.guests + spaceBuffer;
-    return marqueeOptions.find((option) => option.capacity >= effectiveGuests) ?? marqueeOptions[marqueeOptions.length - 1];
-  }, [details.guests, spaceBuffer]);
+    const pool = details.style === 'Seated'
+      ? marqueeOptions.filter((option) => ['garden','45-guests','80-guests','100-guests','large-wedding'].includes(option.id))
+      : marqueeOptions.filter((option) => !['45-guests','80-guests','100-guests','large-wedding'].includes(option.id));
+    return pool.find((option) => option.capacity >= effectiveGuests) ?? pool[pool.length - 1] ?? marqueeOptions[marqueeOptions.length - 1];
+  }, [details.guests, details.style, spaceBuffer]);
 
   const activePackage = packageSlug ? packagePresets[packageSlug as keyof typeof packagePresets] : undefined;
 

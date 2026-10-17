@@ -28,7 +28,7 @@ export default function PackagesPage(){
         <div className={styles.packageBrowse}>
           {packages.map(item=><article className={styles.packageBrowseCard} key={item.slug}>
             <Link href={'/packages/' + item.slug} className={styles.packageBrowseImage}>
-              <Image src={item.image} alt={item.title + ' Capri marquee package'} fill sizes="(max-width:700px) 86vw, (max-width:1100px) 44vw, 30vw"/>
+              <Image src={item.image} alt={item.title + ' marquee package'} fill sizes="(max-width:700px) 86vw, (max-width:1100px) 44vw, 30vw"/>
             </Link>
             <div className={styles.packageBrowseText}>
               <span>{item.meta}</span>

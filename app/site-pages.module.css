@@ -4,7 +4,7 @@
 .heroInner{position:relative;z-index:2;color:#fff;padding:104px 0 66px}
 .eyebrow,.label{text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:900}
 .eyebrow{color:#e1eadc}.label{color:#6f8f5f}
-.hero h1,.simpleHero h1,.contactHero h1{font-family:Georgia,"Times New Roman",serif;font-weight:500;max-width:900px;margin:12px 0 20px;font-size:clamp(50px,5.8vw,78px);line-height:.98;letter-spacing:-.045em}
+.hero h1,.simpleHero h1,.contactHero h1{font-family:var(--font-display);font-weight:500;max-width:900px;margin:12px 0 20px;font-size:clamp(50px,5.8vw,78px);line-height:.98;letter-spacing:-.045em}
 .hero p{max-width:710px;margin:0;color:rgba(255,255,255,.9);font-size:18px;line-height:1.62}
 
 .simpleHero{padding:108px 0 78px;background:#f4f1ea;border-bottom:1px solid #dedfd5}
@@ -14,7 +14,7 @@
 .section{padding:84px 0;background:#fffdf8}
 .soft{background:#faf9f5}
 .sectionHead{display:flex;justify-content:space-between;gap:34px;align-items:end;margin-bottom:30px}.sectionHead>div{max-width:760px}
-.sectionHead h2,.copy h2,.storyCopy h2,.contactAction h2{margin:9px 0 12px;color:#19392d;font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(36px,3.9vw,53px);line-height:1.04;letter-spacing:-.035em}
+.sectionHead h2,.copy h2,.storyCopy h2,.contactAction h2{margin:9px 0 12px;color:#19392d;font-family:var(--font-display);font-weight:500;font-size:clamp(36px,3.9vw,53px);line-height:1.04;letter-spacing:-.035em}
 .sectionHead p,.copy p,.storyCopy p,.productIntro p,.contactAction p{color:#6d746d;font-size:17px;line-height:1.7}
 
 .productIntro{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:start;margin-bottom:34px}
@@ -44,7 +44,7 @@
 
 .contactHero{padding:108px 0 58px;background:#f7f8f4}.contactHero p{max-width:680px}
 .contactSimple{padding:72px 0 90px}.contactSimpleGrid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.bigContact{display:block;color:#19392d;font-size:clamp(27px,3vw,42px);font-weight:900;letter-spacing:-.035em;margin:12px 0}.contactSimpleGrid>div>p{color:#6d746d;line-height:1.65}
+.bigContact{display:block;color:#17372d;font-family:var(--font-display);font-size:clamp(29px,3vw,43px);font-weight:600;letter-spacing:-.025em;margin:12px 0}.contactSimpleGrid>div>p{color:#6d746d;line-height:1.65}
 .contactAction{padding-left:52px;border-left:1px solid #dfe5dc}.contactAction h2{font-size:clamp(34px,3.8vw,50px)}
 
 .relatedSection{padding:50px 0 60px;background:#f4f1ea;border-top:1px solid #dedfd5}
@@ -59,9 +59,9 @@
   .packageBrowse{grid-template-columns:1fr 1fr}
 }
 @media(max-width:700px){
-  .hero{min-height:430px}.heroInner{padding:74px 0 44px}.hero h1,.simpleHero h1,.contactHero h1{font-size:46px}.hero p,.simpleHero p,.contactHero p{font-size:16px}
+  .hero{min-height:430px}.heroInner{padding:74px 0 44px}.hero h1,.simpleHero h1,.contactHero h1{font-size:49px;line-height:1}.hero p,.simpleHero p,.contactHero p{font-size:16px}
   .simpleHero{padding:68px 0 50px}.section{padding:54px 0}.minimalBand{padding:44px 0}
-  .productIntro h2,.sectionHead h2,.copy h2,.storyCopy h2,.contactAction h2{font-size:36px}
+  .productIntro h2,.sectionHead h2,.copy h2,.storyCopy h2,.contactAction h2{font-size:39px;line-height:1.02}
   .imageStrip{grid-auto-columns:84%;margin-right:-14px;padding-right:14px}
   .bandGrid{grid-template-columns:1fr 1fr;gap:20px 14px}.bandGrid strong{font-size:16px}
   .packageBrowse{grid-template-columns:1fr;gap:34px}.packageBrowseText h2{font-size:26px}.packageFoot{align-items:flex-start;flex-direction:column}.packageFoot :global(.button){width:100%}
@@ -76,6 +76,6 @@
 
 .marqueeTypes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:38px 0 42px}
 .marqueeTypes article{padding:30px;border:1px solid #dedfd5;border-radius:12px;background:#f8f6f0}
-.marqueeTypes h3{font-size:28px;line-height:1.08;letter-spacing:-.035em;color:#19392d;margin:9px 0 12px}
+.marqueeTypes h3{font-family:var(--font-display);font-weight:600;font-size:30px;line-height:1.08;letter-spacing:-.025em;color:#17372d;margin:9px 0 12px}
 .marqueeTypes p{color:#68716b;line-height:1.65;margin:0 0 18px}
 @media(max-width:700px){.marqueeTypes{grid-template-columns:1fr;margin:28px 0 34px}.marqueeTypes article{padding:22px}.marqueeTypes h3{font-size:24px}}

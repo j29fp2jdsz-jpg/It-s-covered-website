@@ -45,12 +45,12 @@ const eventPages = {
   'festivals-events': {
     title:'Festival & Event Marquee Hire',
     eyebrow:'Festivals & Events',
-    intro:'Practical Capri cover for sport, race villages, festivals, public events and busy outdoor sites.',
+    intro:'Practical marquee cover for sport, race villages, festivals, public events and busy outdoor sites.',
     image:'/images/events/event-motocross.webp',
     detail:'/images/events/event-registration.webp',
     sectionLabel:'Festivals, sport & public events',
     sectionTitle:'At a busy event, the marquee needs to do a job.',
-    body:'These setups are often less about table plans and more about function. A Capri can become registration, hospitality, refreshments, information, shelter or a central event hub, with open sides helping people move through quickly on high-footfall sites.',
+    body:'These setups are often less about table plans and more about function. A marquee can become registration, hospitality, refreshments, information, shelter or a central event hub, with open sides helping people move through quickly on high-footfall sites.',
     bullets:['Registration and check-in areas','Sport and event hospitality','Open-sided high-footfall layouts','Site access and operational positioning'],
     cta:'Plan Your Event Setup'
   }

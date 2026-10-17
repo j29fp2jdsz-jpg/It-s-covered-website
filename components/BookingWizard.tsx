@@ -115,15 +115,7 @@ export default function BookingWizard() {
         if (saved.marquee) setMarquee(saved.marquee);
         if (saved.extras) setExtras(saved.extras);
         if (saved.contact) setContact(saved.contact);
-        if (saved.packageSlug) {
-          setPackageSlug(saved.packageSlug);
-          const savedPreset = packagePresets[saved.packageSlug as keyof typeof packagePresets];
-          if (savedPreset) {
-            setMarquee(savedPreset.marquee);
-            setExtras((saved.extras?.length ? saved.extras : [...savedPreset.includedExtras]));
-            setDetails((current) => ({ ...current, guests: savedPreset.guests, style: savedPreset.style }));
-          }
-        }
+        if (saved.packageSlug) setPackageSlug(saved.packageSlug);
       }
 
       const requestedPackage = new URLSearchParams(window.location.search).get('package') || '';
@@ -168,10 +160,18 @@ export default function BookingWizard() {
     setExtras((current) => current.includes(extra) ? current.filter((item) => item !== extra) : [...current, extra]);
   };
 
+  const choosePackage = (slug: keyof typeof packagePresets) => {
+    const preset = packagePresets[slug];
+    setPackageSlug(slug);
+    setMarquee(preset.marquee);
+    setExtras([...preset.includedExtras]);
+    setDetails((current) => ({ ...current, guests: preset.guests, style: preset.style }));
+  };
+
   const stepValid = useMemo(() => {
     if (step === 1) return Boolean(date);
-    if (step === 2) return details.guests > 0 && details.guests <= 500 && postcodeLooksValid(details.postcode);
-    if (step === 3) return Boolean(marquee);
+    if (step === 2) return Boolean(activePackage);
+    if (step === 3) return details.guests > 0 && details.guests <= 500 && postcodeLooksValid(details.postcode);
     if (step === 4) return true;
     return contact.name.trim().length > 1 && emailLooksValid(contact.email) && contact.phone.trim().length >= 7;
   }, [step, date, details, marquee, contact]);
@@ -229,13 +229,13 @@ export default function BookingWizard() {
 
   return (
     <div className="wizard-card">
-      {activePackage && <div className="wizard-package-summary">
+      {activePackage && step > 1 && <div className="wizard-package-summary">
         <div><span>Selected package</span><strong>{activePackage.name}</strong></div>
         <div><span>Capacity</span><strong>{activePackage.capacity}</strong></div>
         <div><span>Included</span><strong>{activePackage.includes.length} items</strong></div>
       </div>}
       <div className="wizard-progress" aria-label={`Step ${step} of 5`}>
-        {['Date', 'Event', 'Marquee', 'Extras', 'Review'].map((label, index) => (
+        {['Date', 'Package', 'Event', 'Extras', 'Review'].map((label, index) => (
           <button type="button" key={label} className={step === index + 1 ? 'progress-step active' : step > index + 1 ? 'progress-step complete' : 'progress-step'} onClick={() => index + 1 < step && setStep(index + 1)} aria-current={step === index + 1 ? 'step' : undefined}>
             <span>{index + 1}</span>{label}
           </button>
@@ -244,17 +244,37 @@ export default function BookingWizard() {
 
       {step === 1 && <section className="wizard-panel">
         <span className="kicker">Step 1 of 5</span><h3>Pick your date</h3><p>Choose your event date first. We’ll carry it through the enquiry with the marquee, package and equipment you select.</p>
-        {activePackage && <div className="package-preset">
-          <div><span className="package-preset-kicker">Package selected</span><strong>{activePackage.name}</strong><small>{activePackage.capacity}</small></div>
-          <ul>{activePackage.includes.map((item) => <li key={item}>{item}</li>)}</ul>
-        </div>}
         <label className="field-label" htmlFor="event-date">Event date</label>
         <input id="event-date" className="field-control" type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().toISOString().slice(0,10)} />
         {date && <p className="provisional-note">Great — we’ll carry {new Date(`${date}T12:00:00`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })} through the rest of your enquiry.</p>}
       </section>}
 
-      {step === 2 && <section className="wizard-panel form-grid">
-        <div className="full-field"><span className="kicker">Step 2 of 5</span><h3>Tell us about your event</h3><p>Guest numbers, layout, surface and access help narrow down which marquee setup is practical for the site.</p></div>
+      {step === 2 && <section className="wizard-panel">
+        <span className="kicker">Step 2 of 5</span>
+        <h3>Choose your package</h3>
+        <p>Pick the setup that is closest to your event. You can fine-tune the guest details and add extras on the next steps.</p>
+        <div className="choice-grid">
+          {Object.entries(packagePresets).map(([slug, preset]) => (
+            <button
+              type="button"
+              key={slug}
+              className={`choice-card ${packageSlug === slug ? 'selected' : ''}`}
+              onClick={() => choosePackage(slug as keyof typeof packagePresets)}
+            >
+              <strong>{preset.name}</strong>
+              <span>{preset.capacity}</span>
+              <small>{preset.includes.slice(0,3).join(' · ')}</small>
+            </button>
+          ))}
+        </div>
+      </section>}
+
+      {step === 3 && <section className="wizard-panel form-grid">
+        <div className="full-field">
+          <span className="kicker">Step 3 of 5</span>
+          <h3>Tell us about your event</h3>
+          <p>{activePackage ? `Your ${activePackage.name} starting setup is loaded. Adjust the event details below so we can check whether it fits the site and how you plan to use it.` : 'Tell us about the event and venue so we can plan the practical setup.'}</p>
+        </div>
         <label>Event type<select className="field-control" value={details.type} onChange={(e) => setDetails({...details, type: e.target.value})}><option>Wedding</option><option>Birthday / Party</option><option>Corporate</option><option>Festival / Event</option><option>Other</option></select></label>
         <label>Guest count<input className="field-control" type="number" min="1" max="500" value={details.guests} onChange={(e) => setDetails({...details, guests: Number(e.target.value)})} /></label>
         <label>Layout<select className="field-control" value={details.style} onChange={(e) => setDetails({...details, style: e.target.value})}><option>Seated</option><option>Standing</option><option>Mixed</option></select></label>
@@ -264,22 +284,6 @@ export default function BookingWizard() {
         <label>How close can the van get?<select className="field-control" value={details.access} onChange={(e) => setDetails({...details, access: e.target.value})}><option>Under 10m</option><option>10–25m</option><option>25–50m</option><option>50–100m</option><option>More than 100m / difficult access</option></select></label>
         <fieldset className="full-field check-group"><legend>Do you need space for any of these?</legend>{[['dancefloor','Dance floor'],['bar','Bar'],['buffet','Buffet']].map(([key,label]) => <label className="check-option" key={key}><input type="checkbox" checked={Boolean(details[key as keyof EventDetails])} onChange={(e) => setDetails({...details, [key]: e.target.checked})} />{label}</label>)}</fieldset>
         <label className="full-field">Anything else we should know? <span style={{fontWeight:400, color:'#687068'}}>(optional)</span><textarea className="field-control" style={{minHeight:92, resize:'vertical'}} value={details.notes} onChange={(e) => setDetails({...details, notes:e.target.value})} placeholder="Steps, slopes, narrow gates, timings or anything unusual about the site." /></label>
-      </section>}
-
-      {step === 3 && <section className="wizard-panel">
-        <span className="kicker">Step 3 of 5</span><h3>{activePackage ? 'Your package setup' : 'Pick your marquee'}</h3>
-        {activePackage ? <>
-          <p>You chose the <strong>{activePackage.name}</strong> package. Its standard setup is already loaded below.</p>
-          <div className="package-preset package-preset-large">
-            <div><span className="package-preset-kicker">Preset package</span><strong>{activePackage.name}</strong><small>{activePackage.capacity}</small></div>
-            <ul>{activePackage.includes.map((item) => <li key={item}>{item}</li>)}</ul>
-          </div>
-        </> : <>
-          <p>For {details.guests} guests{spaceBuffer ? ' plus the extra space you asked for' : ''}, we recommend <strong>{recommended.name}</strong>. You can still choose another suitable option.</p>
-          <div className="choice-grid">{marqueeOptions.map((option) => <button type="button" key={option.id} className={`choice-card ${marquee === option.id ? 'selected' : ''}`} onClick={() => setMarquee(option.id)}>
-            {recommended.id === option.id && <span className="recommend-badge">Recommended</span>}<strong>{option.name}</strong><span>Up to {option.capacity} guests</span><small>{option.copy}</small>
-          </button>)}</div>
-        </>}
       </section>}
 
       {step === 4 && <section className="wizard-panel">
@@ -309,7 +313,7 @@ export default function BookingWizard() {
 
       <div className="wizard-actions">
         {step > 1 && <button className="button button-outline" type="button" onClick={back}>Back</button>}
-        {step < 5 ? <button className="button button-primary" type="button" onClick={next} disabled={!stepValid}>{step === 2 ? 'Show Suitable Marquees' : step === 4 ? 'Review My Enquiry' : 'Continue'}</button> : <button className="button button-primary" type="button" onClick={submitEnquiry} disabled={!stepValid || sending}>{sending ? 'Sending…' : 'Send My Enquiry & Arrange Site Visit'}</button>}
+        {step < 5 ? <button className="button button-primary" type="button" onClick={next} disabled={!stepValid}>{step === 1 ? 'Choose My Package' : step === 2 ? 'Add Event Details' : step === 4 ? 'Review My Enquiry' : 'Continue'}</button> : <button className="button button-primary" type="button" onClick={submitEnquiry} disabled={!stepValid || sending}>{sending ? 'Sending…' : 'Send My Enquiry & Arrange Site Visit'}</button>}
       </div>
     </div>
   );

@@ -10,6 +10,8 @@ const packages = [
   { slug:'large-party', title:'Large Party', image:'/images/parties/party-birthday.webp', meta:'28ft × 38ft · up to 100 standing', copy:'28ft × 38ft standing setup for celebrations of up to 100.' },
   { slug:'45-guests', title:'45 Guests', image:'/images/weddings/wedding-castle.webp', meta:'20ft × 30ft · up to 45 seated', copy:'Seated setup for 45 with tables, chairs, matting and side walls.' },
   { slug:'80-guests', title:'80 Guests', image:'/images/weddings/wedding-castle-reception.webp', meta:'28ft × 38ft · up to 80 seated', copy:'Seated setup for 80 with tables, chairs, matting and side walls.' },
+  { slug:'100-guests', title:'100 Guests', image:'/images/real-work/large-linked-setup.jpg', meta:'Linked layout · up to 100 seated', copy:'Linked marquee setup with round tables, chairs, uplighting and side walls for up to 100 guests.' },
+  { slug:'large-wedding', title:'Large Wedding', image:'/images/real-work/large-guest-setup.jpg', meta:'Large linked layout · up to 150 seated', copy:'A larger linked marquee setup for weddings and seated events of up to 150 guests, including a dance floor.' },
 ] as const;
 
 export default function PackagesPage(){

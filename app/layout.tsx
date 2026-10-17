@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: "It's Covered | Marquee Hire South Wales",
     template: "%s | It's Covered",
   },
-  description: 'Capri and Hex marquee hire for weddings, parties, corporate events and outdoor occasions across South Wales and beyond.',
+  description: 'Marquee hire for weddings, parties, corporate events and outdoor occasions across South Wales and beyond.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

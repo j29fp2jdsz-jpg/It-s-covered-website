@@ -32,14 +32,14 @@ export default function Home() {
       <section className={styles.hero} id="home">
         <picture>
           <source media="(max-width: 720px)" srcSet="/images/hero/hero-mobile.webp" />
-          <img className={styles.heroImage} src="/images/hero/hero-desktop.webp" alt="Capri marquee event at golden hour" />
+          <img className={styles.heroImage} src="/images/hero/hero-desktop.webp" alt="Marquee event at golden hour" />
         </picture>
         <div className={styles.heroShade} />
         <div className={'shell ' + styles.heroInner}>
           <div className={styles.heroCopy}>
             <p className="eyebrow">Marquee hire across South Wales & beyond</p>
             <h1>Beautiful spaces.<br />Made for real events.</h1>
-            <p>Distinctive Capri and Hex marquees for weddings, garden parties, corporate hospitality, race villages and outdoor events across South Wales.</p>
+            <p>Distinctive marquee hire for weddings, garden parties, corporate hospitality, race villages and outdoor events across South Wales.</p>
             <div className={styles.heroActions}>
               <a className="button button-primary button-large" href="#booking">Start Your Booking</a>
               <Link className="button button-ghost button-large" href="/our-work">See Our Work →</Link>
@@ -56,10 +56,10 @@ export default function Home() {
               <h2>Distinctive marquees.<br />Built around your event.</h2>
             </div>
             <div className={styles.introDetails}>
-              <p>Based in Monmouthshire, we supply and install Capri and Hex marquees, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
+              <p>Based in Monmouthshire, we supply and install marquees for events of different sizes, then shape the layout around your guest numbers, venue access and how the space needs to be used.</p>
               <div className={styles.proofGrid}>
                 <div><span className={styles.proofIcon}>✓</span><strong>Family run</strong></div>
-                <div><span className={styles.proofIcon}>✓</span><strong>Capri + Hex options</strong></div>
+                <div><span className={styles.proofIcon}>✓</span><strong>Flexible marquee options</strong></div>
                 <div><span className={styles.proofIcon}>✓</span><strong>Professional setup</strong></div>
                 <div><span className={styles.proofIcon}>✓</span><strong>Site visit before confirmation</strong></div>
               </div>
@@ -151,8 +151,8 @@ export default function Home() {
               <p>Yes. Access, measurements, surface, proposed layout and final event details are checked before the setup is confirmed.</p>
             </details>
             <details>
-              <summary>Do you only have Capri marquees?</summary>
-              <p>No. Alongside the Capri range, It’s Covered also has two Hex marquees. Tell us about the site and event and we can confirm which style is the better fit.</p>
+              <summary>What marquee options do you have?</summary>
+              <p>We have different marquee styles and footprints available. Tell us about the site, guest numbers and event and we can confirm which setup is the better fit.</p>
             </details>
             <details>
               <summary>Where do you cover?</summary>

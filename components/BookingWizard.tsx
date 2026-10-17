@@ -39,8 +39,12 @@ const packagePresets = {
   'garden-party': {
     name: 'Garden Party',
     marquee: 'garden',
+    eventType: 'Birthday / Party',
     guests: 18,
     style: 'Seated',
+    dancefloor: false,
+    bar: false,
+    buffet: false,
     includedExtras: ['Tables', 'Chairs', 'Lighting', 'Side walls'],
     includes: ['20ft × 20ft Capri marquee', '18 chairs', '3 × 4ft round tables', '1 × trestle table', 'Twinkle lights', 'Plain + clear side walls'],
     capacity: '18 seated as standard',
@@ -48,8 +52,12 @@ const packagePresets = {
   'informal-party': {
     name: 'Informal Party',
     marquee: 'informal',
+    eventType: 'Birthday / Party',
     guests: 55,
     style: 'Standing',
+    dancefloor: false,
+    bar: false,
+    buffet: false,
     includedExtras: ['Lighting', 'Side walls'],
     includes: ['Capri marquee', 'Standing room for 55', 'Twinkle lights', 'Plain + clear side walls'],
     capacity: 'Up to 55 standing',
@@ -57,8 +65,12 @@ const packagePresets = {
   'large-party': {
     name: 'Large Party',
     marquee: 'large',
+    eventType: 'Birthday / Party',
     guests: 100,
     style: 'Standing',
+    dancefloor: false,
+    bar: false,
+    buffet: false,
     includedExtras: ['Lighting', 'Side walls'],
     includes: ['28ft × 38ft Capri marquee', 'Standing room for 100', 'Twinkle lights', 'Plain + clear side walls'],
     capacity: 'Up to 100 standing',
@@ -66,8 +78,12 @@ const packagePresets = {
   '45-guests': {
     name: '45 Guests',
     marquee: '45-guests',
+    eventType: 'Wedding',
     guests: 45,
     style: 'Seated',
+    dancefloor: false,
+    bar: false,
+    buffet: false,
     includedExtras: ['Tables', 'Chairs', 'Flooring', 'Side walls'],
     includes: ['20ft × 30ft Capri marquee', '6 × 4ft round tables', '2 × trestle tables', '45 chairs', 'Dandydura matting', 'Plain + clear side walls'],
     capacity: 'Up to 45 seated',
@@ -75,8 +91,12 @@ const packagePresets = {
   '80-guests': {
     name: '80 Guests',
     marquee: '80-guests',
+    eventType: 'Wedding',
     guests: 80,
     style: 'Seated',
+    dancefloor: false,
+    bar: false,
+    buffet: false,
     includedExtras: ['Tables', 'Chairs', 'Flooring', 'Side walls'],
     includes: ['28ft × 38ft Capri marquee', '8 × 5ft round tables', '2 × trestle tables', '80 chairs', 'Dandydura matting', 'Plain + clear side walls'],
     capacity: 'Up to 80 seated',
@@ -124,7 +144,15 @@ export default function BookingWizard() {
         setPackageSlug(requestedPackage);
         setMarquee(preset.marquee);
         setExtras([...preset.includedExtras]);
-        setDetails((current) => ({ ...current, guests: preset.guests, style: preset.style }));
+        setDetails((current) => ({
+          ...current,
+          type: preset.eventType,
+          guests: preset.guests,
+          style: preset.style,
+          dancefloor: preset.dancefloor,
+          bar: preset.bar,
+          buffet: preset.buffet,
+        }));
       }
     } catch {}
     setLoaded(true);
@@ -165,7 +193,15 @@ export default function BookingWizard() {
     setPackageSlug(slug);
     setMarquee(preset.marquee);
     setExtras([...preset.includedExtras]);
-    setDetails((current) => ({ ...current, guests: preset.guests, style: preset.style }));
+    setDetails((current) => ({
+      ...current,
+      type: preset.eventType,
+      guests: preset.guests,
+      style: preset.style,
+      dancefloor: preset.dancefloor,
+      bar: preset.bar,
+      buffet: preset.buffet,
+    }));
   };
 
   const stepValid = useMemo(() => {
@@ -284,13 +320,14 @@ export default function BookingWizard() {
               <strong>{preset.name}</strong>
               <span>{preset.capacity}</span>
               <small>{preset.includes.slice(0,3).join(' · ')}</small>
+              <em>Pre-fills guest count, layout and included items</em>
             </button>
           ))}
         </div>
       </section>}
 
       {step === 4 && <section className="wizard-panel">
-        <span className="kicker">Step 4 of 5</span><h3>{activePackage ? 'Included items & extras' : 'Optional extras'}</h3><p>{activePackage ? 'Items included in your package are already selected. Add anything else you want us to consider.' : 'Add anything you’re considering. Nothing here is locked in until the site visit and final confirmation.'}</p>
+        <span className="kicker">Step 4 of 5</span><h3>{activePackage ? 'Included items & extras' : 'Optional extras'}</h3><p>{activePackage ? `Your ${activePackage.name} package has already loaded its standard items. Add anything else you want us to consider.` : 'Add anything you’re considering. Nothing here is locked in until the site visit and final confirmation.'}</p>
         <div className="extras-grid">{extrasList.map((extra) => {
           const included = includedExtras.includes(extra);
           return <button type="button" key={extra} aria-pressed={extras.includes(extra)} disabled={included} className={`extra-card ${extras.includes(extra) ? 'selected' : ''} ${included ? 'included' : ''}`} onClick={() => toggleExtra(extra)}><span>{included ? '✓' : extras.includes(extra) ? '✓' : '+'}</span>{extra}{included && <small>Included</small>}</button>;
